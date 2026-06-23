@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Audio | NextSeasonHer™</title>
+<meta name="description" content="A short audio for women who aren't ready to move yet. Approximately twenty minutes. Listen when you can.">
+<meta property="og:title" content="Welcome Audio | NextSeasonHer™">
+<meta property="og:description" content="A short audio for women who aren't ready to move yet.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #560000;
+  --surface: #6B1414;
+  --surface-deep: #3D0000;
+  --burgundy: #560000;
+  --burgundy-deep: #3D0000;
+  --cream: #F1EADA;
+  --cream-dim: rgba(241, 234, 218, 0.82);
+  --cream-faint: rgba(241, 234, 218, 0.5);
+  --sage: #B6BEAA;
+  --sage-dim: rgba(182, 190, 170, 0.55);
+  --tobacco: #B59E7D;
+  --mahogany: #8A5718;
+  --hairline: rgba(241, 234, 218, 0.14);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header { padding: 32px 32px 24px; text-align: center; border-bottom: 1px solid var(--hairline); }
+.brand { font-size: 11px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); }
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  padding: 80px 32px 48px;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.2s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--tobacco);
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(44px, 9vw, 68px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  margin-bottom: 32px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--tobacco);
+}
+
+.hero-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--mahogany);
+  margin: 0 auto 32px;
+}
+
+.hero-lede {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(19px, 4vw, 22px);
+  line-height: 1.55;
+  color: var(--cream);
+  max-width: 500px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* ── AUDIO BLOCK ─────────────────────────── */
+.audio-block {
+  background: var(--surface-deep);
+  padding: 40px 32px;
+  max-width: 640px;
+  width: calc(100% - 64px);
+  margin: 16px auto 48px;
+  border: 1px solid var(--hairline);
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.5s forwards;
+}
+
+.audio-meta {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 20px;
+}
+
+.audio-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(24px, 5vw, 28px);
+  line-height: 1.25;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.audio-title em {
+  font-style: italic;
+  color: var(--tobacco);
+}
+
+.audio-duration {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--cream-faint);
+  margin-bottom: 32px;
+}
+
+/* YouTube embed wrapper - responsive 16:9 */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: var(--burgundy-deep);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Fallback for MP4 if used instead of YouTube */
+.mp4-player {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  display: block;
+  background: var(--burgundy-deep);
+}
+
+/* ── CLOSING NOTE ────────────────────────── */
+.closing-note {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.8s forwards;
+}
+
+.closing-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--cream-dim);
+  margin-bottom: 16px;
+}
+
+.closing-text:last-child {
+  margin-bottom: 0;
+}
+
+.signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--sage);
+  margin-top: 32px;
+}
+
+/* ── FOOTER ──────────────────────────────── */
+.page-footer {
+  padding: 48px 32px;
+  text-align: center;
+  border-top: 1px solid var(--hairline);
+}
+
+.footer-sig {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--sage);
+  margin-bottom: 12px;
+}
+
+.footer-meta {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+
+@media (max-width: 480px) {
+  .page-header { padding: 24px 20px 20px; }
+  .hero { padding: 56px 24px 32px; }
+  .hero-title { font-size: 40px; }
+  .hero-lede { font-size: 18px; }
+  .audio-block { padding: 32px 20px; width: calc(100% - 32px); }
+  .audio-title { font-size: 22px; }
+  .closing-note { padding: 0 24px 64px; }
+  .closing-text { font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="brand">NEXTSEASONHER™</div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-eyebrow">For You — Wherever You Are</div>
+    <h1 class="hero-title">A note before <em>anything else.</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-lede">If you're not yet ready to move, you're in the right place. This is for you.</p>
+  </section>
+
+  <section class="audio-block">
+    <div class="audio-meta">Listen</div>
+    <div class="audio-title">When You're <em>Not Ready Yet</em></div>
+    <div class="audio-duration">Approximately twenty minutes</div>
+
+    <!--
+      ════════════════════════════════════════════════════════════════
+      MEDIA HOSTING — TWO OPTIONS, USE ONE
+      ════════════════════════════════════════════════════════════════
+
+      OPTION 1 — YOUTUBE EMBED (recommended)
+      ──────────────────────────────────────
+      1. Upload your audio to YouTube as an UNLISTED video
+         (add a still image or a simple title card so it has visuals)
+      2. From the video page, click Share → Embed → copy the VIDEO ID
+         (it's the string after "v=" in the URL, e.g. "dQw4w9WgXcQ")
+      3. Replace YOUTUBE_VIDEO_ID below with that ID
+      4. Delete the OPTION 2 block
+
+      OPTION 2 — MP4 / DIRECT FILE
+      ────────────────────────────
+      1. Host the MP4 file (or M4A from Voice Memos) on a CDN or your domain
+      2. Replace YOUR_MEDIA_FILE_URL with the direct file URL
+      3. Delete the OPTION 1 block
+      ════════════════════════════════════════════════════════════════
+    -->
+
+    <!-- OPTION 1 — YouTube embed -->
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID?rel=0&modestbranding=1"
+        title="When You're Not Ready Yet"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- OPTION 2 — MP4 / M4A direct file (delete OPTION 1 above if using this)
+    <video class="mp4-player" controls preload="metadata">
+      <source src="YOUR_MEDIA_FILE_URL.mp4" type="video/mp4">
+      Your browser doesn't support video playback.
+    </video>
+    -->
+
+  </section>
+
+  <section class="closing-note">
+    <p class="closing-text">There is nothing you have to do after.</p>
+    <p class="closing-text">Listen when you have a quiet moment that's actually yours. Once, twice, or never. It's yours either way.</p>
+    <p class="signature">— Que</p>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  <div class="footer-sig">Que Athena</div>
+  <div class="footer-meta">NextSeasonHer™</div>
+</footer>
+
+</body>
+</html>
