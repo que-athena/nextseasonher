@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seasons of Life Quiz — NextSeasonHer™</title>
+<meta name="description" content="Find out what season of your life you're actually in — and what that version of you needs next.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #560000;
+  --surface: #6B1414;
+  --surface-hover: #7A1F1F;
+  --burgundy: #560000;
+  --burgundy-deep: #3D0000;
+  --cream: #F1EADA;
+  --cream-dim: rgba(241, 234, 218, 0.78);
+  --cream-faint: rgba(241, 234, 218, 0.5);
+  --sage: #B6BEAA;
+  --sage-dim: rgba(182, 190, 170, 0.55);
+  --tobacco: #B59E7D;
+  --mahogany: #8A5718;
+  --hairline: rgba(241, 234, 218, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── INTRO SCREEN ────────────────────────── */
+.intro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 32px 96px;
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.brand {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.intro-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--tobacco);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.intro h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 8vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.intro h1 em {
+  font-style: italic;
+  color: var(--tobacco);
+}
+
+.intro-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--mahogany);
+  margin: 0 auto 32px;
+}
+
+.intro p {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--cream-dim);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.intro p.sub {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 48px;
+}
+
+.intro-meta {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.start-btn, .next-btn, .submit-btn {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 20px 32px;
+  background: var(--sage);
+  color: var(--burgundy-deep);
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease, color 0.3s ease;
+  border-radius: 0;
+}
+
+.start-btn:hover, .next-btn:hover, .submit-btn:hover {
+  background: var(--cream);
+  color: var(--burgundy-deep);
+}
+
+.start-btn:active, .next-btn:active, .submit-btn:active {
+  transform: scale(0.98);
+}
+
+.start-btn:disabled, .next-btn:disabled, .submit-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── QUIZ SCREEN ────────────────────────── */
+.quiz-screen {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  padding: 32px 24px 120px;
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.quiz-screen.active { display: flex; }
+
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 56px;
+}
+
+.progress-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage-dim);
+  transition: background 0.4s ease, transform 0.3s ease;
+}
+
+.progress-dot.active {
+  background: var(--sage);
+  transform: scale(1.4);
+}
+
+.progress-dot.complete {
+  background: var(--tobacco);
+}
+
+.question-num {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--tobacco);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.question {
+  display: none;
+}
+
+.question.active { display: block; }
+
+.question-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(24px, 5vw, 30px);
+  line-height: 1.35;
+  color: var(--cream);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.option {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--cream-dim);
+  border-radius: 0;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.option:hover {
+  background: var(--surface-hover);
+  border-color: var(--sage-dim);
+  color: var(--cream);
+}
+
+.option.selected {
+  background: var(--burgundy-deep);
+  border-color: var(--sage);
+  color: var(--cream);
+}
+
+.option-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--tobacco);
+  margin-right: 14px;
+  font-weight: 400;
+}
+
+.option.selected .option-letter {
+  color: var(--sage);
+}
+
+.nav-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: var(--cream-faint);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 12px 16px;
+  transition: color 0.2s ease;
+}
+
+.back-btn:hover { color: var(--cream); }
+
+.back-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── EMAIL CAPTURE SCREEN ────────────────── */
+.capture-screen {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 32px 96px;
+  max-width: 560px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.capture-screen.active { display: flex; }
+
+.capture-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--tobacco);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.capture-screen h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(28px, 6vw, 38px);
+  line-height: 1.2;
+  color: var(--cream);
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.capture-screen h2 em {
+  font-style: italic;
+  color: var(--tobacco);
+}
+
+.capture-screen .capture-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--cream-dim);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 10px;
+  padding-left: 2px;
+}
+
+.field input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  padding: 18px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--cream);
+  border-radius: 0;
+  transition: border-color 0.2s ease;
+  -webkit-appearance: none;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--sage);
+  background: var(--burgundy-deep);
+}
+
+.field input::placeholder {
+  color: var(--cream-faint);
+}
+
+.privacy-note {
+  font-size: 12px;
+  color: var(--cream-faint);
+  text-align: center;
+  margin-top: 28px;
+  line-height: 1.6;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.error-message {
+  display: none;
+  color: var(--tobacco);
+  font-size: 13px;
+  text-align: center;
+  margin-top: 16px;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.error-message.show { display: block; }
+
+/* ── RESULT REVEAL SCREEN ───────────────── */
+.result-screen {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.result-screen.active { display: flex; }
+
+.result-loading {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--cream-dim);
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.result-content {
+  opacity: 0;
+  animation: fadeIn 1s ease 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-season-label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 18px;
+}
+
+.result-season {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 400;
+  color: var(--tobacco);
+  margin-bottom: 32px;
+}
+
+.result-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--mahogany);
+  margin: 0 auto 32px;
+}
+
+.result-archetype-label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 18px;
+}
+
+.result-archetype {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(44px, 9vw, 64px);
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 40px;
+}
+
+.result-message {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--cream-dim);
+  margin-bottom: 56px;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.result-cta {
+  display: inline-block;
+  padding: 20px 40px;
+  background: var(--sage);
+  color: var(--burgundy-deep);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.result-cta:hover {
+  background: var(--cream);
+  color: var(--burgundy-deep);
+}
+
+.result-email-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--cream-faint);
+  margin-top: 40px;
+  line-height: 1.6;
+}
+
+/* ── FOOTER ──────────────────────────────── */
+.app-footer {
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  margin-top: auto;
+}
+
+.app-footer em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--sage);
+  font-size: 13px;
+}
+
+/* ── MOBILE ──────────────────────────────── */
+@media (max-width: 480px) {
+  .intro { padding: 48px 24px 80px; }
+  .intro h1 { font-size: 38px; }
+  .intro p { font-size: 19px; }
+  .quiz-screen { padding: 24px 20px 100px; }
+  .question-text { font-size: 22px; margin-bottom: 32px; }
+  .option { padding: 18px 20px; font-size: 15px; }
+  .capture-screen { padding: 48px 24px 80px; }
+  .result-screen { padding: 60px 24px; }
+}
+
+/* ── REDUCED MOTION ──────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- INTRO SCREEN -->
+  <section class="intro" id="intro">
+    <div class="brand">NEXTSEASONHER™</div>
+    <div class="intro-eyebrow">A quiz for women in transition</div>
+    <h1>Seasons of <em>Life</em> Quiz</h1>
+    <div class="intro-rule"></div>
+    <p>Find out what season of your life you're actually in, and what that version of you needs next.</p>
+    <p class="sub">Eight questions. About five minutes. Answer the way it sounds in your head, not the way you'd say it out loud.</p>
+    <button class="start-btn" id="startBtn">Begin</button>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section class="quiz-screen" id="quizScreen">
+    <div class="progress" id="progress"></div>
+
+    <!-- Q1 -->
+    <div class="question" data-q="1">
+      <div class="question-num">Question One</div>
+      <div class="question-text">The thought that shows up when no one's watching — the one you'd never say out loud — sounds most like:</div>
+      <div class="options">
+        <button class="option" data-value="a"><span class="option-letter">A.</span>I don't recognize my own life.</button>
+        <button class="option" data-value="b"><span class="option-letter">B.</span>I built exactly what I was supposed to build and I don't want to live in it.</button>
+        <button class="option" data-value="c"><span class="option-letter">C.</span>I've had a thought like that. I push it away before it has a chance to land.</button>
+        <button class="option" data-value="d"><span class="option-letter">D.</span>Nothing like that comes up for me.</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question" data-q="2">
+      <div class="question-num">Question Two</div>
+      <div class="question-text">Imagine your life staying exactly as it is — same roles, same routines, same people — for the next twelve months. What's the first thing that comes up?</div>
+      <div class="options">
+        <button class="option" data-value="a"><span class="option-letter">A.</span>A heaviness I can't name.</button>
+        <button class="option" data-value="b"><span class="option-letter">B.</span>I can't stay here. Something has to change.</button>
+        <button class="option" data-value="c"><span class="option-letter">C.</span>Relief. I'm in a good season.</button>
+        <button class="option" data-value="d"><span class="option-letter">D.</span>I don't let myself think about it.</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question" data-q="3">
+      <div class="question-num">Question Three</div>
+      <div class="question-text">Read each of these slowly. One of them is going to land harder than the others. Which one?</div>
+      <div class="options">
+        <button class="option" data-value="a"><span class="option-letter">A.</span>I lost something I can't get back and the rest of me hasn't caught up.</button>
+        <button class="option" data-value="b"><span class="option-letter">B.</span>I've become invisible inside my own life — and I can't tell if I disappeared or if no one was looking.</button>
+        <button class="option" data-value="c"><span class="option-letter">C.</span>I'm exhausted in a way sleep doesn't fix.</button>
+        <button class="option" data-value="d"><span class="option-letter">D.</span>I've outgrown the life I've been living and I haven't told a single person.</button>
+        <button class="option" data-value="e"><span class="option-letter">E.</span>More than one of these is true.</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question" data-q="4">
+      <div class="question-num">Question Four</div>
+      <div class="question-text">Your relationship to effort and energy lately looks most like:</div>
+      <div class="options">
+        <button class="option" data-value="a"><span class="option-letter">A.</span>I'm moving through everything in slow motion. Basic things take more out of me than they should.</button>
+        <button class="option" data-value="b"><span class="option-letter">B.</span>I keep giving and giving and there's nothing left for me at the end of any day.</button>
+        <button class="option" data-value="c"><span class="option-letter">C.</span>I do everything right. I show up. I deliver. And I feel less and less.</button>
+        <button class="option" data-value="d"><span class="option-letter">D.</span>I'm working harder than I should have to just to be acknowledged.</button>
+        <button class="option" data-value="e"><span class="option-letter">E.</span>I have energy. I just don't know where to put it anymore.</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question" data-q="5">
+      <div class="question-num">Question Five</div>
+      <div class="question-text">The truth you haven't said out loud — even to the person closest to you — is:</div>
+      <div class="options">
+        <button class="option" data-value="a"><span class="option-letter">A.</span>I'm still grieving, and I think people expect me to be past it.</button>
+        <button class="option" data-value="b"><span class="option-letter">B.</span>I disappeared a long time ago and I'm not sure anyone noticed.</button>
+        <button class="option" data-value="c"><span class="option-letter">C.</span>I've given so much of myself to everyone else that I don't know what I want anymore.</button>
+        <button class="option" data-value="d"><span class="option-letter">D.</span>I want a different life and I'm afraid of what that means about me.</button>
+        <button class="option" data-value="e"><span class="option-letter">E.</span>I haven't found the words yet.</button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question" data-q="6">
+      <div class="question-num">Question Six</div>
+      <div class="question-text">The gap between the life you're living on the outside and what's actually going on inside you right now is:</div>
+      <div class="options">
+        <button class="option" data-value="a"><span class="option-letter">A.</span>Wider than anyone in my life knows.</button>
+        <button class="option" data-value="b"><span class="option-letter">B.</span>Real, but I'm still figuring out what it actually is.</button>
+        <button class="option" data-value="c"><span class="option-letter">C.</span>Closing. I've started saying things out loud I haven't before.</button>
+        <button class="option" data-value="d"><span class="option-letter">D.</span>Honestly, I don't let myself look.</button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question" data-q="7">
+      <div class="question-num">Question Seven</div>
+      <div class="question-text">The version of you who knows what's coming next — when she shows up, you usually:</div>
+      <div class="options">
+        <button class="option" data-value="a"><span class="option-letter">A.</span>Move with her. She's ready and so am I.</button>
+        <button class="option" data-value="b"><span class="option-letter">B.</span>Take notes and tell yourself you'll come back to it.</button>
+        <button class="option" data-value="c"><span class="option-letter">C.</span>Feel her, then talk yourself out of why now isn't the time.</button>
+        <button class="option" data-value="d"><span class="option-letter">D.</span>I don't think I've met her yet.</button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question" data-q="8">
+      <div class="question-num">Question Eight</div>
+      <div class="question-text">When you actually get a clear sense of what you need to do next, you tend to:</div>
+      <div class="options">
+        <button class="option" data-value="a"><span class="option-letter">A.</span>Move on it. I've been waiting for this.</button>
+        <button class="option" data-value="b"><span class="option-letter">B.</span>Sit with it for a while, then move.</button>
+        <button class="option" data-value="c"><span class="option-letter">C.</span>Tell myself I'll get to it when life slows down.</button>
+        <button class="option" data-value="d"><span class="option-letter">D.</span>Let the moment pass and feel a little relieved when it does.</button>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="back-btn" id="backBtn">← Back</button>
+      <button class="next-btn" id="nextBtn" disabled>Continue</button>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE SCREEN -->
+  <section class="capture-screen" id="captureScreen">
+    <div class="capture-eyebrow">Almost There</div>
+    <h2>Where should I send your <em>result?</em></h2>
+    <p class="capture-sub">Your full result, named honestly, arrives in your inbox within a few minutes.</p>
+
+    <div class="field">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" placeholder="Your first name" autocomplete="given-name">
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+    </div>
+
+    <button class="submit-btn" id="submitBtn">Reveal My Result</button>
+
+    <div class="error-message" id="errorMessage">Something didn't go through. Try again, or refresh and we'll start over.</div>
+
+    <p class="privacy-note">No spam. Unsubscribe any time. Your result is yours.</p>
+  </section>
+
+  <!-- RESULT REVEAL SCREEN -->
+  <section class="result-screen" id="resultScreen">
+    <div class="result-loading" id="resultLoading">Reading your answers...</div>
+
+    <div class="result-content" id="resultContent" style="display:none;">
+      <div class="result-season-label">Your Season</div>
+      <div class="result-season" id="seasonName">—</div>
+
+      <div class="result-rule"></div>
+
+      <div class="result-archetype-label">You're</div>
+      <div class="result-archetype" id="archetypeName">—</div>
+
+      <div class="result-message" id="resultMessage">—</div>
+
+      <a href="#" class="result-cta" id="resultCta">See What This Season Means</a>
+
+      <p class="result-email-note">Your full result is also on its way to your inbox. Check there too.</p>
+    </div>
+  </section>
+
+  <footer class="app-footer">
+    <em>Que Athena</em><br><br>
+    NextSeasonHer™
+  </footer>
+
+</div>
+
+<script>
+/* ──────────────────────────────────────────
+   CONFIG — UPDATE THESE BEFORE GOING LIVE
+   ────────────────────────────────────────── */
+
+// Demeter: paste the Make.com webhook URL here
+const WEBHOOK_URL = 'https://hook.us2.make.com/h6jjks4x3zh9h65jw7s69kv1t5fnmbom';
+
+// Result page URLs - update when result pages are hosted
+const RESULT_PAGE_URLS = {
+  seeker: '/result-seeker.html',
+  exhausted: '/result-exhausted.html',
+  invisible: '/result-invisible.html',
+  griever: '/result-griever.html'
+};
+
+/* ──────────────────────────────────────────
+   STATE
+   ────────────────────────────────────────── */
+
+const TOTAL_QUESTIONS = 8;
+let currentQ = 1;
+const answers = {};
+let result = null;
+
+/* ──────────────────────────────────────────
+   SCORING LOGIC
+   ────────────────────────────────────────── */
+
+// Weight map: question -> option -> { archetype/season/readiness: points }
+const WEIGHTS = {
+  1: {
+    a: { recalibration: 2 },
+    b: { reorientation: 2 },
+    c: { recalibration: 1, readyLater: 1 },
+    d: { lowSignal: 1 }
+  },
+  2: {
+    a: { recalibration: 2 },
+    b: { reorientation: 2 },
+    c: { lowSignal: 1 },
+    d: { recalibration: 1, readyLater: 1 }
+  },
+  3: {
+    a: { griever: 3 },
+    b: { invisible: 3 },
+    c: { exhausted: 3 },
+    d: { seeker: 3 },
+    e: { triangulate: true }
+  },
+  4: {
+    a: { griever: 2, exhausted: 1 },
+    b: { exhausted: 2, invisible: 1 },
+    c: { exhausted: 2, seeker: 1 },
+    d: { invisible: 2, exhausted: 1 },
+    e: { seeker: 2 }
+  },
+  5: {
+    a: { griever: 2 },
+    b: { invisible: 2 },
+    c: { exhausted: 2, invisible: 1 },
+    d: { seeker: 2, reorientation: 1 },
+    e: { readyLater: 1 }
+  },
+  6: {
+    a: { reorientation: 1, seeker: 1, readyNow: 1 },
+    b: { recalibration: 1, readyLater: 1 },
+    c: { readyNow: 2 },
+    d: { readyLater: 2 }
+  },
+  7: {
+    a: { readyNow: 3 },
+    b: { readyNow: 1, readyLater: 1 },
+    c: { readyLater: 2 },
+    d: { readyLater: 2 }
+  },
+  8: {
+    a: { readyNow: 3 },
+    b: { readyNow: 1, readyLater: 1 },
+    c: { readyLater: 2 },
+    d: { readyLater: 3 }
+  }
+};
+
+function calculateResult() {
+  const scores = {
+    recalibration: 0,
+    reorientation: 0,
+    griever: 0,
+    invisible: 0,
+    exhausted: 0,
+    seeker: 0,
+    readyNow: 0,
+    readyLater: 0,
+    lowSignal: 0
+  };
+
+  // Tally points across all questions
+  for (let q = 1; q <= TOTAL_QUESTIONS; q++) {
+    const ans = answers[q];
+    if (!ans) continue;
+    const w = WEIGHTS[q][ans];
+    if (!w || w.triangulate) continue;
+    for (const key in w) {
+      if (scores.hasOwnProperty(key)) {
+        scores[key] += w[key];
+      }
+    }
+  }
+
+  // Season calculation
+  let season;
+  if (scores.lowSignal >= 2 && scores.recalibration === 0 && scores.reorientation === 0) {
+    season = 'NotInTransition';
+  } else if (scores.recalibration > scores.reorientation) {
+    season = 'Recalibration';
+  } else if (scores.reorientation > scores.recalibration) {
+    season = 'Reorientation';
+  } else {
+    // Tie - use archetype to decide
+    const archetypeMax = Math.max(scores.griever, scores.invisible, scores.exhausted, scores.seeker);
+    if (scores.griever === archetypeMax || scores.invisible === archetypeMax) {
+      season = 'Recalibration';
+    } else {
+      season = 'Reorientation';
+    }
+  }
+
+  // Archetype calculation
+  const archetypeScores = {
+    Griever: scores.griever,
+    Invisible: scores.invisible,
+    Exhausted: scores.exhausted,
+    Seeker: scores.seeker
+  };
+
+  let archetype = Object.keys(archetypeScores).reduce((a, b) =>
+    archetypeScores[a] > archetypeScores[b] ? a : b
+  );
+
+  // Tie-break: if Q3 was triangulate ("more than one is true"), use Q5 as decider
+  const topScore = archetypeScores[archetype];
+  const tied = Object.keys(archetypeScores).filter(k => archetypeScores[k] === topScore);
+  if (tied.length > 1) {
+    // Default by season
+    if (season === 'Recalibration') {
+      archetype = tied.includes('Invisible') ? 'Invisible' : tied[0];
+    } else {
+      archetype = tied.includes('Exhausted') ? 'Exhausted' : tied[0];
+    }
+  }
+
+  // Readiness calculation
+  const readiness = scores.readyNow > scores.readyLater ? 'ReadyNow' : 'ReadyLater';
+
+  return {
+    season,
+    archetype,
+    readiness,
+    scores
+  };
+}
+
+/* ──────────────────────────────────────────
+   RESULT MESSAGES (in-page reveal)
+   ────────────────────────────────────────── */
+
+const SEASON_DESCRIPTIONS = {
+  Recalibration: 'Recalibration',
+  Reorientation: 'Reorientation',
+  NotInTransition: 'A quieter season'
+};
+
+const ARCHETYPE_MESSAGES = {
+  Seeker: "You've outgrown the life you've been living and you haven't told a single person. This is what that season is called.",
+  Exhausted: "You're not tired in a way sleep will fix. You're depleted in a way no one in your life can fully see. There's a name for what you're in.",
+  Invisible: "You disappeared a long time ago and you're not sure anyone noticed. This is the season where you find her again.",
+  Griever: "You lost something you can't get back. The rest of you hasn't caught up yet. That isn't failure. That is accuracy."
+};
+
+/* ──────────────────────────────────────────
+   UI - PROGRESS DOTS
+   ────────────────────────────────────────── */
+
+function buildProgress() {
+  const container = document.getElementById('progress');
+  container.innerHTML = '';
+  for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'progress-dot';
+    if (i < currentQ) dot.classList.add('complete');
+    if (i === currentQ) dot.classList.add('active');
+    container.appendChild(dot);
+  }
+}
+
+/* ──────────────────────────────────────────
+   UI - QUESTION SHOW/HIDE
+   ────────────────────────────────────────── */
+
+function showQuestion(n) {
+  document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+  const q = document.querySelector(`.question[data-q="${n}"]`);
+  if (q) q.classList.add('active');
+  currentQ = n;
+  buildProgress();
+  updateNavButtons();
+  // Scroll to top of quiz area
+  document.getElementById('quizScreen').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateNavButtons() {
+  const backBtn = document.getElementById('backBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  backBtn.disabled = currentQ === 1;
+  nextBtn.disabled = !answers[currentQ];
+
+  if (currentQ === TOTAL_QUESTIONS) {
+    nextBtn.textContent = 'See My Result';
+  } else {
+    nextBtn.textContent = 'Continue';
+  }
+}
+
+/* ──────────────────────────────────────────
+   EVENT LISTENERS
+   ────────────────────────────────────────── */
+
+// Start button
+document.getElementById('startBtn').addEventListener('click', () => {
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('quizScreen').classList.add('active');
+  showQuestion(1);
+});
+
+// Option selection (event delegation)
+document.querySelectorAll('.question').forEach(q => {
+  q.addEventListener('click', e => {
+    const opt = e.target.closest('.option');
+    if (!opt) return;
+    const qNum = parseInt(q.dataset.q, 10);
+    q.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    answers[qNum] = opt.dataset.value;
+    updateNavButtons();
+  });
+});
+
+// Next button
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (!answers[currentQ]) return;
+  if (currentQ < TOTAL_QUESTIONS) {
+    showQuestion(currentQ + 1);
+  } else {
+    // Move to email capture
+    document.getElementById('quizScreen').classList.remove('active');
+    document.getElementById('captureScreen').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+// Back button
+document.getElementById('backBtn').addEventListener('click', () => {
+  if (currentQ > 1) showQuestion(currentQ - 1);
+});
+
+// Submit
+document.getElementById('submitBtn').addEventListener('click', async () => {
+  const firstName = document.getElementById('firstName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const errEl = document.getElementById('errorMessage');
+  errEl.classList.remove('show');
+
+  if (!firstName) {
+    errEl.textContent = "Please add your first name.";
+    errEl.classList.add('show');
+    return;
+  }
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errEl.textContent = "Please add a valid email address.";
+    errEl.classList.add('show');
+    return;
+  }
+
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  // Calculate result
+  result = calculateResult();
+
+  // Prepare payload
+  const payload = {
+    timestamp: new Date().toISOString(),
+    firstName,
+    email,
+    q1: answers[1],
+    q2: answers[2],
+    q3: answers[3],
+    q4: answers[4],
+    q5: answers[5],
+    q6: answers[6],
+    q7: answers[7],
+    q8: answers[8],
+    season: result.season,
+    archetype: result.archetype,
+    readiness: result.readiness,
+    resultPageUrl: RESULT_PAGE_URLS[result.archetype.toLowerCase()] || '/',
+    source: getSource()
+  };
+
+  // Send to Make webhook
+  try {
+    if (WEBHOOK_URL && WEBHOOK_URL !== 'YOUR_MAKE_WEBHOOK_URL_HERE') {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        mode: 'no-cors'
+      });
+    }
+    // Show result regardless of webhook state (no-cors blocks response)
+    showResult();
+  } catch (err) {
+    console.error('Webhook error:', err);
+    // Still show result — we have her data captured locally and she earned the reveal
+    showResult();
+  }
+});
+
+function getSource() {
+  const params = new URLSearchParams(window.location.search);
+  const utmSource = params.get('utm_source');
+  if (utmSource) return utmSource;
+  if (document.referrer.includes('instagram')) return 'instagram';
+  if (document.referrer) return document.referrer;
+  return 'direct';
+}
+
+function showResult() {
+  document.getElementById('captureScreen').classList.remove('active');
+  document.getElementById('resultScreen').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Delay then show content
+  setTimeout(() => {
+    document.getElementById('seasonName').textContent = SEASON_DESCRIPTIONS[result.season] || result.season;
+    document.getElementById('archetypeName').textContent = `The ${result.archetype}`;
+    document.getElementById('resultMessage').textContent = ARCHETYPE_MESSAGES[result.archetype] || '';
+
+    const resultUrl = RESULT_PAGE_URLS[result.archetype.toLowerCase()] || '#';
+    const ctaUrl = `${resultUrl}?readiness=${result.readiness}`;
+    document.getElementById('resultCta').href = ctaUrl;
+
+    document.getElementById('resultLoading').style.display = 'none';
+    document.getElementById('resultContent').style.display = 'block';
+  }, 1800);
+}
+
+// Initial build
+buildProgress();
+</script>
+
+</body>
+</html>
