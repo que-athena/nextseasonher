@@ -1072,7 +1072,8 @@ await fetch(WEBHOOK_URL, {
 });
     // Show result regardless of webhook state (no-cors blocks response)
     showResult();
-  } catch (err) {
+  }
+} catch (err) {
     console.error('Webhook error:', err);
     // Still show result — we have her data captured locally and she earned the reveal
     showResult();
