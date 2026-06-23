@@ -1062,13 +1062,14 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
   // Send to Make webhook
   try {
     if (WEBHOOK_URL && WEBHOOK_URL !== 'YOUR_MAKE_WEBHOOK_URL_HERE') {
-      await fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        mode: 'no-cors'
-      });
-    }
+      const formData = new URLSearchParams();
+Object.keys(payload).forEach(k => formData.append(k, payload[k]));
+await fetch(WEBHOOK_URL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  body: formData.toString(),
+  mode: 'no-cors'
+});
     // Show result regardless of webhook state (no-cors blocks response)
     showResult();
   } catch (err) {
