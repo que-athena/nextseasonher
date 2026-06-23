@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Invisible — Your Season Result | NextSeasonHer™</title>
+<meta name="description" content="You disappeared a long time ago. You're not sure anyone noticed. This is the season called Recalibration.">
+<meta property="og:title" content="The Invisible — Your Season Result">
+<meta property="og:description" content="You disappeared a long time ago. You're not sure anyone noticed. This is the season called Recalibration.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #560000;
+  --surface: #6B1414;
+  --surface-deep: #3D0000;
+  --burgundy: #560000;
+  --burgundy-deep: #3D0000;
+  --cream: #F1EADA;
+  --cream-dim: rgba(241, 234, 218, 0.82);
+  --cream-faint: rgba(241, 234, 218, 0.5);
+  --sage: #B6BEAA;
+  --sage-dim: rgba(182, 190, 170, 0.55);
+  --tobacco: #B59E7D;
+  --mahogany: #8A5718;
+  --hairline: rgba(241, 234, 218, 0.14);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-header { padding: 32px 32px 24px; text-align: center; border-bottom: 1px solid var(--hairline); }
+.brand { font-size: 11px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sage); }
+
+.hero { padding: 80px 32px 56px; max-width: 720px; margin: 0 auto; text-align: center; opacity: 0; animation: fadeUp 1s ease 0.2s forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.hero-eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--tobacco); margin-bottom: 24px; }
+.hero-season { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(18px, 4vw, 22px); font-weight: 400; color: var(--sage); margin-bottom: 28px; letter-spacing: 0.02em; }
+.hero-archetype { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(56px, 11vw, 96px); line-height: 1.02; letter-spacing: -0.015em; color: var(--cream); margin-bottom: 40px; }
+.hero-archetype em { font-style: italic; color: var(--tobacco); }
+.hero-rule { width: 48px; height: 1px; background: var(--mahogany); margin: 0 auto 40px; }
+.hero-lede { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(20px, 4vw, 24px); line-height: 1.5; color: var(--cream); max-width: 540px; margin: 0 auto; font-weight: 400; }
+
+.content { max-width: 640px; margin: 0 auto; padding: 64px 32px; }
+.section { margin-bottom: 80px; }
+.section:last-child { margin-bottom: 0; }
+.section-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+.section-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--hairline); max-width: 80px; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(28px, 6vw, 36px); line-height: 1.2; color: var(--cream); margin-bottom: 32px; letter-spacing: -0.01em; }
+.section-title em { font-style: italic; color: var(--tobacco); }
+.body-text { font-size: 17px; line-height: 1.75; color: var(--cream-dim); margin-bottom: 24px; }
+.body-text:last-child { margin-bottom: 0; }
+.body-text.emphasis { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 21px; line-height: 1.55; color: var(--cream); padding: 8px 0 8px 24px; border-left: 1px solid var(--mahogany); margin: 32px 0; }
+.body-text.declarative { font-size: 19px; font-weight: 400; line-height: 1.55; color: var(--cream); margin-bottom: 32px; }
+
+.cta-section { background: var(--surface-deep); padding: 80px 32px; margin: 80px 0 0; }
+.cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.cta-eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); margin-bottom: 28px; }
+.cta-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(36px, 8vw, 52px); line-height: 1.1; color: var(--cream); margin-bottom: 32px; letter-spacing: -0.01em; }
+.cta-title em { font-style: italic; color: var(--tobacco); }
+.cta-body { font-size: 17px; line-height: 1.75; color: var(--cream-dim); margin-bottom: 24px; text-align: left; }
+.cta-body.center { text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; line-height: 1.55; color: var(--cream); margin: 32px 0; }
+.cta-divider { width: 40px; height: 1px; background: var(--mahogany); margin: 40px auto; }
+.cta-button { display: inline-block; padding: 22px 48px; background: var(--sage); color: var(--burgundy-deep); text-decoration: none; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; transition: background 0.3s ease, color 0.3s ease; margin-top: 24px; }
+.cta-button:hover { background: var(--cream); color: var(--burgundy-deep); }
+.cta-footnote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--cream-faint); margin-top: 32px; line-height: 1.6; }
+
+.page-footer { padding: 48px 32px; text-align: center; border-top: 1px solid var(--hairline); }
+.footer-sig { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--sage); margin-bottom: 12px; }
+.footer-meta { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cream-faint); }
+
+@media (max-width: 480px) {
+  .page-header { padding: 24px 20px 20px; }
+  .hero { padding: 56px 20px 40px; }
+  .hero-archetype { font-size: 52px; }
+  .hero-lede { font-size: 19px; }
+  .content { padding: 48px 24px; }
+  .section { margin-bottom: 56px; }
+  .section-title { font-size: 26px; }
+  .body-text { font-size: 16px; }
+  .body-text.declarative { font-size: 18px; }
+  .body-text.emphasis { font-size: 19px; padding-left: 20px; }
+  .cta-section { padding: 56px 24px; margin-top: 56px; }
+  .cta-title { font-size: 34px; }
+  .cta-body { font-size: 16px; }
+  .cta-button { padding: 20px 36px; font-size: 12px; width: 100%; max-width: 320px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="brand">NEXTSEASONHER™</div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">Your Result</div>
+  <div class="hero-season">A season called <em>Recalibration</em></div>
+  <h1 class="hero-archetype">The <em>Invisible</em></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-lede">You disappeared a long time ago, and you're not sure anyone noticed.</p>
+</section>
+
+<div class="content">
+
+  <section class="section">
+    <div class="section-eyebrow">One</div>
+    <h2 class="section-title">What you already <em>know.</em></h2>
+
+    <p class="body-text">You are doing everything. At home. At work. For the people who depend on you. And somehow you have become the person no one sees.</p>
+
+    <p class="body-text">Not unloved. Not unwanted. Unseen.</p>
+
+    <p class="body-text">The harder part is quieter. You have started to wonder if there's still a <em>you</em> underneath the roles to be seen. Whether you would recognize her if she walked into the room.</p>
+
+    <p class="body-text emphasis">You made yourself useful for so long that you made yourself invisible. The two were not supposed to come together. They did.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">Two</div>
+    <h2 class="section-title">This is the season of <em>Recalibration.</em></h2>
+
+    <p class="body-text">Recalibration is what happens when the identity you've been living inside has worn so thin you can no longer locate yourself in it.</p>
+
+    <p class="body-text">Invisibility accumulated. You said yes one too many times. You shrank into the spaces other people made room for. You became indispensable in ways that quietly erased you.</p>
+
+    <p class="body-text">And the woman you were before all of it — the one who took up space, who had preferences, who knew what she wanted — went quiet.</p>
+
+    <p class="body-text declarative">She is not gone. She is underneath.</p>
+
+    <p class="body-text">The visibility you've been craving has been pointed at the wrong audience. No amount of external recognition will reach a woman who can't locate herself.</p>
+
+    <p class="body-text emphasis">The people around you cannot see her because you cannot see her. That is where this season begins.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">Three</div>
+    <h2 class="section-title">What this <em>actually</em> asks of you.</h2>
+
+    <p class="body-text">The work is finding her. The woman underneath the invisibility. The one who has been there the whole time, watching from inside the life you built around her.</p>
+
+    <p class="body-text declarative">Once you see her, the rest of your life starts to rearrange itself around what she actually needs.</p>
+
+    <p class="body-text">Not because you announced it. Because something in the room has changed.</p>
+  </section>
+
+</div>
+
+<section class="cta-section">
+  <div class="cta-inner">
+
+    <div id="cta-ready-now" style="display:none;">
+      <div class="cta-eyebrow">The Next Move</div>
+      <h2 class="cta-title">Name Her<em>™</em></h2>
+
+      <p class="cta-body">Thirty days of identity work for the woman who has gone quiet inside her own life.</p>
+
+      <p class="cta-body">You'll spend thirty days locating her. The version of you who learned to disappear. What she's been protecting by staying small. What she has been afraid to want. What it would take to bring her back into view.</p>
+
+      <p class="cta-body">Daily audio that says the things you have been thinking in the silence. Identity Naming Worksheets that put words to what's been wordless. A small private group of women who are returning to themselves at the same time you are.</p>
+
+      <p class="cta-body center">You will not leave louder. You will leave found. By you first. Which is the only kind of being seen that holds.</p>
+
+      <div class="cta-divider"></div>
+
+      <p class="cta-body" style="text-align:center; margin-bottom: 8px;">The first cohort opens September 1.</p>
+
+      <a href="https://nextseasonher.com/name-her-waitlist" class="cta-button">Join the Waitlist</a>
+
+      <p class="cta-footnote">Founding cohort. 15 to 25 women. $197.</p>
+    </div>
+
+    <div id="cta-ready-later" style="display:none;">
+      <div class="cta-eyebrow">Before Any Next Step</div>
+      <h2 class="cta-title">Listen to <em>this.</em></h2>
+
+      <p class="cta-body">A short audio I recorded for women who recognize themselves in The Invisible but aren't ready to be seen yet. Including by themselves.</p>
+
+      <p class="cta-body">Twenty minutes. Listen when you have a quiet moment that's actually yours.</p>
+
+      <div class="cta-divider"></div>
+
+      <a href="https://nextseasonher.com/welcome-audio" class="cta-button">Listen Now</a>
+
+      <p class="cta-footnote">The audio is yours. No purchase. No next step asked of you.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="page-footer">
+  <div class="footer-sig">Que Athena</div>
+  <div class="footer-meta">NextSeasonHer™</div>
+</footer>
+
+<script>
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const readiness = params.get('readiness') || 'ReadyNow';
+  const readyNowEl = document.getElementById('cta-ready-now');
+  const readyLaterEl = document.getElementById('cta-ready-later');
+  if (readiness === 'ReadyLater') {
+    readyLaterEl.style.display = 'block';
+  } else {
+    readyNowEl.style.display = 'block';
+  }
+})();
+</script>
+
+</body>
+</html>
