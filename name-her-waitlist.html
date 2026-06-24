@@ -464,10 +464,9 @@ main { flex: 1; display: flex; flex-direction: column; }
 
 <script>
 /* ──────────────────────────────────────────
-   CONFIG — UPDATE BEFORE GOING LIVE
+   CONFIG
    ────────────────────────────────────────── */
-// Demeter: paste the Make.com webhook URL for the waitlist scenario here
-const WAITLIST_WEBHOOK_URL = 'YOUR_WAITLIST_WEBHOOK_URL_HERE';
+const WAITLIST_WEBHOOK_URL = 'https://hook.us2.make.com/bzeeepnms12igvd51695hbn5vugwi8b6';
 
 /* ──────────────────────────────────────────
    SUBMIT HANDLER
@@ -503,13 +502,14 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
   };
 
   try {
-    if (WAITLIST_WEBHOOK_URL && WAITLIST_WEBHOOK_URL !== 'YOUR_WAITLIST_WEBHOOK_URL_HERE') {
-      await fetch(WAITLIST_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        mode: 'no-cors'
-      });
+    const response = await fetch(WAITLIST_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      console.error('Webhook returned non-OK status:', response.status);
     }
     showSuccess();
   } catch (err) {
