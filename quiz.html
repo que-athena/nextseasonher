@@ -753,8 +753,8 @@ body {
 
 // Demeter: paste the Make.com webhook URL here
 const WEBHOOK_URL = 'https://hook.us2.make.com/h6jjks4x3zh9h65jw7s69kv1t5fnmbom';
-  
-  // Waitlist signup webhook (result pages + any standalone waitlist forms)
+
+// Waitlist signup webhook (result pages + any standalone waitlist forms)
 const WAITLIST_WEBHOOK_URL = 'https://hook.us2.make.com/bzeeepnms12igvd51695hbn5vugwi8b6';
 
 // Result page URLs - update when result pages are hosted
@@ -1065,20 +1065,20 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
   // Send to Make webhook
   try {
     if (WEBHOOK_URL && WEBHOOK_URL !== 'YOUR_MAKE_WEBHOOK_URL_HERE') {
-      const formData = new URLSearchParams();
-Object.keys(payload).forEach(k => formData.append(k, payload[k]));
-await fetch(WEBHOOK_URL, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  body: formData.toString(),
-  mode: 'no-cors'
-});
-    // Show result regardless of webhook state (no-cors blocks response)
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        console.error('Webhook returned non-OK status:', response.status);
+      }
+    }
     showResult();
-  }
-} catch (err) {
+  } catch (err) {
     console.error('Webhook error:', err);
-    // Still show result — we have her data captured locally and she earned the reveal
+    // Still show result — she earned the reveal even if the webhook hiccupped
     showResult();
   }
 });
