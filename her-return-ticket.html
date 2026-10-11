@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HerReturnTicket™ | NextSeasonHer™</title>
+<meta name="description" content="Plan the trip that leaves you with a Return Ticket back to yourself.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<style>
+:root{
+  --paper:#F4F1EC;
+  --card:#FCFBF8;
+  --ticket:#FFFDF9;
+  --ink:#3A3632;
+  --ink-soft:#6B665F;
+  --line:rgba(87,83,77,.16);
+  --stone:#57534D;
+  --plaster:#DEDAD3;
+  --plaster-soft:#EBE7E1;
+  --accent:#8C2822;
+  --accent-deep:#6E1E1A;
+  --accent-tint:#F5E6E3;
+  --bronze:#7A6242;
+  --serif:'Bodoni Moda','Bodoni 72','Didot',Georgia,serif;
+  --sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --stage:radial-gradient(circle at 80% 14%,rgba(255,251,243,.95) 0,rgba(255,251,243,0) 36%),linear-gradient(172deg,#F3EFE8 0%,#E6DCCD 52%,#D2BFA3 100%);
+  --notch:#DCCFBC;
+}
+[hidden]{display:none !important}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer}
+button:disabled{cursor:not-allowed}
+a{color:var(--accent)}
+*:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:600px;margin:0 auto;padding:0 22px}
+
+/* Welcome */
+.hero{background:var(--stage);padding:calc(40px + env(safe-area-inset-top,0px)) 22px 0;overflow:hidden;height:min(56vh,430px)}
+.hero-ticket{max-width:270px;margin:0 auto;transform:rotate(-3deg)}
+.intro{padding-top:30px;padding-bottom:12px}
+.brandline{font-size:14px;color:var(--bronze);margin:0 0 10px;font-weight:500}
+.display{font-family:var(--serif);font-weight:500;font-size:clamp(44px,11vw,62px);line-height:1;letter-spacing:-.015em;color:var(--accent);margin:0 0 14px}
+.tagline{font-family:var(--serif);font-style:italic;font-size:clamp(21px,5vw,25px);line-height:1.35;margin:0 0 20px;color:var(--ink)}
+.intro p{max-width:56ch}
+.leave-with{margin:22px 0 20px;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.leave-with p{margin:0 0 8px;font-family:var(--serif);font-style:italic;font-size:20px;color:var(--accent)}
+.leave-with ul{margin:0;padding-left:20px}
+.leave-with li{margin:4px 0;font-size:16px}
+.meta{color:var(--ink-soft);font-size:15px}
+.media-card{background:var(--plaster-soft);border-radius:18px;padding:18px 18px 16px;margin:24px 0 4px}
+.media-title{font-family:var(--serif);font-size:23px;color:var(--accent);margin:0}
+.media-card .help{margin:2px 0 0}
+.media-card audio{width:100%;margin-top:12px}
+.video-wrap{position:relative;aspect-ratio:16/9;margin-top:12px;border-radius:12px;overflow:hidden;background:var(--plaster)}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.welcome-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:28px 0 40px}
+
+/* Route */
+.route{position:sticky;top:0;z-index:10;background:rgba(244,241,236,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.route ol{list-style:none;margin:0 auto;padding:12px 16px 10px;max-width:600px;display:flex;position:relative}
+.route ol::before{content:"";position:absolute;left:calc(16px + (100% - 32px) / 12);right:calc(16px + (100% - 32px) / 12);top:19px;border-top:2px dotted var(--bronze);opacity:.6}
+.route li{position:relative;z-index:1;flex:1;display:flex;justify-content:center}
+.route button{background:none;border:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--ink-soft);font-size:12px;line-height:1.2}
+.route .dot{width:13px;height:13px;border-radius:50%;background:var(--paper);border:2px solid var(--bronze)}
+.route li.done .dot{background:var(--bronze)}
+.route li.current .dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px rgba(140,40,34,.14)}
+.route li.current .lbl{color:var(--accent);font-weight:600}
+.route button:disabled{opacity:.5}
+
+/* Steps */
+.step h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,8vw,42px);line-height:1.06;letter-spacing:-.01em;color:var(--accent);margin:30px 0 10px;outline:none}
+.sub{color:var(--ink-soft);margin:0 0 8px;max-width:54ch}
+.sub.lead-in{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.45;color:var(--ink)}
+.note{background:var(--plaster-soft);border-radius:12px;padding:12px 14px;font-size:15.5px;margin:14px 0}
+.note strong{color:var(--accent)}
+.q{margin-top:30px}
+.q > label,.qlabel{display:block;font-weight:600;font-size:16px;margin-bottom:4px;color:var(--ink)}
+.help{font-size:14.5px;color:var(--ink-soft);margin:0 0 10px;transition:color .2s}
+.help.warn{color:var(--accent);font-weight:600}
+.aside{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.45;color:var(--stone);margin:0 0 12px;padding-left:14px;border-left:2px solid var(--plaster)}
+h3.minor{font-family:var(--serif);font-weight:500;font-style:italic;font-size:22px;color:var(--ink);margin:34px 0 8px}
+input[type=text],input[type=date],input[type=number],textarea{width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--card);border-radius:10px;font:inherit;font-size:16px;color:var(--ink);-webkit-appearance:none;appearance:none}
+textarea{min-height:96px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#A09A92}
+input:focus,textarea:focus{outline:2px solid var(--bronze);outline-offset:1px;background:#FFFFFE}
+input:disabled{opacity:.45}
+.inline{display:flex;gap:10px;flex-wrap:wrap}
+.inline input{flex:1 1 200px}
+.check-line{display:flex;gap:10px;align-items:center;margin-top:10px;font-size:15.5px}
+.check-line input{width:20px;height:20px;accent-color:var(--accent)}
+.money{position:relative;max-width:220px}
+.money span{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--ink-soft)}
+.money input{padding-left:30px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.range-out{font-weight:600;color:var(--accent)}
+.sentence{display:grid;gap:8px}
+.sentence .lead{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.3;color:var(--ink)}
+.luggage{display:grid;gap:16px;margin-top:12px}
+.luggage label{display:block;font-size:15.5px;font-weight:600;margin-bottom:6px}
+.luggage textarea{min-height:76px}
+
+/* Reflection */
+.reflect{margin-top:34px;padding:18px 18px 16px;border-radius:16px;background:var(--card);border:1px dashed rgba(122,98,66,.45)}
+.reflect-k{font-size:13.5px;font-weight:600;color:var(--bronze);margin:0}
+.reflect-q{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.35;color:var(--ink);margin:4px 0 12px}
+.reflect .help{margin:8px 0 0;font-size:13.5px}
+
+/* Buttons */
+.btn-primary{background:var(--accent);color:#FFFDF9;border:0;border-radius:999px;padding:15px 28px;font-weight:600;font-size:16px;transition:background .2s}
+.btn-primary:hover{background:var(--accent-deep)}
+.btn-primary:disabled{opacity:.35}
+.btn-secondary{background:var(--card);color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:12px 20px;font-weight:600;font-size:15px;text-decoration:none;display:inline-block}
+.btn-secondary:disabled{opacity:.4}
+.btn-text{background:none;border:0;padding:8px 2px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;font-size:15px}
+.btn-text:hover{color:var(--ink)}
+.btn-stay{display:inline-block;margin-top:14px;background:var(--card);color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:11px 18px;font-weight:600;font-size:15px;text-decoration:none}
+.btn-stay:hover{background:var(--accent-tint)}
+.via{color:var(--ink-soft);font-size:13.5px}
+
+/* Season cards */
+.season-card{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 20px 22px;margin-bottom:12px;position:relative;overflow:hidden;color:var(--ink)}
+.season-card span{display:block}
+.season-card:hover{border-color:var(--bronze)}
+.season-card.selected{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:#FFFFFE}
+.season-card.suggested{border-color:var(--bronze);box-shadow:inset 0 0 0 1px var(--bronze)}
+.season-head{margin-right:104px}
+.season-name{font-family:var(--serif);font-weight:500;font-size:27px;line-height:1.1;color:var(--accent)}
+.season-tag{font-size:13.5px;color:var(--bronze);margin-top:2px}
+.mirror{margin:12px 0 6px;font-size:16.5px;line-height:1.5}
+.need{font-size:14.5px;color:var(--ink-soft)}
+.need b{font-weight:600;color:var(--bronze)}
+.tm{font-size:.38em;vertical-align:.95em;margin-left:.06em;font-style:normal;letter-spacing:0;line-height:0}
+.check-links{display:block;margin-top:4px;font-size:13.5px;color:var(--ink-soft)}
+.check-links a{font-weight:600}
+.suggest-tag{margin-top:10px;font-size:13px;font-weight:600;color:var(--bronze)}
+.stamp{position:absolute;right:16px;top:14px;width:96px;height:60px;border:2px solid rgba(140,40,34,.85);border-radius:50%;display:flex !important;flex-direction:column;align-items:center;justify-content:center;color:rgba(140,40,34,.92);transform:rotate(-9deg);font-family:var(--serif);font-style:italic;font-size:13px;line-height:1.1;text-align:center;padding:0 6px}
+.stamp::after{content:"";position:absolute;inset:3px;border:1px solid rgba(140,40,34,.45);border-radius:50%}
+.stamp small{font-family:var(--sans);font-style:normal;font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;display:block}
+.stamp.pressed{animation:press .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes press{0%{transform:rotate(-9deg) scale(1.7);opacity:0}60%{transform:rotate(-9deg) scale(.93);opacity:1}100%{transform:rotate(-9deg) scale(1);opacity:1}}
+
+/* Quick read */
+.quick-toggle{margin-top:4px}
+.quick{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:10px}
+.qq-text{font-family:var(--serif);font-size:20px;line-height:1.3;margin:0 0 12px;color:var(--ink)}
+.opts{display:grid;gap:8px;margin-bottom:20px}
+.opt{text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--ink);font-size:15.5px;line-height:1.45}
+.opt[aria-pressed="true"]{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-deep)}
+
+/* Places */
+#quePicks{margin-top:22px}
+.place-card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:14px}
+.place-card.chosen{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.place-photo{aspect-ratio:16/10;background:linear-gradient(135deg,#EBE7E1 0%,#E2D5C2 100%);position:relative}
+.place-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-fallback{position:absolute;left:18px;bottom:14px;font-family:var(--serif);font-style:italic;font-size:30px;color:rgba(140,40,34,.55)}
+.place-body{padding:18px 20px 20px}
+.pick-label{display:inline-block;font-size:13px;font-weight:600;color:var(--bronze);background:var(--plaster-soft);border-radius:999px;padding:3px 11px}
+.place-name{font-family:var(--serif);font-weight:500;font-size:29px;line-height:1.1;color:var(--accent);margin:10px 0 0}
+.place-card.small .place-name{font-size:23px;margin-top:0}
+.region{font-size:14px;color:var(--ink-soft);margin:2px 0 0}
+.que-line{font-family:var(--serif);font-style:italic;font-size:19.5px;line-height:1.42;margin:14px 0 18px;color:var(--ink)}
+.why{font-size:15px;margin:10px 0 14px;color:var(--ink)}
+.btn-choose{display:inline-block;border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:999px;padding:10px 20px;font-weight:600;font-size:15px;text-decoration:none}
+.btn-choose[aria-pressed="true"]{background:var(--accent);color:#FFFDF9}
+.choose-note{margin:8px 0 0;font-size:13.5px;color:var(--ink-soft)}
+@media (min-width:520px){.globals{display:grid;grid-template-columns:1fr 1fr;gap:12px}.globals .place-card{margin:0}}
+
+/* Chips and checks */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:10px 16px;font-size:15px;line-height:1.35;color:var(--ink);text-align:left}
+.chip:hover{border-color:var(--bronze)}
+.chip[aria-pressed="true"]{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-deep);font-weight:600}
+.custom-input{margin-top:10px}
+.checks label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;font-size:15.5px;line-height:1.45;cursor:pointer}
+.checks input{width:20px;height:20px;margin-top:1px;flex:none;accent-color:var(--accent)}
+.words{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+
+/* Bookable experiences */
+.book{margin-top:12px}
+.book-item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.book-item.on{border-color:var(--accent)}
+.book-item strong{font-size:16px;display:block}
+.book-item p{margin:2px 0 10px;font-size:14.5px;color:var(--ink-soft)}
+.book-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn-mini{border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px;text-decoration:none}
+.btn-mini[aria-pressed="true"]{background:var(--accent);color:#FFFDF9}
+
+/* In My Suitcase */
+.picks{margin-top:36px;background:var(--plaster-soft);border-radius:18px;padding:18px 18px 16px}
+.picks h3{font-family:var(--serif);font-weight:500;font-style:italic;font-size:22px;color:var(--accent);margin:0}
+.picks .help{margin:2px 0 4px}
+.pick-group{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--bronze);margin:14px 0 2px}
+.pick{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:11px 0;border-top:1px solid rgba(87,83,77,.14)}
+.pick strong{font-size:15.5px}
+.pick p{margin:2px 0 0;font-size:14.5px;color:var(--ink-soft);line-height:1.45}
+.pick a{white-space:nowrap;font-weight:600;font-size:14.5px;padding-top:1px}
+.suitcase-link{display:inline-block;margin-top:12px;font-weight:600;font-size:15px}
+
+/* Nav */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:38px 0 calc(48px + env(safe-area-inset-bottom,0px))}
+
+/* Ticket stage */
+.ticket-stage{background:var(--stage);padding:calc(36px + env(safe-area-inset-top,0px)) 0 44px}
+.stage-kicker{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--bronze);margin:0;text-align:center}
+.stage-title{font-family:var(--serif);font-weight:500;font-size:clamp(28px,7vw,38px);line-height:1.1;text-align:center;margin:6px 0 26px;color:var(--accent)}
+#finalTicket{max-width:340px;margin:0 auto}
+.ticket-actions{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:26px auto 0}
+.btn-stage{background:var(--accent);color:#FFFDF9;border:0;border-radius:999px;padding:15px 24px;font-weight:600;font-size:16px;text-align:center;text-decoration:none;display:inline-block}
+.btn-stage:hover{background:var(--accent-deep)}
+.btn-stage-outline{background:rgba(255,253,249,.55);color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:14px 24px;font-weight:600;font-size:16px}
+.share-line{text-align:center;max-width:34ch;margin:20px auto 6px;color:var(--stone);font-size:15.5px}
+.btn-text.on-stage{color:var(--stone);display:block;margin:0 auto}
+
+/* The ticket */
+.ticket{background:var(--ticket);color:var(--ink);border-radius:18px;padding:20px 20px 16px;position:relative;box-shadow:0 18px 40px rgba(87,70,50,.22);text-align:left}
+.t-head{display:flex;flex-direction:column-reverse;align-items:flex-start;gap:4px;border-bottom:1px solid rgba(87,83,77,.16);padding-bottom:10px;margin-bottom:12px}
+.t-title{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--accent);line-height:1.1}
+.t-brand{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-weight:600}
+.t-field{margin-bottom:11px;position:relative}
+.t-label{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:var(--bronze);font-weight:600;margin-bottom:2px}
+.t-value{font-size:14px;line-height:1.35;color:var(--ink)}
+.t-strong{font-weight:600;font-size:16px}
+.t-big{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.05;color:var(--accent)}
+.t-returning{font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.3;color:var(--ink)}
+.t-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:14px}
+.t-departing .t-big{padding-right:92px}
+.t-stamp{position:absolute;right:0;top:4px;width:86px;height:54px;border:2px solid rgba(140,40,34,.82);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(140,40,34,.9);transform:rotate(-10deg);font-family:var(--serif);font-style:italic;font-size:14px;line-height:1.05;text-align:center}
+.t-stamp small{font-family:var(--sans);font-style:normal;font-size:6.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;display:block}
+.t-perf{position:relative;height:0;border-top:2px dashed rgba(87,83,77,.24);margin:14px -20px 12px}
+.t-perf::before,.t-perf::after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:var(--notch)}
+.t-perf::before{left:-11px}
+.t-perf::after{right:-11px}
+.t-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:6px}
+.t-handle{font-weight:600;font-size:13px;color:var(--accent)}
+.t-no{font-size:10px;letter-spacing:.14em;color:var(--ink-soft);margin-top:2px}
+.barcode{display:flex;align-items:stretch;gap:2px;height:30px}
+.barcode span{display:block;background:var(--ink);height:100%}
+
+/* Story frame for image export (rendered off screen) */
+.story-frame{position:absolute;left:-10000px;top:0;width:360px;height:640px;background:var(--stage);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px}
+.story-frame #storyTicket{width:300px}
+.story-frame .ticket{box-shadow:0 12px 28px rgba(87,70,50,.2);padding:16px 16px 12px}
+.story-frame .t-head{padding-bottom:11px;margin-bottom:12px}
+.story-frame .t-title{font-size:19px}
+.story-frame .t-field{margin-bottom:10px}
+.story-frame .t-big{font-size:23px}
+.story-frame .t-returning{font-size:15.5px}
+.story-frame .t-value{font-size:12.5px}
+.story-frame .t-strong{font-size:14px}
+.story-frame .t-perf{margin:10px -16px 9px}
+.story-frame .barcode{height:24px}
+.story-cap{color:var(--stone);font-family:var(--serif);font-style:italic;font-size:14px;margin:16px 0 0;text-align:center}
+
+/* Overlay */
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(40,34,28,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px}
+.overlay img{max-height:66vh;width:auto;border-radius:12px}
+.overlay-text{color:#FFFDF9;text-align:center;max-width:32ch;margin:0;font-size:15px}
+.overlay-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.overlay .btn-stage-outline{background:transparent;color:#FFFDF9;border-color:rgba(255,253,249,.6)}
+
+/* Plan and next stops */
+.plan{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 20px;margin:32px 0 8px}
+.plan h2{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.1;color:var(--accent);margin:0 0 4px}
+.plan h3{font-family:var(--serif);font-weight:500;font-style:italic;font-size:21px;color:var(--ink);margin:22px 0 0}
+.plan dl{margin:8px 0 0}
+.plan dt{font-size:13.5px;font-weight:600;color:var(--bronze);margin-top:14px}
+.plan dd{margin:2px 0 0;font-size:16px;white-space:pre-wrap}
+.next > h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;color:var(--accent);margin:36px 0 6px}
+.offer{border-top:1px solid var(--line);padding:22px 0}
+.offer h3{font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.2;color:var(--ink);margin:0 0 6px}
+.offer p{margin:0 0 14px;color:var(--ink-soft)}
+.quiet{font-size:15.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:18px;margin:0}
+.quiet a{font-weight:600}
+.disclosure{font-size:13px;color:var(--ink-soft);margin:24px 0 8px}
+.foot{text-align:center;font-size:13px;color:var(--ink-soft);padding:24px 0 calc(28px + env(safe-area-inset-bottom,0px))}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+
+@media print{
+  @page{margin:14mm}
+  body{background:#fff}
+  .route,#screen-welcome,#screen-steps,.next,.ticket-actions,.share-line,.btn-text,.overlay,.story-frame,.foot,.stage-kicker,.disclosure{display:none !important}
+  #screen-ticket{display:block !important}
+  .ticket-stage{background:#fff !important;padding:0 !important}
+  .ticket{box-shadow:none;border:1px solid #d8d2c8}
+  .t-perf::before,.t-perf::after{background:#fff;border:1px solid #d8d2c8}
+  .plan{break-before:page;border:0;padding:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="route" id="route" hidden>
+  <nav aria-label="Your progress"><ol id="routeList"></ol></nav>
+</header>
+
+<main>
+
+  <!-- WELCOME -->
+  <section id="screen-welcome">
+    <div class="hero"><div class="hero-ticket" id="sampleTicket"></div></div>
+    <div class="wrap intro">
+      <p class="brandline">NextSeasonHer™ by Que Athena</p>
+      <h1 class="display">HerReturnTicket<span class="tm">™</span></h1>
+      <p class="tagline">Plan the trip that leaves you with a Return Ticket back to yourself.</p>
+      <p>You already know you need to get away. What you may not have is a way to make it identity-shifting. Most trips end the moment you land back home. You unpack, open your inbox, and by Wednesday the old life has closed back around you.</p>
+      <p>HerReturnTicket is the plan I wish I'd had before my first solo trip. It walks you through the trip I'd design with you myself: the season you're in, the place that meets you there, where you'll sleep and what you'll spend, what you'll release before you leave, and how you'll protect the shift once you're home.</p>
+      <div class="leave-with">
+        <p>You'll leave with</p>
+        <ul>
+          <li>Your season named, and a destination chosen for it</li>
+          <li>Your length, home base, budget, and pace decided</li>
+          <li>Your safety, packing, and people handled before you go</li>
+          <li>A defining experience and a release ritual planned</li>
+          <li>A landing plan for your first 48 hours home</li>
+        </ul>
+      </div>
+      <p>Your answers save as you go. When you finish, your plan prints as a boarding pass. Keep it, post it, and let it remind you who's coming home.</p>
+      <p class="meta">Six stops. About twenty minutes.</p>
+
+      <div class="media-card" id="mediaCard" hidden>
+        <p class="media-title">Start here</p>
+        <p class="help">A few minutes from me: my story, and how to get the most from this planner.</p>
+        <div class="video-wrap" id="videoWrap" hidden></div>
+        <audio controls preload="none" id="introAudio" hidden></audio>
+      </div>
+
+      <div class="q">
+        <label for="nameInput">Your first name</label>
+        <p class="help">It prints on your ticket.</p>
+        <input id="nameInput" type="text" data-bind="name" autocomplete="given-name" placeholder="Your first name">
+      </div>
+
+      <div class="welcome-actions">
+        <button class="btn-primary" id="beginBtn" type="button">Begin</button>
+        <button class="btn-text" id="resetBtn" type="button" hidden>Start a new ticket</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section id="screen-steps" hidden>
+    <div class="wrap">
+
+      <!-- 0 SEASON -->
+      <div class="step" data-step="0">
+        <h2 tabindex="-1">Which season are you in?</h2>
+        <p class="sub">Read each one slowly. Choose the one that makes your chest tighten, your eyes sting, or your heart say, "Yes, that's me."</p>
+        <p class="note" id="quizNote" hidden></p>
+        <div id="seasonCards"></div>
+        <button class="btn-text quick-toggle" id="quickToggle" type="button" aria-expanded="false" aria-controls="quickPanel">Not sure? Answer two questions.</button>
+        <div class="quick" id="quickPanel" hidden>
+          <div class="quick-q" data-qq="1">
+            <p class="qq-text">Read these slowly. Which one lands hardest?</p>
+            <div class="opts">
+              <button type="button" class="opt" data-v="a" aria-pressed="false">I lost something I can't get back, and the rest of me hasn't caught up.</button>
+              <button type="button" class="opt" data-v="b" aria-pressed="false">I'm exhausted in a way sleep doesn't fix.</button>
+              <button type="button" class="opt" data-v="c" aria-pressed="false">I've outgrown the life I've been living, and I haven't told a single person.</button>
+              <button type="button" class="opt" data-v="d" aria-pressed="false">There's something I've wanted to do for years. I keep putting it last, and no one sees it because I never say it out loud.</button>
+            </div>
+          </div>
+          <div class="quick-q" data-qq="2">
+            <p class="qq-text">The truth you haven't said out loud, even to the person closest to you:</p>
+            <div class="opts">
+              <button type="button" class="opt" data-v="a" aria-pressed="false">I'm still grieving, and I think people expect me to be past it.</button>
+              <button type="button" class="opt" data-v="b" aria-pressed="false">I keep proving I can handle it all, and I don't know how to stop.</button>
+              <button type="button" class="opt" data-v="c" aria-pressed="false">I've given so much of myself to everyone else that I don't know what I want anymore.</button>
+              <button type="button" class="opt" data-v="d" aria-pressed="false">There's something I want to do, and I haven't told anyone how much it matters to me.</button>
+            </div>
+          </div>
+          <button class="btn-secondary" id="quickBtn" type="button" disabled>Show my season</button>
+          <p class="note" id="quickResult" hidden></p>
+        </div>
+        <div class="reflect" id="seasonReflect" hidden>
+          <p class="reflect-k">Sit with this</p>
+          <p class="reflect-q" id="seasonReflectQ"></p>
+          <textarea data-bind="reflectSeason" aria-labelledby="seasonReflectQ"></textarea>
+          <p class="help">Optional. Your answer stays private and prints only on your full plan.</p>
+        </div>
+      </div>
+
+      <!-- 1 PLACE -->
+      <div class="step" data-step="1" hidden>
+        <h2 tabindex="-1">Where does this season want to go?</h2>
+        <p class="sub">My picks come from places I've lived and experienced personally. Each one held a version of me you might recognize within yourself.</p>
+        <p class="sub lead-in">Match your destination to her need. Let cheap, close, and practical wait. Choose the place that whispers to you like a call you're finally ready to follow.</p>
+        <div id="quePicks"></div>
+        <h3 class="minor">If you'd rather go further</h3>
+        <div class="globals" id="globalPicks"></div>
+        <div class="q">
+          <label for="customPlace">Somewhere else in mind?</label>
+          <div class="inline">
+            <input id="customPlace" type="text" placeholder="Type the place">
+            <button class="btn-secondary" id="customPlaceBtn" type="button">Use this place</button>
+          </div>
+          <p class="choose-note">Choosing a place opens stays there on Stay22 in a new tab. Your plan stays saved here.</p>
+        </div>
+        <div class="reflect">
+          <p class="reflect-k">Sit with this</p>
+          <p class="reflect-q" id="placeReflectQ">If this trip were moving me toward something, what would it be?</p>
+          <textarea data-bind="reflectPlace" aria-labelledby="placeReflectQ"></textarea>
+          <p class="help">Optional. Your answer stays private.</p>
+        </div>
+      </div>
+
+      <!-- 2 PLANS -->
+      <div class="step" data-step="2" hidden>
+        <h2 tabindex="-1">Your plans to return to her</h2>
+        <p class="sub">How long you'll go, where you'll sleep, and how your days will feel. Choose each one with your season in mind.</p>
+        <p class="note" id="planNote" hidden></p>
+
+        <div class="q">
+          <label for="departDate">When do you leave?</label>
+          <input id="departDate" type="date" data-bind="departDate">
+          <label class="check-line"><input type="checkbox" data-bind="noDate"> I haven't set a date yet</label>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">How long will you stay?</p>
+          <div class="chips" data-field="length">
+            <button type="button" class="chip" data-value="A long weekend" aria-pressed="false">A long weekend</button>
+            <button type="button" class="chip" data-value="Five days" aria-pressed="false">Five days</button>
+            <button type="button" class="chip" data-value="One week" aria-pressed="false">One week</button>
+            <button type="button" class="chip" data-value="Two weeks or more" aria-pressed="false">Two weeks or more</button>
+            <button type="button" class="chip" data-value="Perhaps a sabbatical" aria-pressed="false">Perhaps a sabbatical</button>
+          </div>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">Where will you sleep?</p>
+          <p class="help">Choose one home base. Something familiar inside the unfamiliar gives your nervous system room to open.</p>
+          <div class="chips" data-field="homeBase">
+            <button type="button" class="chip" data-value="A boutique hotel" aria-pressed="false">A boutique hotel</button>
+            <button type="button" class="chip" data-value="A small guesthouse" aria-pressed="false">A small guesthouse</button>
+            <button type="button" class="chip" data-value="An apartment of my own" aria-pressed="false">An apartment of my own</button>
+            <button type="button" class="chip" data-value="A retreat center" aria-pressed="false">A retreat center</button>
+          </div>
+          <a class="btn-stay" id="homeStay" href="#" target="_blank" rel="noopener sponsored" hidden></a>
+        </div>
+
+        <div class="q">
+          <label for="budget">Your spending ceiling</label>
+          <p class="help">Choose a number you can spend without stress when you return home.</p>
+          <div class="money"><span>$</span><input id="budget" type="number" inputmode="numeric" min="0" step="50" data-bind="budget" placeholder="2000"></div>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">How should your days feel?</p>
+          <div class="chips" data-field="pace">
+            <button type="button" class="chip" data-value="One plan a day, the rest open" aria-pressed="false">One plan a day, the rest open</button>
+            <button type="button" class="chip" data-value="Slow mornings, open afternoons" aria-pressed="false">Slow mornings, open afternoons</button>
+            <button type="button" class="chip" data-value="Nothing planned. I follow my feet." aria-pressed="false">Nothing planned. I follow my feet.</button>
+          </div>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">Your trip's phone plan</p>
+          <div class="chips" data-field="phone">
+            <button type="button" class="chip" data-value="Airplane mode until noon" aria-pressed="false">Airplane mode until noon</button>
+            <button type="button" class="chip" data-value="Messages once a day" aria-pressed="false">Messages once a day</button>
+            <button type="button" class="chip" data-value="No posting until I'm home" aria-pressed="false">No posting until I'm home</button>
+            <button type="button" class="chip" data-value="Notifications off the whole trip" aria-pressed="false">Notifications off the whole trip</button>
+          </div>
+        </div>
+
+        <div class="q">
+          <label for="solitude">Time alone each day: <span class="range-out" id="solitudeOut">1 hour</span></label>
+          <input id="solitude" type="range" min="15" max="240" step="15" data-bind="solitude">
+        </div>
+
+        <div class="reflect">
+          <p class="reflect-k">Sit with this</p>
+          <p class="reflect-q" id="plansReflectQ">What am I afraid will happen if I'm not instantly reachable?</p>
+          <textarea data-bind="reflectPlans" aria-labelledby="plansReflectQ"></textarea>
+          <p class="help">Optional. Your answer stays private.</p>
+        </div>
+
+        <div class="picks" data-picks="plans"></div>
+      </div>
+
+      <!-- 3 READY -->
+      <div class="step" data-step="3" hidden>
+        <h2 tabindex="-1">Let's get you ready</h2>
+        <p class="sub">When you feel safe, your body relaxes. That's when you start hearing yourself.</p>
+
+        <div class="q">
+          <p class="qlabel">Your safety non-negotiables</p>
+          <p class="help">Check each one you'll have handled before you leave.</p>
+          <div class="checks" data-field="safety">
+            <label><input type="checkbox" value="Travel insurance bought"><span>Travel insurance bought<span class="check-links" data-links="World Nomads|SafetyWing"></span></span></label>
+            <label><input type="checkbox" value="An eSIM or international data set up"><span>An eSIM or international data set up<span class="check-links" data-links="Airalo eSIM"></span></span></label>
+            <label><input type="checkbox" value="A VPN set up for public wifi"><span>A VPN on my phone for hotel and café wifi<span class="check-links" data-links="NordVPN"></span></span></label>
+            <label><input type="checkbox" value="First nights booked with strong reviews and a secure entry"><span>First nights booked somewhere with strong reviews and a secure entry<span class="check-links" data-links="Stay22"></span></span></label>
+            <label><input type="checkbox" value="My plans shared with one person I trust"><span>My plans shared with one person I trust<span class="check-links" data-links="TripIt"></span></span></label>
+            <label><input type="checkbox" value="Offline maps downloaded"><span>Offline maps downloaded<span class="check-links" data-links="Google Maps offline"></span></span></label>
+            <label><input type="checkbox" value="A backup card kept apart from my wallet"><span>A backup card kept apart from my wallet<span class="check-links" data-links="Wise"></span></span></label>
+            <label><input type="checkbox" value="Enrolled in STEP"><span>Enrolled in STEP (U.S. travelers)<span class="check-links" data-links="STEP"></span></span></label>
+            <label><input type="checkbox" value="A portable lock for my door"><span>A portable lock for my door<span class="check-links" data-links="Portable door lock"></span></span></label>
+          </div>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">Tell your people</p>
+          <p class="aside">Let the people who need you know you'll be slower to respond. Let that be enough.</p>
+          <label class="check-line"><input type="checkbox" data-bind="toldPeople"> Done. I've told them.</label>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">Your boundary sentence</p>
+          <p class="help">Practice it before you go. You don't owe anyone a reason.</p>
+          <p class="aside">In Mexico, I perfected "No, gracias." In polite England, it became "Thank you, I'll consider that next time."</p>
+          <div class="chips" data-field="boundary">
+            <button type="button" class="chip" data-value="No, thank you." aria-pressed="false">No, thank you.</button>
+            <button type="button" class="chip" data-value="I have plans." aria-pressed="false">I have plans.</button>
+            <button type="button" class="chip" data-value="I'm keeping my day simple." aria-pressed="false">I'm keeping my day simple.</button>
+            <button type="button" class="chip" data-value="I'm heading out now." aria-pressed="false">I'm heading out now.</button>
+          </div>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">What feelings do you want this suitcase to carry?</p>
+          <p class="help">Before you pack a single item, write down three words that capture how you want to feel on this trip. Place that list inside your emotional suitcase first. Everything else you add should serve those words.</p>
+          <div class="words">
+            <input type="text" data-word="0" placeholder="Calm" aria-label="First word">
+            <input type="text" data-word="1" placeholder="Open" aria-label="Second word">
+            <input type="text" data-word="2" placeholder="Soft" aria-label="Third word">
+          </div>
+        </div>
+
+        <h3 class="minor">Clear your inner luggage</h3>
+        <p class="sub">If you pack fear, guilt, or old stories, they'll take up more space than your clothes. You can stand in the most beautiful square in Lisbon and still feel suffocated by what's unfinished at home.</p>
+        <div class="luggage">
+          <div><label for="lugBoundary">What boundary needs to be in place before I go?</label><textarea id="lugBoundary" data-bind="luggageBoundary"></textarea></div>
+          <div><label for="lugConvo">What conversation will help me breathe easier once I arrive?</label><textarea id="lugConvo" data-bind="luggageConversation"></textarea></div>
+          <div><label for="lugEnergy">What energy am I done carrying across borders?</label><textarea id="lugEnergy" data-bind="luggageEnergy"></textarea></div>
+        </div>
+
+        <div class="reflect">
+          <p class="reflect-k">Sit with this</p>
+          <p class="reflect-q" id="readyReflectQ">What am I choosing to leave behind on purpose?</p>
+          <textarea data-bind="reflectReady" aria-labelledby="readyReflectQ"></textarea>
+          <p class="help">Optional. Your answer stays private.</p>
+        </div>
+
+        <div class="picks" data-picks="ready"></div>
+      </div>
+
+      <!-- 4 RELEASE -->
+      <div class="step" data-step="4" hidden>
+        <h2 tabindex="-1">Release it and let it go</h2>
+        <p class="sub lead-in">Before you leave, say goodbye to the woman who overfunctioned. Who smiled when she wanted to scream. Who carried everyone else's weight while ignoring her own.</p>
+        <p class="sub">Choose the one experience that marks this release, and the ritual that closes what's complete.</p>
+
+        <div class="q">
+          <p class="qlabel">Your defining experience</p>
+          <p class="help">One moment you plan on purpose. Everything else can stay open.</p>
+          <div class="chips" data-field="experience" id="expChips"></div>
+          <input class="custom-input" type="text" data-bind="experienceCustom" placeholder="Or write your own" aria-label="Your own defining experience">
+        </div>
+
+        <div class="q" id="bookBlock">
+          <p class="qlabel" id="bookTitle">Experiences I'd book</p>
+          <p class="help" id="bookHelp"></p>
+          <div class="book" id="bookList"></div>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">Your release ritual</p>
+          <p class="aside">Do like me and send a letter into the jungle.</p>
+          <div class="chips" data-field="ritual" id="ritualChips"></div>
+          <input class="custom-input" type="text" data-bind="ritualCustom" placeholder="Or write your own" aria-label="Your own release ritual">
+        </div>
+
+        <div class="q">
+          <label for="ritualWhere">Where will you do it?</label>
+          <input id="ritualWhere" type="text" data-bind="ritualWhere">
+        </div>
+
+        <div class="q">
+          <label for="carrying">What are you done carrying?</label>
+          <p class="help">List the roles you're releasing: wife, good girl, always the strong one. This stays private. It never appears on your ticket.</p>
+          <textarea id="carrying" data-bind="carrying"></textarea>
+        </div>
+
+        <div class="reflect">
+          <p class="reflect-k">Sit with this</p>
+          <p class="reflect-q" id="letgoReflectQ">Which version of me is ready to be thanked and released?</p>
+          <textarea data-bind="reflectLetgo" aria-labelledby="letgoReflectQ"></textarea>
+          <p class="help">Optional. Your answer stays private.</p>
+        </div>
+
+        <div class="picks" data-picks="letgo"></div>
+      </div>
+
+      <!-- 5 RETURN -->
+      <div class="step" data-step="5" hidden>
+        <h2 tabindex="-1">Woman coming back home</h2>
+        <p class="sub">Most of what a trip gives you gets lost in the first week back. You're back in the noise. Back in the demands. Back in the old patterns that would love to pull you under.</p>
+        <p class="sub lead-in">Don't come back the same woman who left.</p>
+
+        <div class="q">
+          <p class="qlabel">Anchor your first 48 hours</p>
+          <p class="help">Choose up to three.</p>
+          <div class="chips" data-field="home48" data-mode="multi" data-max="3">
+            <button type="button" class="chip" data-value="Phone off the first evening" aria-pressed="false">Phone off the first evening</button>
+            <button type="button" class="chip" data-value="I light the candle I traveled with" aria-pressed="false">I light the candle I traveled with</button>
+            <button type="button" class="chip" data-value="One long walk alone" aria-pressed="false">One long walk alone</button>
+            <button type="button" class="chip" data-value="No plans the first night" aria-pressed="false">No plans the first night</button>
+            <button type="button" class="chip" data-value="I unpack slowly" aria-pressed="false">I unpack slowly</button>
+            <button type="button" class="chip" data-value="I write what I can't unsee" aria-pressed="false">I write what I can't unsee</button>
+            <button type="button" class="chip" data-value="One boundary around work or family" aria-pressed="false">One boundary around work or family</button>
+          </div>
+        </div>
+
+        <div class="q">
+          <label for="action48">Within 48 hours of landing, I will</label>
+          <input id="action48" type="text" data-bind="action48" placeholder="Cancel the commitment that no longer fits">
+        </div>
+
+        <div class="q">
+          <p class="qlabel">Something you'll keep in sight</p>
+          <div class="chips" data-field="anchor">
+            <button type="button" class="chip" data-value="One photo from the trip, framed" aria-pressed="false">One photo from the trip, framed</button>
+            <button type="button" class="chip" data-value="A stone, shell, or object from the trip on my desk" aria-pressed="false">A stone, shell, or object from the trip on my desk</button>
+            <button type="button" class="chip" data-value="The scent I wore there" aria-pressed="false">The scent I wore there</button>
+            <button type="button" class="chip" data-value="A song from the trip" aria-pressed="false">A song from the trip</button>
+          </div>
+          <input class="custom-input" type="text" data-bind="anchorCustom" placeholder="Or write your own" aria-label="Your own anchor">
+        </div>
+
+        <div class="q">
+          <p class="qlabel">Finish your sentence</p>
+          <div class="sentence">
+            <span class="lead">This trip is designed to help me</span>
+            <input type="text" data-bind="designedTo" placeholder="release what I've been carrying" aria-label="This trip is designed to help me">
+            <span class="lead">so I can</span>
+            <input type="text" data-bind="soICan" placeholder="choose what comes next with a clear head" aria-label="so I can">
+          </div>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">Who's coming home?</p>
+          <p class="help">This line prints on your ticket.</p>
+          <div class="sentence">
+            <span class="lead">I'm returning as a woman who</span>
+            <input type="text" data-bind="returningAs" placeholder="rests without earning it" aria-label="I'm returning as a woman who">
+          </div>
+        </div>
+
+        <div class="q">
+          <p class="qlabel">For when you land</p>
+          <p class="help">The trip will show you things that need handling at home. Come back to this page once you're back and answer it then. Your plan will still be here.</p>
+          <label for="afterTrip" class="reflect-q" style="display:block;font-weight:400">What did this trip show me that needs handling now?</label>
+          <textarea id="afterTrip" data-bind="afterTrip"></textarea>
+        </div>
+
+        <div class="reflect">
+          <p class="reflect-k">Sit with this</p>
+          <p class="reflect-q" id="homeReflectQ">What is one thing I want to carry forward so I don't lose what I discovered?</p>
+          <textarea data-bind="reflectHome" aria-labelledby="homeReflectQ"></textarea>
+          <p class="help">Optional. Your answer stays private.</p>
+        </div>
+
+        <div class="picks" data-picks="home"></div>
+      </div>
+
+    </div>
+    <div class="wrap">
+      <div class="nav">
+        <button class="btn-text" id="backBtn" type="button">Back</button>
+        <button class="btn-primary" id="nextBtn" type="button">Continue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKET -->
+  <section id="screen-ticket" hidden>
+    <div class="ticket-stage">
+      <div class="wrap">
+        <p class="stage-kicker">Your Return Ticket</p>
+        <h2 class="stage-title" id="stageTitle">You're cleared for departure.</h2>
+        <div id="finalTicket"></div>
+        <div class="ticket-actions">
+          <button class="btn-stage" id="saveImgBtn" type="button">Save my ticket</button>
+          <button class="btn-stage-outline" id="printBtn" type="button">Download my full plan</button>
+        </div>
+        <p class="share-line">Post your ticket to your story and tag <strong>@que.athena</strong>. I reshare every one.</p>
+        <button class="btn-text on-stage" id="editBtn" type="button">Change an answer</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="plan" id="fullPlan"></div>
+
+      <div class="next">
+        <h2>Your next stops</h2>
+        <div class="offer">
+          <h3>Everything I pack and book</h3>
+          <p>HerCarryOn™ holds every product, app, and booking site I trust for a trip like this one.</p>
+          <a class="btn-secondary" id="suitcaseBtn" href="#" target="_blank" rel="noopener">Open HerCarryOn</a>
+        </div>
+        <div class="offer" id="channelOffer" hidden>
+          <h3>Stay close</h3>
+          <p>Follow @que.athena for daily notes on the season you're in, and first word when the next cohort opens.</p>
+          <a class="btn-secondary" id="channelBtn" href="#" target="_blank" rel="noopener">Follow on Instagram</a>
+        </div>
+        <div class="offer">
+          <h3>Plan it with me</h3>
+          <p>Travel to Recognize Her™ is a four-week cohort. A small group designs their trips together, with me by voice note at every stop. This planner becomes your workbook. The first cohort begins in January.</p>
+          <a class="btn-secondary" id="cohortBtn" href="#" target="_blank" rel="noopener">Join the waitlist</a>
+        </div>
+        <div class="offer">
+          <h3>Take me with you</h3>
+          <p>HerPassageHome™ keeps me in your pocket. You get my mentoring by voice note for the moments solo travel gets hard: dinner alone, the first night in a strange room, the urge to fly home early, the crash after you land. It runs from three weeks before you leave until 30 days after you're home.</p>
+          <a class="btn-secondary" id="companionBtn" href="#" target="_blank" rel="noopener">Ask about HerPassageHome</a>
+        </div>
+        <p class="quiet">If the decision you're really carrying is your marriage, start with <a id="crossroadsLink" href="#" target="_blank" rel="noopener">Crossroads</a>.</p>
+      </div>
+
+      <p class="disclosure">Some links in this planner are affiliate links. If you book or buy through them, I may earn a commission at no extra cost to you. I only share what I'd use myself.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">NextSeasonHer™ by Que Athena</footer>
+
+<div class="story-frame" id="storyFrame" aria-hidden="true">
+  <div id="storyTicket"></div>
+  <p class="story-cap">Planned with HerReturnTicket by @que.athena</p>
+</div>
+
+<div class="overlay" id="overlay" hidden role="dialog" aria-modal="true" aria-label="Your saved ticket">
+  <img id="overlayImg" alt="Your Return Ticket">
+  <p class="overlay-text" id="overlayText">On your phone, press and hold the image to save it to your photos.</p>
+  <div class="overlay-actions">
+    <a class="btn-stage" id="downloadLink" download="her-return-ticket.png" href="#">Download image</a>
+    <button class="btn-stage-outline" id="closeOverlay" type="button">Close</button>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ─────────────────────────────────────────
+   CONFIG: update these before going live
+   ───────────────────────────────────────── */
+const CONFIG = {
+  // Your welcome video as an embed link (YouTube or Loom "embed" URL). Leave empty to use audio instead.
+  introVideoUrl: "",
+  // Or a voice note (.mp3). Used only when there is no video.
+  introAudioUrl: "",
+  suitcaseUrl: "#",    // Your HerCarryOn™ page
+  cohortUrl: "mailto:que@queathena.com?subject=Interested%20in%20Travel%20to%20Recognize%20Her",
+  companionUrl: "mailto:que@queathena.com?subject=Interested%20in%20HerPassageHome",
+  channelUrl: "https://www.instagram.com/que.athena/", // Where "Stay close" sends her. Leave empty to hide the block.
+  crossroadsUrl: "https://que-athena.github.io/queathena/crossroads.html",
+  // Stay22: paste the link format from your Stay22 dashboard. {place} becomes her destination.
+  stay22Template: "https://www.stay22.com/allez/roam?aid=YOUR_AID&address={place}",
+  // Experience search links. Add your partner IDs from each program. {q} is the search, {place} the destination.
+  getyourguideTemplate: "https://www.getyourguide.com/s/?q={q}",
+  viatorTemplate: "https://www.viator.com/searchResults/all?text={q}",
+  handle: "@que.athena"
+};
+
+/* In My Suitcase picks for each step, grouped.
+   Replace each url with your affiliate link once you're approved.
+   Leave a url empty to send her to HerCarryOn™ instead. */
+const AFFILIATES = {
+  plans: [
+    { group: "Getting there", items: [
+      { name: "Google Flights", why: "Track prices and see which dates are cheapest to fly.", url: "https://www.google.com/travel/flights" },
+      { name: "Going", why: "Flight deal alerts from your home airport.", url: "https://www.going.com" },
+      { name: "Rome2Rio", why: "Every way from the airport to your door, with times and costs.", url: "https://www.rome2rio.com" }
+    ]},
+    { group: "Staying", items: [
+      { name: "Stay22", why: "Hotels, guesthouses, and apartments on one map, so you can choose by neighborhood.", stay22: true }
+    ]},
+    { group: "Money", items: [
+      { name: "Wise", why: "Hold and spend local currency at the real exchange rate.", url: "https://wise.com" },
+      { name: "Charles Schwab Investor Checking", why: "No foreign ATM fees, so cash never costs extra.", url: "https://www.schwab.com/checking" }
+    ]}
+  ],
+  ready: [
+    { group: "Protection", items: [
+      { name: "World Nomads", why: "Travel insurance built for solo, international trips.", url: "https://www.worldnomads.com" },
+      { name: "SafetyWing", why: "Insurance that works well for longer stays.", url: "https://safetywing.com" },
+      { name: "STEP", why: "Free. The U.S. embassy knows where you are if something happens.", url: "https://step.state.gov" },
+      { name: "Portable door lock", why: "A second lock for any room. It fits in your carry-on.", url: "" },
+      { name: "Apple AirTag", why: "Know where your luggage is, always.", url: "https://www.apple.com/airtag/" }
+    ]},
+    { group: "Connection", items: [
+      { name: "Airalo eSIM", why: "Land connected without hunting for a SIM card.", url: "https://www.airalo.com" },
+      { name: "NordVPN", why: "Keeps your logins and cards private on hotel and café wifi.", url: "https://nordvpn.com" },
+      { name: "TripIt", why: "Every booking in one place, shareable with the one person you trust.", url: "https://www.tripit.com" },
+      { name: "Google Maps offline", why: "Download your neighborhood so you can find home without data.", url: "https://www.google.com/maps" },
+      { name: "Google Translate", why: "Point your camera at a menu or sign and read it.", url: "https://translate.google.com" }
+    ]},
+    { group: "Packing", items: [
+      { name: "Compression packing cubes", why: "Everything has a place, so mornings stay calm.", url: "" },
+      { name: "Silk sleep mask", why: "Real rest in any room, on any schedule.", url: "" },
+      { name: "Portable charger", why: "A full phone when you're far from your room.", url: "" },
+      { name: "Noise-canceling headphones", why: "Quiet on the plane and anywhere you need it.", url: "" }
+    ]}
+  ],
+  letgo: [
+    { group: "Reflection", items: [
+      { name: "Day One", why: "A private journal with voice, photo, and written entries.", url: "https://dayoneapp.com" },
+      { name: "Insight Timer", why: "Free guided meditations for the hard evenings.", url: "https://insighttimer.com" },
+      { name: "A journal you'll actually write in", why: "Choose one that makes you want to open it.", url: "" }
+    ]}
+  ],
+  home: [
+    { group: "Memory anchors", items: [
+      { name: "Artifact Uprising", why: "Print the trip so it lives somewhere you'll see it.", url: "https://www.artifactuprising.com" },
+      { name: "Framebridge", why: "Frame one photo and keep it in sight.", url: "https://www.framebridge.com" }
+    ]},
+    { group: "Keep it going", items: [
+      { name: "Babbel", why: "Keep the language you started speaking there.", url: "https://www.babbel.com" }
+    ]}
+  ]
+};
+
+/* Experiences I'd book in each of my places. Provider: gyg or viator. */
+const EXPERIENCES = {
+  "Tulum": [
+    { title: "Swim a cenote at first light", why: "Clear, cold water before the crowds arrive.", p: "gyg", q: "Tulum cenote" },
+    { title: "A temazcal ceremony", why: "A traditional sweat lodge built for release.", p: "gyg", q: "Tulum temazcal" },
+    { title: "Sian Ka'an by boat", why: "Lagoons and mangroves inside a protected biosphere.", p: "viator", q: "Sian Ka'an" }
+  ],
+  "Holbox": [
+    { title: "Bioluminescence after dark, in season", why: "From June to October, the lagoon glows when you move through it. Go on a moonless night.", p: "gyg", q: "Holbox bioluminescence" },
+    { title: "Kayak through the mangroves", why: "Slow paddling with nothing but birds around you.", p: "viator", q: "Holbox kayak" },
+    { title: "Swim with whale sharks, in season", why: "Gentle giants in open water, June to mid-September.", p: "gyg", q: "Holbox whale shark" }
+  ],
+  "Tunbridge Wells": [
+    { title: "A day at Hever Castle", why: "Anne Boleyn's childhood home, with gardens to wander alone.", p: "gyg", q: "Hever Castle" },
+    { title: "Leeds Castle and the Kent countryside", why: "A castle on a lake, and centuries of quiet.", p: "viator", q: "Leeds Castle" },
+    { title: "A class with locals", why: "Learn something new where no one knows your roles.", p: "gyg", q: "Kent England class workshop" }
+  ],
+  "San Miguel de Allende": [
+    { title: "Meet local artisans at Fábrica La Aurora", why: "Walk the handmade works inside an old textile mill and meet the people who made them.", p: "gyg", q: "San Miguel de Allende art tour" },
+    { title: "A Mexican cooking class", why: "Market, kitchen, and a table full of new friends.", p: "viator", q: "San Miguel de Allende cooking class" },
+    { title: "Hot springs outside town", why: "Warm water and a long, slow afternoon.", p: "gyg", q: "San Miguel de Allende hot springs" }
+  ],
+  "Playa del Carmen": [
+    { title: "Snorkel with sea turtles in Akumal", why: "Float beside turtles feeding in the bay.", p: "gyg", q: "Akumal turtles" },
+    { title: "A day on Cozumel", why: "A short ferry to a slower island.", p: "viator", q: "Cozumel" },
+    { title: "A cenote day", why: "Fresh water, limestone, and light through the ceiling.", p: "gyg", q: "Playa del Carmen cenote" }
+  ],
+  "Mexico City": [
+    { title: "Casa Azul, Frida Kahlo's home", why: "Walk through the house where she painted her life.", p: "gyg", q: "Frida Kahlo Museum" },
+    { title: "A street food walk", why: "Taste the city one stall at a time.", p: "viator", q: "Mexico City food tour" },
+    { title: "Sunrise balloon over Teotihuacan", why: "Ancient pyramids from above at dawn.", p: "gyg", q: "Teotihuacan balloon" }
+  ]
+};
+const PROVIDER_NAME = { gyg: "GetYourGuide", viator: "Viator" };
+
+/* An Unsplash photo id, or your own photo path like "img/tulum.jpg" */
+function img(id){ return /[\/.]/.test(id) ? id : "https://images.unsplash.com/" + id + "?auto=format&fit=crop&w=1200&q=70"; }
+
+/* Seasons, your places, and what each one offers.
+   Stock photos from Unsplash. Swap in your own photos any time. Lines marked EDIT are drafts in your voice. */
+const SEASONS = {
+  griever: {
+    name: "The Griever",
+    season: "Season of Recalibration",
+    mirror: "You lost something you can't get back, and the rest of you hasn't caught up.",
+    need: "Stillness, and room to feel it without performing okay.",
+    planNote: "Grief moves slowly. Give yourself at least five days, one quiet home base, and no more than one plan a day.",
+    que: [
+      { place: "Tulum", region: "Quintana Roo, Mexico", line: "Where I let myself cry for days and let it go into the jungle.", photo: img("photo-1568548634530-38ee433dcc1b") }
+    ],
+    global: [
+      { place: "Hallstatt", region: "Austria", why: "A lakeside village wrapped in mist and mountains. Tender and slow." },
+      { place: "Sligo", region: "Ireland", why: "Wild coastline and ancient cairns. Land that has held grief for centuries." }
+    ],
+    experiences: ["A day of silence near water", "A swim somewhere wild at first light", "Dinner for one somewhere beautiful, phone away", "A guided visit to a sacred site"],
+    rituals: ["Write to what I lost, then burn the letter", "Send a letter into the jungle", "Release a stone into water and name the ending", "Bury one object from the old chapter", "Whisper one thing I'm done holding into the ocean, a canyon, a garden, or a quiet street"],
+    where: "At the water's edge at sunset"
+  },
+  invisible: {
+    name: "The Invisible",
+    season: "Season of Reorientation",
+    mirror: "There's something you've wanted to do for years. You keep putting it last, and no one sees it because you never say it out loud.",
+    need: "Space to hear what you've been holding back, and a place where no one needs you to stay small.",
+    planNote: "Give yourself at least a week. Spend one full day on a small version of the thing you've been holding back, somewhere no one knows you.",
+    que: [
+      { place: "Tunbridge Wells", region: "Kent, England", line: "A village where the same faces greeted me every day, and centuries-old castles woke my sense of wonder back up.", photo: img("photo-1520451700286-0953c4ec7efc") }, // EDIT
+      { place: "San Miguel de Allende", region: "Guanajuato, Mexico", line: "Deep cultural immersion, and a social life with locals and expats that pulled me back into the world.", photo: img("photo-1717654543196-4d6826ec4bb8") } // EDIT
+    ],
+    global: [
+      { place: "Matera", region: "Italy", why: "Ancient stone dwellings turned radiant with light." },
+      { place: "Valparaíso", region: "Chile", why: "Hillsides of color and street art with a bohemian spirit." }
+    ],
+    experiences: ["A day spent on the thing I've been holding back", "A class where no one knows my roles", "An afternoon alone in a gallery", "Dinner for one at the best table"],
+    rituals: ["Write down the thing I've been holding back and say it out loud", "Burn a list of the reasons I keep waiting", "Whisper one thing I'm done holding into the ocean, a canyon, a garden, or a quiet street", "Leave one thing I hid behind at the water", "Send a letter into the jungle"],
+    where: "Somewhere I feel beautiful"
+  },
+  exhausted: {
+    name: "The Exhausted",
+    season: "Season of Recalibration",
+    mirror: "You're tired in a way sleep doesn't fix.",
+    need: "Quiet, fewer demands, and days that ask nothing of you.",
+    planNote: "Book your first two days with nothing in them. Rest first. Explore only if you want to.",
+    que: [
+      { place: "Holbox", region: "Quintana Roo, Mexico", line: "Pure beauty. Sand streets, no cars, and nothing asking anything of me.", photo: img("photo-1646703186183-f367d1b070e5") } // EDIT
+    ],
+    global: [
+      { place: "Lake Atitlán", region: "Guatemala", why: "Quiet lake towns where mornings begin with volcanoes in the mist." },
+      { place: "Isle of Skye", region: "Scotland", why: "Wild cliffs and misty lochs that slow you down without asking." }
+    ],
+    experiences: ["A full morning of silence", "A massage with nowhere to be after", "A day with no plans at all", "An evening under the stars, alone"],
+    rituals: ["Write down everything I'm carrying, then tear it up", "Leave my to-do list in the sea", "One morning with no phone and no words", "Send a letter into the jungle", "Whisper one thing I'm done holding into the ocean, a canyon, a garden, or a quiet street"],
+    where: "On the beach before anyone else wakes"
+  },
+  seeker: {
+    name: "The Seeker",
+    season: "Season of Reorientation",
+    mirror: "You've outgrown the life you've been living, and you haven't told a single person.",
+    need: "Room to wander until the next direction shows itself.",
+    planNote: "Plan less than feels comfortable. Curiosity needs empty hours to lead you somewhere.",
+    que: [
+      { place: "Playa del Carmen", region: "Quintana Roo, Mexico", line: "Where I stretched to bring my desires into real life, and found a community that expanded me.", photo: img("photo-1707006050483-a2eb38b1db92") }, // EDIT
+      { place: "Mexico City", region: "Mexico", line: "Wonder, beauty, and culture on every block, with people everywhere and weather that never fought me.", photo: img("photo-1747835350334-887682f9a68c") } // EDIT
+    ],
+    global: [
+      { place: "Ljubljana", region: "Slovenia", why: "Walkable and green, with riverside cafés made for lingering." },
+      { place: "Cusco", region: "Peru", why: "Andean markets and mountain streets that reward wandering." }
+    ],
+    experiences: ["A day with no agenda, following my feet", "A walk along an old pilgrim path", "A local class that makes me a beginner", "A long talk with someone whose life looks nothing like mine"],
+    rituals: ["Write a letter to who I was, then burn it", "Bury the roles I outgrew", "Whisper one thing I'm done holding into the ocean, a canyon, a garden, or a quiet street", "Write the first line of my next chapter and leave it there", "Send a letter into the jungle"],
+    where: "Somewhere I've never been before"
+  }
+};
+const ORDER = ["griever", "exhausted", "seeker", "invisible"];
+const SEASON_REFLECT = "What does my body ask for when no one's watching?";
+const QUICK = { a: "griever", b: "exhausted", c: "seeker", d: "invisible" };
+const STEP_LABELS = ["Season", "Place", "Plans", "Ready", "Release", "Return"];
+const LAST = STEP_LABELS.length - 1;
+
+/* ───────────── State ───────────── */
+const KEY = "herReturnTicket.v1";
+const DEFAULTS = {
+  name: "", season: "", fromQuiz: "", suggested: [],
+  place: "", placeRegion: "", placeKind: "",
+  departDate: "", noDate: false, length: "", homeBase: "", budget: "", pace: "", phone: "", solitude: 60,
+  safety: [], toldPeople: false, boundary: "", words: ["", "", ""],
+  luggageBoundary: "", luggageConversation: "", luggageEnergy: "",
+  experience: "", experienceCustom: "", ritual: "", ritualCustom: "", ritualWhere: "", carrying: "",
+  home48: [], action48: "", anchor: "", anchorCustom: "", designedTo: "", soICan: "", returningAs: "", afterTrip: "",
+  reflectSeason: "", reflectPlace: "", reflectPlans: "", reflectReady: "", reflectLetgo: "", reflectHome: "",
+  step: 0, maxStep: 0, started: false
+};
+let state = JSON.parse(JSON.stringify(DEFAULTS));
+
+function load(){
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) state = Object.assign({}, state, JSON.parse(raw));
+  } catch (e) {}
+}
+function save(){
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+/* ───────────── Helpers ───────────── */
+const $ = (s, el) => (el || document).querySelector(s);
+const $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+function hash(str){
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+function strip(s){ return String(s || "").replace(/^(A|An) /, ""); }
+function cap(s){ s = String(s || ""); return s.charAt(0).toUpperCase() + s.slice(1); }
+function val(custom, chosen){ return (state[custom] || "").trim() || state[chosen] || ""; }
+function fmtMins(m){
+  m = Number(m) || 0;
+  if (m < 60) return m + " minutes";
+  const h = Math.floor(m / 60), r = m % 60;
+  if (!r) return h === 1 ? "1 hour" : h + " hours";
+  return h + " hr " + r + " min";
+}
+
+/* ───────────── Links ───────────── */
+function placeQuery(place, region){ return place ? place + (region ? ", " + region : "") : ""; }
+function stayUrlFor(place, region){
+  return CONFIG.stay22Template.replace("{place}", encodeURIComponent(placeQuery(place, region)));
+}
+function stayUrl(){ return stayUrlFor(state.place, state.placeRegion); }
+function expUrl(p, q, place){
+  const t = p === "viator" ? CONFIG.viatorTemplate : CONFIG.getyourguideTemplate;
+  return t.replace("{q}", encodeURIComponent(q || place || ""));
+}
+
+/* ───────────── Screens ───────────── */
+function show(id){
+  ["screen-welcome", "screen-steps", "screen-ticket"].forEach(x => { $("#" + x).hidden = x !== id; });
+  $("#route").hidden = id !== "screen-steps";
+  window.scrollTo(0, 0);
+}
+
+function goStep(i){
+  state.step = i;
+  state.maxStep = Math.max(state.maxStep || 0, i);
+  save();
+  show("screen-steps");
+  $$(".step").forEach(s => { s.hidden = Number(s.dataset.step) !== i; });
+  if (i === 1) renderPlaces();
+  if (i === 2) renderPlanNote();
+  if (i === 4) { renderLetGo(); renderBook(); }
+  renderPicks();
+  renderStayLinks();
+  renderCheckLinks();
+  renderRoute();
+  updateNav();
+  const h = $('.step[data-step="' + i + '"] h2');
+  if (h) h.focus({ preventScroll: true });
+}
+
+function renderRoute(){
+  $("#routeList").innerHTML = STEP_LABELS.map((label, i) => {
+    const cls = i === state.step ? "current" : (i <= (state.maxStep || 0) ? "done" : "");
+    const dis = i > (state.maxStep || 0) ? " disabled" : "";
+    const cur = i === state.step ? ' aria-current="step"' : "";
+    return '<li class="' + cls + '"><button type="button" data-go="' + i + '"' + dis + cur + '><span class="dot"></span><span class="lbl">' + label + "</span></button></li>";
+  }).join("");
+}
+
+function canContinue(){
+  if (state.step === 0) return !!state.season;
+  if (state.step === 1) return !!state.place;
+  return true;
+}
+function updateNav(){
+  const n = $("#nextBtn");
+  n.disabled = !canContinue();
+  n.textContent = state.step === LAST ? "Print my ticket" : "Continue";
+}
+
+/* ───────────── Season ───────────── */
+function renderSeasonCards(animateKey){
+  $("#seasonCards").innerHTML = ORDER.map(k => {
+    const s = SEASONS[k];
+    const sel = state.season === k;
+    const sug = (state.suggested || []).indexOf(k) > -1 && !sel;
+    return '<button type="button" class="season-card' + (sel ? " selected" : "") + (sug ? " suggested" : "") + '" data-season="' + k + '" aria-pressed="' + sel + '">' +
+      '<span class="season-head"><span class="season-name">' + s.name + '</span><span class="season-tag">' + s.season + "</span></span>" +
+      '<span class="mirror">' + esc(s.mirror) + "</span>" +
+      '<span class="need"><b>You need:</b> ' + esc(s.need) + "</span>" +
+      (sug ? '<span class="suggest-tag">This came up for you</span>' : "") +
+      (sel ? '<span class="stamp' + (animateKey === k ? " pressed" : "") + '" aria-hidden="true"><small>Departing as</small>' + s.name + "</span>" : "") +
+      "</button>";
+  }).join("");
+  renderSeasonReflect();
+}
+
+function renderSeasonReflect(){
+  const s = SEASONS[state.season];
+  $("#seasonReflect").hidden = !s;
+  if (s) $("#seasonReflectQ").textContent = SEASON_REFLECT;
+}
+
+function selectSeason(k, animate){
+  if (state.season !== k) {
+    const prev = state.season;
+    state.season = k;
+    if (prev && state.placeKind !== "custom") { state.place = ""; state.placeRegion = ""; state.placeKind = ""; }
+  }
+  state.suggested = [];
+  save();
+  renderSeasonCards(animate ? k : null);
+  updateNav();
+}
+
+const quick = {};
+function quickReady(){ $("#quickBtn").disabled = !(quick[1] && quick[2]); }
+
+/* ───────────── Place ───────────── */
+function placeCard(p, kind){
+  const chosen = state.place === p.place;
+  const btn = '<a class="btn-choose" href="' + esc(stayUrlFor(p.place, p.region)) + '" target="_blank" rel="noopener sponsored" data-place="' + esc(p.place) + '" data-region="' + esc(p.region) + '" data-kind="' + kind + '" aria-pressed="' + chosen + '">' + (chosen ? "Chosen" : "Choose " + esc(p.place)) + "</a>";
+  if (kind === "que") {
+    const photo = '<span class="photo-fallback">' + esc(p.place) + "</span>" +
+      (p.photo ? '<img src="' + esc(p.photo) + '" alt="' + esc(p.place) + '" loading="lazy" onerror="this.remove()">' : "");
+    return '<article class="place-card' + (chosen ? " chosen" : "") + '"><div class="place-photo">' + photo + '</div><div class="place-body"><span class="pick-label">Que\'s pick</span><h3 class="place-name">' + esc(p.place) + '</h3><p class="region">' + esc(p.region) + '</p><p class="que-line">“' + esc(p.line) + "”</p>" + btn + "</div></article>";
+  }
+  return '<article class="place-card small' + (chosen ? " chosen" : "") + '"><div class="place-body"><h3 class="place-name">' + esc(p.place) + '</h3><p class="region">' + esc(p.region) + '</p><p class="why">' + esc(p.why) + "</p>" + btn + "</div></article>";
+}
+
+function renderPlaces(){
+  const s = SEASONS[state.season];
+  if (!s) return;
+  $("#quePicks").innerHTML = s.que.map(p => placeCard(p, "que")).join("");
+  $("#globalPicks").innerHTML = s.global.map(p => placeCard(p, "global")).join("");
+  $("#customPlace").value = state.placeKind === "custom" ? state.place : "";
+}
+
+function choosePlace(place, region, kind){
+  state.place = place;
+  state.placeRegion = region || "";
+  state.placeKind = kind;
+  save();
+  renderPlaces();
+  renderStayLinks();
+  renderPicks();
+  updateNav();
+}
+
+function renderStayLinks(){
+  const a = $("#homeStay");
+  if (!state.place) { a.hidden = true; return; }
+  a.hidden = false;
+  a.href = stayUrl();
+  a.textContent = state.homeBase
+    ? "Find " + state.homeBase.charAt(0).toLowerCase() + state.homeBase.slice(1) + " in " + state.place
+    : "Find a place to stay in " + state.place;
+}
+
+/* ───────────── Plans ───────────── */
+function renderPlanNote(){
+  const s = SEASONS[state.season];
+  const n = $("#planNote");
+  if (!s) { n.hidden = true; return; }
+  n.innerHTML = "<strong>For " + esc(s.name) + ":</strong> " + esc(s.planNote);
+  n.hidden = false;
+}
+
+/* ───────────── Let go ───────────── */
+function chip(v){ return '<button type="button" class="chip" data-value="' + esc(v) + '" aria-pressed="false">' + esc(v) + "</button>"; }
+function renderLetGo(){
+  const s = SEASONS[state.season] || SEASONS.seeker;
+  $("#expChips").innerHTML = s.experiences.map(chip).join("");
+  $("#ritualChips").innerHTML = s.rituals.map(chip).join("");
+  $("#ritualWhere").placeholder = s.where;
+  syncChips();
+}
+
+function renderBook(){
+  const place = state.place;
+  const block = $("#bookBlock");
+  if (!place) { block.hidden = true; return; }
+  block.hidden = false;
+  const list = EXPERIENCES[place];
+  if (list) {
+    $("#bookTitle").textContent = "Experiences I'd book in " + place;
+    $("#bookHelp").textContent = "Make one your defining experience, or look at the options.";
+    $("#bookList").innerHTML = list.map(e => {
+      const on = state.experience === e.title && !(state.experienceCustom || "").trim();
+      return '<div class="book-item' + (on ? " on" : "") + '"><strong>' + esc(e.title) + "</strong><p>" + esc(e.why) + " <span class=\"via\">via " + PROVIDER_NAME[e.p] + "</span></p>" +
+        '<div class="book-actions"><button type="button" class="btn-mini" data-make="' + esc(e.title) + '" aria-pressed="' + on + '">' + (on ? "My defining experience" : "Make this my defining experience") + "</button>" +
+        '<a class="btn-mini" href="' + esc(expUrl(e.p, e.q, place)) + '" target="_blank" rel="noopener sponsored">See options</a></div></div>';
+    }).join("");
+  } else {
+    $("#bookTitle").textContent = "Find experiences in " + place;
+    $("#bookHelp").textContent = "Look for one thing that fits your season. Book less. Go deeper.";
+    const q = placeQuery(place, state.placeRegion);
+    $("#bookList").innerHTML = [
+      ["Tours and day trips", "gyg", ""], ["Small-group experiences", "viator", ""], ["Classes and workshops", "gyg", " class"]
+    ].map(r => '<div class="book-item"><strong>' + r[0] + " in " + esc(place) + '</strong><p><span class="via">via ' + PROVIDER_NAME[r[1]] + '</span></p><div class="book-actions"><a class="btn-mini" href="' + esc(expUrl(r[1], q + r[2], place)) + '" target="_blank" rel="noopener sponsored">See options</a></div></div>').join("");
+  }
+}
+
+/* ───────────── In My Suitcase ───────────── */
+function renderPicks(){
+  $$("[data-picks]").forEach(box => {
+    const groups = AFFILIATES[box.dataset.picks] || [];
+    const body = groups.map(g => {
+      const rows = g.items.map(p => {
+        let url = CONFIG.suitcaseUrl, label = "In my suitcase";
+        if (p.stay22) { url = state.place ? stayUrl() : stayUrlFor("", ""); label = "See stays"; }
+        else if (p.url) { url = p.url; label = "See it"; }
+        return '<div class="pick"><div><strong>' + esc(p.name) + "</strong><p>" + esc(p.why) + '</p></div><a href="' + esc(url) + '" target="_blank" rel="noopener sponsored">' + label + "</a></div>";
+      }).join("");
+      return '<p class="pick-group">' + esc(g.group) + "</p>" + rows;
+    }).join("");
+    box.innerHTML = '<h3>In My Suitcase</h3><p class="help">What I\'d use for this part of the trip.</p>' + body +
+      '<a class="suitcase-link" href="' + esc(CONFIG.suitcaseUrl) + '" target="_blank" rel="noopener">See everything in HerCarryOn™</a>';
+  });
+}
+
+/* Links under the safety checkboxes, pulled from In My Suitcase */
+function findPick(name){
+  for (const k in AFFILIATES) for (const g of AFFILIATES[k]) for (const p of g.items) if (p.name === name) return p;
+  return null;
+}
+function renderCheckLinks(){
+  $$(".check-links[data-links]").forEach(el => {
+    const links = el.dataset.links.split("|").map(n => {
+      let url = CONFIG.suitcaseUrl, label = n;
+      if (n === "Stay22") { url = state.place ? stayUrl() : stayUrlFor("", ""); label = state.place ? "Stays in " + state.place : "Stay22"; }
+      else { const p = findPick(n); if (p && p.url) url = p.url; }
+      return '<a href="' + esc(url) + '" target="_blank" rel="noopener sponsored">' + esc(label) + "</a>";
+    });
+    el.innerHTML = "In My Suitcase: " + links.join(" · ");
+  });
+}
+
+/* ───────────── Inputs, chips, checks ───────────── */
+const CUSTOM_FOR = { experience: "experienceCustom", ritual: "ritualCustom", anchor: "anchorCustom" };
+const BASE_FOR = { experienceCustom: "experience", ritualCustom: "ritual", anchorCustom: "anchor" };
+
+function syncChips(){
+  $$(".chips[data-field]").forEach(box => {
+    const v = state[box.dataset.field];
+    $$(".chip", box).forEach(c => {
+      const on = Array.isArray(v) ? v.indexOf(c.dataset.value) > -1 : v === c.dataset.value;
+      c.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  });
+}
+
+function syncInputs(){
+  $$("[data-bind]").forEach(el => {
+    const v = state[el.dataset.bind];
+    if (el.type === "checkbox") el.checked = !!v;
+    else el.value = v == null ? "" : v;
+  });
+  $$("[data-word]").forEach(el => { el.value = state.words[Number(el.dataset.word)] || ""; });
+  $$(".checks[data-field] input").forEach(cb => {
+    const list = state[cb.closest(".checks").dataset.field] || [];
+    cb.checked = list.indexOf(cb.value) > -1;
+  });
+  updateSolitude();
+  toggleDate();
+  syncChips();
+}
+
+function updateSolitude(){ $("#solitudeOut").textContent = fmtMins(state.solitude); }
+function toggleDate(){ $("#departDate").disabled = !!state.noDate; }
+
+function bindInputs(){
+  $$("[data-bind]").forEach(el => {
+    const f = el.dataset.bind;
+    const evt = (el.type === "checkbox" || el.type === "date") ? "change" : "input";
+    el.addEventListener(evt, () => {
+      if (el.type === "checkbox") state[f] = el.checked;
+      else if (el.type === "range") state[f] = Number(el.value);
+      else state[f] = el.value;
+      if (BASE_FOR[f] && el.value.trim()) { state[BASE_FOR[f]] = ""; syncChips(); if (f === "experienceCustom") renderBook(); }
+      if (f === "solitude") updateSolitude();
+      if (f === "noDate") toggleDate();
+      save();
+      updateNav();
+    });
+  });
+  $$("[data-word]").forEach(el => {
+    el.addEventListener("input", () => { state.words[Number(el.dataset.word)] = el.value; save(); });
+  });
+}
+
+function flashHelp(box){
+  const help = box.previousElementSibling;
+  if (help && help.classList.contains("help")) {
+    help.classList.add("warn");
+    setTimeout(() => help.classList.remove("warn"), 1400);
+  }
+}
+
+/* ───────────── Ticket ───────────── */
+function fmtDate(){
+  if (state.noDate || !state.departDate) return "When I decide";
+  const d = new Date(state.departDate + "T12:00:00");
+  if (isNaN(d)) return state.departDate;
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+
+function ticketData(){
+  const s = SEASONS[state.season];
+  const words = state.words.map(w => (w || "").trim()).filter(Boolean);
+  const ritual = val("ritualCustom", "ritual");
+  const ret = (state.returningAs || "").trim().replace(/^a woman who\s*/i, "");
+  return {
+    passenger: (state.name || "").trim() || "Passenger",
+    departing: s ? s.name : "Who I've been",
+    seasonTag: s ? s.season.replace("Season of ", "") : "Season",
+    stamp: "Cleared",
+    returning: ret ? "A woman who " + ret : "Myself",
+    destination: state.place || "Yours to choose",
+    departs: fmtDate(),
+    stay: strip(state.length) ? cap(strip(state.length)) : "Open",
+    seat: strip(state.homeBase) ? cap(strip(state.homeBase)) : "Open",
+    gate: (state.ritualWhere || "").trim() || ritual || "Open",
+    packed: words.length ? words.join(", ") : "Lightly",
+    arrival: (state.home48 && state.home48[0]) || (state.action48 || "").trim() || "A soft landing",
+    no: "NSH " + (1000 + hash(state.name + state.place + state.season) % 9000)
+  };
+}
+
+const SAMPLE = {
+  passenger: "You", departing: "Who you've been", seasonTag: "Your season", stamp: "Pending",
+  returning: "A woman who knows what she wants", destination: "NextSeasonHer",
+  departs: "Soon", stay: "Your call", seat: "Home base", gate: "Your release",
+  packed: "Three words", arrival: "Your first 48 hours home", no: "NSH 0000"
+};
+
+function barcode(seed){
+  let h = hash(seed) || 1, out = "";
+  for (let i = 0; i < 34; i++) {
+    h ^= h << 13; h >>>= 0; h ^= h >>> 17; h ^= h << 5; h >>>= 0;
+    out += '<span style="width:' + (1 + (h % 3)) + 'px"></span>';
+  }
+  return out;
+}
+
+function ticketHTML(d){
+  return '<div class="ticket">' +
+    '<div class="t-head"><span class="t-title">HerReturnTicket<span class="tm">™</span></span><span class="t-brand">NextSeasonHer</span></div>' +
+    '<div class="t-field"><div class="t-label">Passenger</div><div class="t-value t-strong">' + esc(d.passenger) + "</div></div>" +
+    '<div class="t-field t-departing"><div class="t-label">Departing as</div><div class="t-big">' + esc(d.departing) + '</div><span class="t-stamp" aria-hidden="true"><small>' + esc(d.seasonTag) + "</small>" + esc(d.stamp) + "</span></div>" +
+    '<div class="t-field"><div class="t-label">Returning as</div><div class="t-returning">' + esc(d.returning) + "</div></div>" +
+    '<div class="t-field"><div class="t-label">Destination</div><div class="t-big">' + esc(d.destination) + "</div></div>" +
+    '<div class="t-grid">' +
+      '<div class="t-field"><div class="t-label">Departs</div><div class="t-value">' + esc(d.departs) + "</div></div>" +
+      '<div class="t-field"><div class="t-label">Stay</div><div class="t-value">' + esc(d.stay) + "</div></div>" +
+      '<div class="t-field"><div class="t-label">Seat</div><div class="t-value">' + esc(d.seat) + "</div></div>" +
+      '<div class="t-field"><div class="t-label">Gate</div><div class="t-value">' + esc(d.gate) + "</div></div>" +
+    "</div>" +
+    '<div class="t-field"><div class="t-label">Packed for</div><div class="t-value">' + esc(d.packed) + "</div></div>" +
+    '<div class="t-perf" aria-hidden="true"></div>' +
+    '<div class="t-field"><div class="t-label">Arrival</div><div class="t-value">' + esc(d.arrival) + "</div></div>" +
+    '<div class="t-foot"><div><div class="t-handle">' + esc(CONFIG.handle) + '</div><div class="t-no">' + esc(d.no) + '</div></div><div class="barcode" aria-hidden="true">' + barcode(d.no + d.passenger) + "</div></div>" +
+  "</div>";
+}
+
+function dlRows(rows){
+  rows = rows.filter(r => String(r[1] || "").trim());
+  if (!rows.length) return "";
+  return "<dl>" + rows.map(r => "<dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd>").join("") + "</dl>";
+}
+
+function renderPlan(){
+  const d = ticketData();
+  const s = SEASONS[state.season];
+  const words = state.words.map(w => (w || "").trim()).filter(Boolean).join(", ");
+  const ritual = val("ritualCustom", "ritual");
+  const where = (state.ritualWhere || "").trim();
+  const designed = (state.designedTo || "").trim();
+  const soICan = (state.soICan || "").trim();
+
+  const trip = dlRows([
+    ["My season", state.season ? d.departing : ""],
+    ["Destination", state.place ? placeQuery(state.place, state.placeRegion) : ""],
+    ["Departs", d.departs],
+    ["Length", state.length],
+    ["Home base", state.homeBase],
+    ["Spending ceiling", state.budget ? "$" + state.budget : ""],
+    ["How my days feel", state.pace],
+    ["Phone plan", state.phone],
+    ["Time alone each day", fmtMins(state.solitude)]
+  ]);
+  const ready = dlRows([
+    ["Safety non-negotiables", (state.safety || []).join("; ")],
+    ["My people", state.toldPeople ? "Told. I'll be slower to respond, and that's enough." : ""],
+    ["Boundary sentence", state.boundary],
+    ["Three words for my suitcase", words],
+    ["The boundary I'll set before I go", state.luggageBoundary],
+    ["The conversation that will help me breathe", state.luggageConversation],
+    ["The energy I'm done carrying", state.luggageEnergy]
+  ]);
+  const release = dlRows([
+    ["Defining experience", val("experienceCustom", "experience")],
+    ["Release ritual", ritual + (ritual && where ? ", " + where : (!ritual && where ? where : ""))],
+    ["What I'm done carrying", state.carrying]
+  ]);
+  const home = dlRows([
+    ["First 48 hours home", (state.home48 || []).join("; ")],
+    ["Within 48 hours of landing, I will", state.action48],
+    ["Kept in sight", val("anchorCustom", "anchor")],
+    ["This trip is designed to help me", designed ? designed + (soICan ? ", so I can " + soICan : "") : ""],
+    ["I'm returning as", (state.returningAs || "").trim() ? d.returning : ""],
+    ["What this trip showed me that needs handling now", state.afterTrip || "Answer this once you're home."]
+  ]);
+  const reflections = dlRows([
+    [SEASON_REFLECT, state.reflectSeason],
+    ["If this trip were moving me toward something, what would it be?", state.reflectPlace],
+    ["What am I afraid will happen if I'm not instantly reachable?", state.reflectPlans],
+    ["What am I choosing to leave behind on purpose?", state.reflectReady],
+    ["Which version of me is ready to be thanked and released?", state.reflectLetgo],
+    ["What is one thing I want to carry forward?", state.reflectHome]
+  ]);
+
+  $("#fullPlan").innerHTML = "<h2>Your full plan</h2><p class=\"help\">This page is for you. Your ticket leaves the private lines out.</p>" +
+    "<h3>The trip</h3>" + trip +
+    (ready ? "<h3>Before you go</h3>" + ready : "") +
+    (release ? "<h3>The release</h3>" + release : "") +
+    "<h3>The return</h3>" + home +
+    (reflections ? "<h3>Your reflections</h3>" + reflections : "");
+}
+
+function showTicket(){
+  const d = ticketData();
+  $("#finalTicket").innerHTML = ticketHTML(d);
+  $("#storyTicket").innerHTML = ticketHTML(d);
+  const n = (state.name || "").trim();
+  $("#stageTitle").textContent = n ? "You're cleared for departure, " + n + "." : "You're cleared for departure.";
+  renderPlan();
+  show("screen-ticket");
+}
+
+async function saveImage(){
+  const btn = $("#saveImgBtn");
+  const im = $("#overlayImg"), link = $("#downloadLink"), text = $("#overlayText");
+  if (typeof window.html2canvas !== "function") {
+    im.hidden = true; link.hidden = true;
+    text.textContent = "Your browser didn't load the image tool. Take a screenshot of your ticket instead.";
+    $("#overlay").hidden = false;
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = "Preparing your ticket";
+  try {
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    const canvas = await window.html2canvas($("#storyFrame"), { scale: 3, backgroundColor: "#E6DCCD", useCORS: true, logging: false });
+    const url = canvas.toDataURL("image/png");
+    im.src = url; im.hidden = false;
+    link.href = url; link.hidden = false;
+    text.textContent = "On your phone, press and hold the image to save it to your photos.";
+    $("#overlay").hidden = false;
+  } catch (err) {
+    im.hidden = true; link.hidden = true;
+    text.textContent = "The image didn't save. Take a screenshot of your ticket instead.";
+    $("#overlay").hidden = false;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Save my ticket";
+  }
+}
+
+/* ───────────── Events ───────────── */
+document.addEventListener("click", e => {
+  const chipEl = e.target.closest(".chip");
+  if (chipEl) {
+    const box = chipEl.closest(".chips");
+    const f = box.dataset.field;
+    const v = chipEl.dataset.value;
+    if (box.dataset.mode === "multi") {
+      const arr = Array.isArray(state[f]) ? state[f].slice() : [];
+      const i = arr.indexOf(v);
+      if (i > -1) arr.splice(i, 1);
+      else {
+        const max = Number(box.dataset.max || 99);
+        if (arr.length >= max) { flashHelp(box); return; }
+        arr.push(v);
+      }
+      state[f] = arr;
+    } else {
+      state[f] = state[f] === v ? "" : v;
+      if (CUSTOM_FOR[f] && state[f]) {
+        state[CUSTOM_FOR[f]] = "";
+        const inp = $('[data-bind="' + CUSTOM_FOR[f] + '"]');
+        if (inp) inp.value = "";
+      }
+    }
+    save();
+    syncChips();
+    if (f === "homeBase") renderStayLinks();
+    if (f === "experience") renderBook();
+    return;
+  }
+
+  const make = e.target.closest("[data-make]");
+  if (make) {
+    const t = make.dataset.make;
+    state.experience = state.experience === t && !(state.experienceCustom || "").trim() ? "" : t;
+    state.experienceCustom = "";
+    const inp = $('[data-bind="experienceCustom"]');
+    if (inp) inp.value = "";
+    save();
+    syncChips();
+    renderBook();
+    return;
+  }
+
+  const card = e.target.closest(".season-card");
+  if (card) { selectSeason(card.dataset.season, true); return; }
+
+  const opt = e.target.closest(".opt");
+  if (opt) {
+    const group = opt.closest(".quick-q");
+    $$(".opt", group).forEach(o => o.setAttribute("aria-pressed", "false"));
+    opt.setAttribute("aria-pressed", "true");
+    quick[group.dataset.qq] = opt.dataset.v;
+    quickReady();
+    return;
+  }
+
+  const choose = e.target.closest(".btn-choose");
+  if (choose) {
+    // The link opens Stay22 in a new tab. The plan updates here.
+    const p = choose.dataset.place, r = choose.dataset.region, k = choose.dataset.kind;
+    setTimeout(() => choosePlace(p, r, k), 0);
+    return;
+  }
+
+  const go = e.target.closest("[data-go]");
+  if (go && !go.disabled) { goStep(Number(go.dataset.go)); return; }
+});
+
+document.addEventListener("change", e => {
+  const cb = e.target;
+  if (cb.matches && cb.matches(".checks[data-field] input[type=checkbox]")) {
+    const f = cb.closest(".checks").dataset.field;
+    const list = (state[f] || []).slice();
+    const i = list.indexOf(cb.value);
+    if (cb.checked && i < 0) list.push(cb.value);
+    if (!cb.checked && i > -1) list.splice(i, 1);
+    state[f] = list;
+    save();
+  }
+});
+
+$("#quickToggle").addEventListener("click", () => {
+  const panel = $("#quickPanel");
+  panel.hidden = !panel.hidden;
+  $("#quickToggle").setAttribute("aria-expanded", String(!panel.hidden));
+});
+
+$("#quickBtn").addEventListener("click", () => {
+  const a = QUICK[quick[1]], b = QUICK[quick[2]];
+  const out = $("#quickResult");
+  if (a === b) {
+    selectSeason(a, true);
+    out.textContent = "Your season is " + SEASONS[a].name + ". It's stamped above.";
+  } else {
+    state.season = "";
+    state.suggested = [a, b];
+    save();
+    renderSeasonCards();
+    updateNav();
+    out.textContent = "Two seasons came up: " + SEASONS[a].name + " and " + SEASONS[b].name + ". Choose the one that's louder right now.";
+  }
+  out.hidden = false;
+  $("#seasonCards").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+$("#customPlaceBtn").addEventListener("click", () => {
+  const v = $("#customPlace").value.trim();
+  if (!v) return;
+  window.open(stayUrlFor(v, ""), "_blank", "noopener");
+  choosePlace(v, "", "custom");
+});
+$("#customPlace").addEventListener("keydown", e => {
+  if (e.key === "Enter") { e.preventDefault(); $("#customPlaceBtn").click(); }
+});
+
+$("#beginBtn").addEventListener("click", () => {
+  state.started = true;
+  save();
+  goStep(state.step || 0);
+});
+
+$("#resetBtn").addEventListener("click", () => {
+  const keepQuiz = state.fromQuiz;
+  state = JSON.parse(JSON.stringify(DEFAULTS));
+  if (keepQuiz) { state.fromQuiz = keepQuiz; state.season = keepQuiz; }
+  save();
+  syncInputs();
+  renderSeasonCards();
+  $("#beginBtn").textContent = "Begin";
+  $("#resetBtn").hidden = true;
+});
+
+$("#nextBtn").addEventListener("click", () => {
+  if (!canContinue()) return;
+  if (state.step < LAST) goStep(state.step + 1);
+  else showTicket();
+});
+
+$("#backBtn").addEventListener("click", () => {
+  if (state.step === 0) show("screen-welcome");
+  else goStep(state.step - 1);
+});
+
+$("#editBtn").addEventListener("click", () => goStep(0));
+$("#printBtn").addEventListener("click", () => window.print());
+$("#saveImgBtn").addEventListener("click", saveImage);
+$("#closeOverlay").addEventListener("click", () => { $("#overlay").hidden = true; });
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && !$("#overlay").hidden) $("#overlay").hidden = true;
+});
+
+/* ───────────── Init ───────────── */
+load();
+
+const param = (new URLSearchParams(window.location.search).get("season") || "").toLowerCase();
+if (SEASONS[param]) {
+  state.fromQuiz = param;
+  if (!state.season) state.season = param;
+  save();
+}
+if (state.fromQuiz && SEASONS[state.fromQuiz]) {
+  const note = $("#quizNote");
+  note.textContent = "Your quiz named you " + SEASONS[state.fromQuiz].name + ". Keep it, or choose again.";
+  note.hidden = false;
+}
+
+if (CONFIG.introVideoUrl) {
+  $("#videoWrap").innerHTML = '<iframe src="' + esc(CONFIG.introVideoUrl) + '" title="Start here, from Que" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+  $("#videoWrap").hidden = false;
+  $("#mediaCard").hidden = false;
+} else if (CONFIG.introAudioUrl) {
+  $("#introAudio").src = CONFIG.introAudioUrl;
+  $("#introAudio").hidden = false;
+  $("#mediaCard").hidden = false;
+}
+$("#suitcaseBtn").href = CONFIG.suitcaseUrl;
+$("#cohortBtn").href = CONFIG.cohortUrl;
+$("#companionBtn").href = CONFIG.companionUrl;
+$("#crossroadsLink").href = CONFIG.crossroadsUrl;
+if (CONFIG.channelUrl) { $("#channelBtn").href = CONFIG.channelUrl; $("#channelOffer").hidden = false; }
+
+$("#sampleTicket").innerHTML = ticketHTML(SAMPLE);
+
+if (state.started) {
+  $("#beginBtn").textContent = "Pick up where I left off";
+  $("#resetBtn").hidden = false;
+}
+
+bindInputs();
+syncInputs();
+renderSeasonCards();
+renderPicks();
+renderStayLinks();
+renderRoute();
+updateNav();
+
+})();
+</script>
+</body>
+</html>
