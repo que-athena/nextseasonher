@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NextSeasonHer | Reinvention for Women Who've Outgrown Their Lives</title>
+<meta name="description" content="Personal development for women in life and career transition, delivered through intentional travel. The Travel to Transform Method by Que Athena, founder of NextSeasonHer.">
+<link rel="canonical" href="https://nextseasonher.com/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Que Athena">
+<meta name="theme-color" content="#560000">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NextSeasonHer">
+<meta property="og:url" content="https://nextseasonher.com/">
+<meta property="og:title" content="You're not burned out. You've just outgrown Her.">
+<meta property="og:description" content="Personal development for women in life and career transition, delivered through intentional travel. The Travel to Transform Method by Que Athena, founder of NextSeasonHer.">
+<meta property="og:image" content="https://nextseasonher.com/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="You're not burned out. You've just outgrown Her.">
+<meta name="twitter:description" content="Personal development for women in life and career transition, delivered through intentional travel. The Travel to Transform Method by Que Athena, founder of NextSeasonHer.">
+<meta name="twitter:image" content="https://nextseasonher.com/assets/share.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;500;600&display=swap">
+
+<style>
+/* Layout: full-bleed burgundy hero, then alternating paper bands at a single 68ch measure,
+   with the offer stack as the one place the page opens into two columns. */
+:root{
+  --burgundy:#560000;        /* NSH signature, exclusive to NextSeasonHer */
+  --blood:#8C2822;           /* Dried Blood — live markers, hover */
+  --bronze:#7A6242;          /* rules, eyebrows, trademark marks */
+  --plaster:#DEDAD3;         /* Plaster — section bands */
+  --bg:#EFECE6;              /* paper */
+  --surface:#F7F5F1;
+  --ink:#2A2422;
+  --body:#57534D;            /* Stone */
+  --hairline:#CFC8BE;
+  --onDark:#EDE7DF;
+  --onDarkMuted:#BCA9A3;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Raleway",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --burgundy:#43161A; --blood:#C25A48; --bronze:#A98E64;
+    --plaster:#241C1B; --bg:#15100F; --surface:#1E1716;
+    --ink:#EFEAE3; --body:#BDB4AA; --hairline:#3B302E;
+    --onDark:#EFEAE3; --onDarkMuted:#B9A59F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --burgundy:#43161A; --blood:#C25A48; --bronze:#A98E64;
+  --plaster:#241C1B; --bg:#15100F; --surface:#1E1716;
+  --ink:#EFEAE3; --body:#BDB4AA; --hairline:#3B302E;
+  --onDark:#EFEAE3; --onDarkMuted:#B9A59F;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--body);
+  font-family:var(--sans); font-weight:400;
+  font-size:clamp(16px,1.05vw + 13px,18px); line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--display); color:var(--ink); font-weight:500; text-wrap:balance; margin:0}
+p{margin:0}
+a{color:inherit}
+
+.band{padding-inline:max(20px,env(safe-area-inset-left,0px)); padding-block:clamp(56px,8vw,104px)}
+.wrap{max-width:720px; margin-inline:auto}
+.wide{max-width:1040px; margin-inline:auto}
+.stack{display:flex; flex-direction:column}
+.g12{gap:12px}.g16{gap:16px}.g20{gap:20px}.g28{gap:28px}.g40{gap:40px}.g56{gap:clamp(36px,5vw,56px)}
+
+.eyebrow{
+  font-size:.7rem; letter-spacing:.22em; text-transform:uppercase;
+  font-weight:600; color:var(--bronze);
+}
+.tm{font-size:.55em; vertical-align:.55em; letter-spacing:0}
+.lede{font-size:clamp(1.06rem,.6vw + .95rem,1.22rem); color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 78% 8%, rgba(140,40,34,.42), transparent 62%),
+    linear-gradient(176deg,#4A0404 0%,#2E0505 58%,#190404 100%);
+  color:var(--onDark);
+  padding-inline:max(20px,env(safe-area-inset-left,0px));
+  padding-block:clamp(44px,7vw,76px) clamp(56px,9vw,104px);
+}
+.hero .wrap{max-width:900px}
+.wordmark{
+  font-family:var(--display); font-size:.98rem; letter-spacing:.3em;
+  text-transform:uppercase; color:var(--onDarkMuted);
+}
+.hero h1{
+  color:#FBF7F2; font-weight:400;
+  font-size:clamp(2.35rem,6.2vw,4.3rem); line-height:1.05;
+  letter-spacing:-.015em;
+}
+.hero h1 em{font-style:italic; color:#E8BFA6}
+.hero .sub{color:var(--onDarkMuted); max-width:48ch; font-size:1.06rem}
+
+.btn{
+  display:inline-flex; align-items:center; gap:.6em; align-self:flex-start;
+  font-family:var(--sans); font-size:.78rem; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; text-decoration:none;
+  padding:15px 30px; border:1px solid transparent; cursor:pointer;
+  transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.btn-light{background:#F3EDE6; color:#2E0505}
+.btn-light:hover{background:#E8BFA6}
+.btn-solid{background:var(--burgundy); color:#F7F2EC}
+.btn-solid:hover{background:var(--blood)}
+.btn-line{background:transparent; color:var(--ink); border-color:var(--bronze)}
+.btn-line:hover{background:var(--bronze); color:var(--surface)}
+.btn:focus-visible{outline:2px solid var(--bronze); outline-offset:3px}
+
+/* ---------- scenario ---------- */
+.scenario p{font-size:clamp(1.04rem,.4vw + .97rem,1.18rem); line-height:1.72; color:var(--ink)}
+.scenario .turn{
+  font-family:var(--display); font-size:clamp(1.9rem,4.4vw,2.9rem);
+  line-height:1.16; color:var(--burgundy); padding-block:clamp(14px,3vw,24px);
+}
+.after p{font-size:1.05rem}
+
+/* ---------- method ---------- */
+.band-plaster{background:var(--plaster)}
+.rule{height:1px; background:var(--hairline); border:0; margin:0}
+.frame{border-left:2px solid var(--bronze); padding-left:22px}
+.frame h3{font-size:1.3rem; font-style:italic}
+.frame p{margin-top:6px}
+
+/* ---------- founder ---------- */
+.founder{display:grid; grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr); gap:clamp(28px,4vw,52px); align-items:start}
+.founder img{width:100%; height:auto; display:block; filter:saturate(.94)}
+.portrait{position:relative}
+.portrait::after{content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(122,98,66,.45); pointer-events:none}
+.places{font-size:.78rem; letter-spacing:.11em; text-transform:uppercase; color:var(--bronze); line-height:1.9}
+.signoff{font-family:var(--display); font-style:italic; font-size:1.18rem; color:var(--ink)}
+@media (max-width:720px){ .founder{grid-template-columns:1fr} .portrait{max-width:340px} }
+
+/* ---------- offers ---------- */
+.offers{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px}
+.offer{
+  background:var(--surface); border:1px solid var(--hairline);
+  padding:26px 24px 24px; display:flex; flex-direction:column; gap:12px; min-width:0;
+}
+.offer h3{font-size:1.24rem; line-height:1.3}
+.offer p{font-size:.95rem; line-height:1.62}
+.tag{
+  font-size:.64rem; letter-spacing:.2em; text-transform:uppercase; font-weight:600;
+  display:inline-flex; align-items:center; gap:7px; color:var(--blood);
+}
+.dot{width:6px; height:6px; border-radius:50%; background:var(--blood); display:inline-block}
+.price{font-family:var(--display); font-size:1.02rem; color:var(--bronze)}
+.offer .btn{margin-top:auto; align-self:flex-start}
+
+.soon{list-style:none; padding:0; margin:0; display:grid; gap:0}
+.soon li{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px 18px; align-items:baseline;
+  padding-block:14px; border-bottom:1px solid var(--hairline)}
+.soon li:first-child{border-top:1px solid var(--hairline)}
+.soon b{font-family:var(--display); font-weight:500; font-size:1.06rem; color:var(--ink)}
+.soon span{font-size:.92rem}
+.soon .when{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--bronze); white-space:nowrap}
+@media (max-width:560px){ .soon li{grid-template-columns:1fr} .soon .when{white-space:normal} }
+
+/* ---------- offer thumbnails ---------- */
+.media{height:225px; display:flex; align-items:flex-end; justify-content:center; margin-bottom:2px}
+.media img{max-height:100%; width:auto; max-width:100%; display:block}
+@media (prefers-reduced-motion:no-preference){
+  .media img{transition:transform .45s cubic-bezier(.2,.7,.3,1)}
+  .offer:hover .media img{transform:translateY(-7px)}
+}
+
+/* ---------- waitlist ---------- */
+.waitlist{background:var(--surface); border:1px solid var(--hairline); padding:clamp(24px,4vw,34px)}
+.row{display:flex; gap:10px; flex-wrap:wrap}
+.row input{
+  flex:1 1 220px; min-width:0; font:inherit; font-size:.97rem; color:var(--ink);
+  background:var(--bg); border:1px solid var(--hairline); padding:13px 15px;
+}
+.row input:focus-visible{outline:2px solid var(--bronze); outline-offset:1px}
+.note{font-size:.8rem; color:var(--bronze)}
+
+/* ---------- faq ---------- */
+.faq{display:grid; gap:0}
+.faq .q{padding-block:22px; border-bottom:1px solid var(--hairline)}
+.faq .q:first-child{border-top:1px solid var(--hairline)}
+.faq h3{font-size:1.1rem; margin-bottom:7px}
+.faq p{font-size:.97rem}
+
+/* ---------- come along + footer ---------- */
+.dark{
+  background:linear-gradient(170deg,#2E0505 0%,#190404 100%); color:var(--onDark);
+  padding-inline:max(20px,env(safe-area-inset-left,0px)); padding-block:clamp(56px,8vw,96px);
+}
+.dark h2{color:#FBF7F2}
+.dark p{color:var(--onDarkMuted)}
+.dark .eyebrow{color:#C9907A}
+.dark a.inline{color:#E8BFA6}
+foot, .foot{display:block}
+.foot{
+  background:#120303; color:#9E8A85; font-size:.82rem; line-height:1.9;
+  padding-inline:max(20px,env(safe-area-inset-left,0px));
+  padding-block:30px calc(30px + env(safe-area-inset-bottom,0px));
+}
+.foot a{color:#C9907A}
+.legal{font-size:.72rem; line-height:1.75; color:#7A6A66; max-width:78ch}
+</style>
+<style>
+  html{color-scheme:light}
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://nextseasonher.com/#org",
+    "name": "NextSeasonHer",
+    "url": "https://nextseasonher.com/",
+    "email": "hello@nextseasonher.com",
+    "description": "Personal development for women in life and career transition, delivered through intentional travel. The Travel to Transform Method by Que Athena, founder of NextSeasonHer.",
+    "logo": "https://nextseasonher.com/assets/share.jpg",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Studio Gussi LLC"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Charlotte",
+      "addressRegion": "NC",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.instagram.com/que.athena/"
+    ],
+    "founder": {
+      "@type": "Person",
+      "@id": "https://nextseasonher.com/#que"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://nextseasonher.com/#que",
+    "name": "Que Athena",
+    "jobTitle": "Identity & Reinvention Mentor",
+    "worksFor": {
+      "@id": "https://nextseasonher.com/#org"
+    },
+    "image": "https://nextseasonher.com/assets/que-portrait.jpg",
+    "sameAs": [
+      "https://www.instagram.com/que.athena/"
+    ],
+    "description": "Founder of NextSeasonHer and creator of the Travel to Transform Method. Ran a bridal beauty business in greater Charlotte from 2012 to 2024."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I have to travel to do this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Travel is the mechanism I use because distance works faster than willpower. The frameworks work from your kitchen table. The quiz, the itinerary, and NameHer need nothing but time and honesty."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I can't leave right now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most women can't, which is why the work starts before the trip and continues long after it. Some women never take one and still move through the whole system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to go alone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Alone is where most of the clarity lives, and it's the part women dread. HerPassageHome exists for exactly that."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this therapy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Que Athena is a certified life and confidence coach, not a licensed therapist. This is identity work: naming where you are, choosing where you're going, and building the structure to get there."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do I start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Take the Seasons of Life Quiz. It names your season, and your season decides what you need first."
+        }
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap stack g28">
+    <div class="wordmark">NextSeasonHer<span class="tm">™</span></div>
+    <h1>You're not burned out.<br>You've just <em>outgrown</em> Her.</h1>
+    <p class="sub">Personal development for women in life and career transition, delivered through intentional travel.</p>
+    <a class="btn btn-light" href="#quiz">Find your season</a>
+  </div>
+</header>
+
+<!-- ============ SCENARIO ============ -->
+<section class="band">
+  <div class="wrap stack g28 scenario">
+    <p>You pull into the driveway and you don't go in.</p>
+    <p>Engine off. You sit there longer than you need to, scrolling nothing, because the second you open that door you have to put her back on. The competent one. The one who has it handled. Everyone in that house is expecting her, and she is exhausting.</p>
+    <p>So you sit. Two minutes. Sometimes five. There's a version of you in that car that nobody inside has ever met.</p>
+    <p>Then you go in and start dinner.</p>
+
+    <h2 class="turn">She's the one you've outgrown.</h2>
+
+    <div class="stack g20 after">
+      <p>You've called it burnout. You took the vacation. You came home and all of it was still there, waiting.</p>
+      <p>Rest can't reach this. You've outgrown the woman you've been living as, and nobody ever gave you language for that.</p>
+      <p>You're not looking for advice. Advice assumes you already know who you are and only need a plan. You have the opposite problem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="band band-plaster">
+  <div class="wrap stack g28">
+    <div class="eyebrow">The method</div>
+    <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.2">Travel to Transform Method<span class="tm">™</span></h2>
+    <p class="lede">Distance is the instrument. Time away from the life that shaped you, structured so you can hear yourself under the noise, and built so the clarity survives the trip home.</p>
+    <p>Two frameworks sit inside it.</p>
+
+    <div class="stack g28" style="margin-top:4px">
+      <div class="frame">
+        <h3>Seasons of Identity<span class="tm" style="font-style:normal">™</span></h3>
+        <p>Locates you. Three seasons: Recalibration, Reorientation, Reign.</p>
+      </div>
+      <div class="frame">
+        <h3>HerRewrittenSystem<span class="tm" style="font-style:normal">™</span></h3>
+        <p>Moves you. Five steps, from naming the identity you've been living as to anchoring the one you choose next.</p>
+      </div>
+    </div>
+    <!-- PROOF SLOT: pilot testimonial drops in here once it lands -->
+  </div>
+</section>
+
+<!-- ============ FOUNDER ============ -->
+<section class="band">
+  <div class="wide founder">
+    <div class="portrait"><img src="assets/que-portrait.jpg" alt="Que Athena, founder of NextSeasonHer" width="1100" height="1375"></div>
+    <div class="stack g20">
+      <div class="eyebrow">Meet Que Athena</div>
+      <p class="lede" style="font-family:var(--display);font-size:1.5rem;line-height:1.3;color:var(--ink)">Hiyaaa, I'm Que Athena.</p>
+      <p>I know that driveway. I sat in it.</p>
+      <p>For twelve years I made women beautiful for the biggest day of their lives, and the chair is a confessional. Women told me things in the hours before the day that was supposed to settle everything for them. Most of it had nothing to do with the wedding. They were describing a life they'd outgrown and had no word for.</p>
+      <p>I was doing the same thing. I'd married a man to keep everyone else happy, so I spent that marriage making other women beautiful for their weddings while resenting my own.</p>
+      <p>Advice was never what I was missing. I needed room to think, and my life had none in it. So I closed the business while it was still profitable, got on a plane, and used travel as deliberate interruption. I documented every step.</p>
+      <p>That record became the Travel to Transform Method<span class="tm">™</span>.</p>
+      <p class="signoff">You can't build a new life from the borrowed tools of your old one.</p>
+      <hr class="rule" style="margin-block:4px">
+      <p class="places">Bridal beauty, greater Charlotte, 2012&ndash;2024 · Ten years as owner, with a team · Certified life and confidence coach · Founder of NextSeasonHer<span class="tm">™</span></p>
+      <p class="places">Written from Tulum · Holbox · San Miguel de Allende · Mexico City · Tunbridge Wells</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="band band-plaster">
+  <div class="wrap stack g16">
+    <div class="eyebrow">Mission</div>
+    <p style="font-family:var(--display);font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.4;color:var(--ink)">To give women in transition the language, the framework, and the distance to see who they've become, and to choose who they're becoming next.</p>
+  </div>
+</section>
+
+<!-- ============ OFFERS ============ -->
+<section class="band" id="quiz">
+  <div class="wide stack g40">
+    <div class="stack g12">
+      <div class="eyebrow">Ways to work with me</div>
+      <h2 style="font-size:clamp(1.7rem,3.6vw,2.3rem)">Available now</h2>
+    </div>
+
+    <div class="offers">
+      <article class="offer">
+        <span class="tag"><span class="dot"></span>Free</span>
+        <div class="media"><img src="assets/quiz-mockup.png" alt="The Seasons of Life Quiz open on a phone" loading="lazy" width="620" height="1018"></div>
+        <h3>Seasons of Life Quiz</h3>
+        <p>Eight questions, about five minutes. It names your season and your archetype, and it's where everything here starts.</p>
+        <a class="btn btn-solid" href="https://nextseasonher.com/quiz.html">Take the quiz</a>
+      </article>
+
+      <article class="offer">
+        <span class="tag"><span class="dot"></span>Free</span>
+        <div class="media"><img src="assets/itinerary-mockup.png" alt="Pages from the 5-Day Soft Reset Itinerary" loading="lazy" width="900" height="720"></div>
+        <h3>5-Day Soft Reset Itinerary</h3>
+        <p>A day-by-day rhythm for five days away, a letting-go ritual, a soft packing list, and what nobody tells you about eating alone and taking up space.</p>
+        <a class="btn btn-solid" href="https://go.nextseasonher.com/itinerary">Send me my Soft Reset Itinerary</a>
+      </article>
+
+      <article class="offer">
+        <span class="tag"><span class="dot"></span>By application</span>
+        <div class="media"><img src="assets/crossroads-mockup.png" alt="The Crossroads page open on a phone" loading="lazy" width="620" height="1018"></div>
+        <h3>Crossroads</h3>
+        <p class="price">$3,500 · five weeks</p>
+        <p>Should I stay or should I leave. Five private weeks by voice note, thinking your decision through with someone who has no stake in the answer.</p>
+        <a class="btn btn-solid" href="https://que-athena.github.io/queathena/crossroads.html">Tell me where you are</a>
+      </article>
+    </div>
+
+    <div class="stack g20" style="margin-top:8px">
+      <h2 style="font-size:clamp(1.5rem,3vw,1.9rem)">Coming</h2>
+      <ul class="soon">
+        <li><div><b>Reset Then Rewrite</b><br><span>Masterclass. How to use intentional travel to recover from burnout and rewrite the life that caused it.</span></div><span class="when">Opening soon</span></li>
+        <li><div><b>HerReturnTicket™</b><br><span>Interactive trip planner. Build the trip that does the work.</span></div><span class="when">Opening soon</span></li>
+        <li><div><b>NameHer™</b><br><span>28-day audio program. Name the identity you've been living as.</span></div><span class="when">Opening soon</span></li>
+        <li><div><b>Playa del Carmen Retreat</b><br><span>Three days in Mexico. Circle, workshop, and an implementation plan you leave with.</span></div><span class="when">Dec 4–6, 2026</span></li>
+        <li><div><b>Travel to Recognize Her™</b><br><span>Cohort. Design the trip that takes you through the whole system. Ten women.</span></div><span class="when">Jan 11, 2027</span></li>
+        <li><div><b>HerPassageHome™</b><br><span>1:1 support before, during, and after your trip.</span></div><span class="when">Opening soon</span></li>
+        <li><div><b>HerCarryOn™</b><br><span>Everything I pack and trust on the road.</span></div><span class="when">Opening soon</span></li>
+      </ul>
+
+      <form class="waitlist stack g16" id="waitlist">
+        <div class="stack g12" style="gap:6px">
+          <h3 style="font-size:1.15rem">Tell me when these open</h3>
+          <p style="font-size:.95rem">One email when something goes live. Nothing else.</p>
+        </div>
+        <div class="row">
+          <input id="wl-name" name="firstname" type="text" placeholder="First name" autocomplete="given-name" aria-label="First name">
+          <input id="wl-email" name="email" type="email" placeholder="Email address" autocomplete="email" aria-label="Email address" required>
+          <button class="btn btn-solid" type="submit">Keep me posted</button>
+        </div>
+        <p class="note" id="wl-note">Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="band band-plaster">
+  <div class="wrap stack g28">
+    <div class="eyebrow">Questions</div>
+    <div class="faq">
+      <div class="q">
+        <h3>Do I have to travel to do this?</h3>
+        <p>No. Travel is the mechanism I use because distance works faster than willpower. The frameworks work from your kitchen table. The quiz, the itinerary, and NameHer<span class="tm">™</span> need nothing but time and honesty.</p>
+      </div>
+      <div class="q">
+        <h3>What if I can't leave right now?</h3>
+        <p>Most women can't, which is why the work starts before the trip and continues long after it. Some women never take one and still move through the whole system.</p>
+      </div>
+      <div class="q">
+        <h3>Do I have to go alone?</h3>
+        <p>Alone is where most of the clarity lives, and it's the part women dread. HerPassageHome<span class="tm">™</span> exists for exactly that.</p>
+      </div>
+      <div class="q">
+        <h3>Is this therapy?</h3>
+        <p>No. I'm a certified life and confidence coach, not a licensed therapist. This is identity work: naming where you are, choosing where you're going, and building the structure to get there. If you're in crisis, you want a clinician, and I'll say so.</p>
+      </div>
+      <div class="q">
+        <h3>Where do I start?</h3>
+        <p>Take the quiz. It names your season, and your season decides what you need first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COME ALONG ============ -->
+<section class="dark">
+  <div class="wrap stack g28">
+    <div class="eyebrow">Come along</div>
+    <h2 style="font-size:clamp(1.8rem,4vw,2.5rem)">I'm in Playa del Carmen right now.</h2>
+    <p>Before that, Tulum, Holbox, San Miguel de Allende, Mexico City, and the English countryside. I post the trips, what they cost me, what they gave back, and what I'm learning about women who leave in order to find out who they are.</p>
+    <a class="btn btn-light" href="https://www.instagram.com/que.athena/">Follow along @que.athena</a>
+    <hr class="rule" style="background:rgba(201,144,122,.3);margin-block:4px">
+    <p>Want the itinerary and the emails that come with it? Five quiet days, free.</p>
+    <a class="inline" href="https://go.nextseasonher.com/itinerary" style="font-family:var(--display);font-size:1.15rem">Send me my Soft Reset Itinerary →</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wide stack g12">
+    <div>
+      NextSeasonHer™ is the primary brand of Studio Gussi LLC, Charlotte, North Carolina.<br>
+      <a href="mailto:hello@nextseasonher.com">hello@nextseasonher.com</a> ·
+      <a href="https://www.instagram.com/que.athena/">@que.athena</a> ·
+      <a href="/privacy.html">Privacy Policy</a>
+    </div>
+    <div class="legal">
+      © 2026 Studio Gussi LLC. All rights reserved. NextSeasonHer™, Travel to Transform Method™,
+      Seasons of Identity™, HerRewrittenSystem™, NameHer™, HerReturnTicket™, HerPassageHome™,
+      Travel to Recognize Her™ and HerCarryOn™ are trademarks of Studio Gussi LLC. All written
+      content, frameworks and materials on this site are the property of Studio Gussi LLC and may
+      not be reproduced without permission.
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('waitlist').addEventListener('submit', function(e){
+  e.preventDefault();
+  var note = document.getElementById('wl-note');
+  note.textContent = 'Preview only — this form does not send. On the live site, wire it to the GHL tag nsh-waitlist.';
+  note.style.color = 'var(--blood)';
+});
+</script>
+
+</body>
+</html>
