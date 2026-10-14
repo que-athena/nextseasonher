@@ -44,22 +44,9 @@
   --onDarkMuted:#BCA9A3;
   --display:"Playfair Display",Georgia,"Times New Roman",serif;
   --sans:"Raleway",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --burgundy:#43161A; --blood:#C25A48; --bronze:#A98E64;
-    --plaster:#241C1B; --bg:#15100F; --surface:#1E1716;
-    --ink:#EFEAE3; --body:#BDB4AA; --hairline:#3B302E;
-    --onDark:#EFEAE3; --onDarkMuted:#B9A59F;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --burgundy:#43161A; --blood:#C25A48; --bronze:#A98E64;
-  --plaster:#241C1B; --bg:#15100F; --surface:#1E1716;
-  --ink:#EFEAE3; --body:#BDB4AA; --hairline:#3B302E;
-  --onDark:#EFEAE3; --onDarkMuted:#B9A59F;
-  color-scheme:dark;
+  /* Single committed palette: warm paper and burgundy, the same for every visitor
+     whatever their system theme. Deliberate, not an omission. */
+  color-scheme:light;
 }
 
 *{box-sizing:border-box}
@@ -425,7 +412,7 @@ foot, .foot{display:block}
         <h3>Crossroads</h3>
         <p class="price">$3,500 · five weeks</p>
         <p>Should I stay or should I leave. Five private weeks by voice note, thinking your decision through with someone who has no stake in the answer.</p>
-        <a class="btn btn-solid" href="https://nextseasonher.com/crossroads.html">Tell me where you are</a>
+        <a class="btn btn-solid" href="https://que-athena.github.io/queathena/crossroads.html">Tell me where you are</a>
       </article>
     </div>
 
