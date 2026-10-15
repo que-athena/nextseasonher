@@ -84,6 +84,11 @@ h2 em{font-style:italic; color:var(--burgundy)}
 .lead em{font-style:italic; color:var(--burgundy)}
 .situ{font-family:var(--display); font-style:italic; font-size:clamp(1.06rem,1.4vw,1.2rem);
   line-height:1.82; color:var(--ink)}
+.litany{display:flex; flex-direction:column; gap:15px; padding:6px 0 6px 24px; border-left:2px solid var(--bronze)}
+.litany p{font-family:var(--display); font-style:italic; font-size:clamp(1.04rem,1.2vw,1.2rem);
+  line-height:1.5; color:var(--ink)}
+.about-grid{display:grid; grid-template-columns:250px minmax(0,1fr); gap:clamp(26px,4vw,46px); align-items:start}
+@media (max-width:640px){ .about-grid{grid-template-columns:1fr} }
 .band-plaster{background:var(--plaster)}
 
 /* ---------- five weeks ---------- */
@@ -154,9 +159,24 @@ h2 em{font-style:italic; color:var(--burgundy)}
 
 .foot{background:#120303; color:#9E8A85; font-size:.8rem; line-height:1.9; text-align:center;
   padding-inline:max(20px,env(safe-area-inset-left,0px));
-  padding-block:34px calc(34px + env(safe-area-inset-bottom,0px))}
+  padding-block:34px calc(82px + env(safe-area-inset-bottom,0px))}
 .foot a{color:#C9907A}
 .foot .mark{font-family:var(--display); font-size:1.05rem; color:#EDE7DF; margin-bottom:4px}
+
+/* ---------- back to top ---------- */
+.totop{position:fixed; z-index:50; width:46px; height:46px; padding:0; display:grid; place-items:center;
+  right:max(16px,env(safe-area-inset-right,0px)); bottom:max(16px,env(safe-area-inset-bottom,0px));
+  background:var(--burgundy); color:#F7F2EC; border:1px solid rgba(243,237,230,.55); border-radius:50%;
+  box-shadow:0 6px 18px rgba(25,4,4,.28); cursor:pointer;
+  opacity:0; visibility:hidden; transform:translateY(10px);
+  transition:opacity .3s ease, transform .3s ease, visibility 0s linear .3s, background .3s ease}
+.totop.show{opacity:1; visibility:visible; transform:none; transition-delay:0s}
+.totop:hover{background:var(--blood)}
+.totop:focus-visible{outline:2px solid var(--bronze); outline-offset:4px}
+.totop svg{width:18px; height:18px; display:block}
+.hero:focus{outline:none}
+@media (prefers-reduced-motion:reduce){ .totop{transition:none} }
+@media print{ .totop{display:none} }
 </style>
 <style>
   html{color-scheme:light; scroll-behavior:smooth}
@@ -275,7 +295,17 @@ h2 em{font-style:italic; color:var(--burgundy)}
       <div class="eyebrow">If any of this is yours</div>
       <h2>You know the <em>feeling,</em><br>even if you can't name it.</h2>
     </div>
-    <p class="situ">You're in a marriage that isn't bad enough to leave and isn't good enough to stay in, and you've been living in that gap longer than you'll admit out loud. Some days you're certain it's over. Some days you're certain it's fixable. You can't tell if wanting to stay is love or the fear of starting over at this age. You can't tell if wanting to leave is clarity or just the exhaustion talking. You're the one researching "should I stay or should I leave" at midnight and closing the tab feeling worse than before you opened it.</p>
+    <p class="situ">You're in a marriage that isn't bad enough to leave and isn't good enough to stay in, and you've been living in that gap longer than you'll admit out loud.</p>
+
+    <div class="litany">
+      <p>You've rehearsed the conversation in the car. You still haven't had it.</p>
+      <p>You've done the math on what living alone would cost.</p>
+      <p>You've caught yourself picturing next year and left him out of it, then put him back.</p>
+      <p>You've told your friends things are fine, and meant it, and not meant it, in the same week.</p>
+      <p>You're the one researching "should I stay or should I leave" at midnight and closing the tab feeling worse than when you opened it.</p>
+    </div>
+
+    <p class="situ">Some days you're certain it's over. Some days you're certain it's fixable. You can't tell if wanting to stay is love or the fear of starting over at this age. You can't tell if wanting to leave is clarity or just the exhaustion talking.</p>
     <p class="center" style="max-width:32em;margin-inline:auto">Different days, different arguments, the same place. Standing at the fork, unable to trust your own read of it.</p>
   </div>
 </section>
@@ -463,14 +493,16 @@ h2 em{font-style:italic; color:var(--burgundy)}
 
 <!-- ============ ABOUT ============ -->
 <section class="band band-plaster">
-  <div class="wrap stack g24">
+  <div class="wide about-grid">
     <div class="port-img"><img src="hom-que.jpg" alt="Que Athena" width="760" height="950" loading="lazy"></div>
-    <div class="center stack g10">
-      <h2 style="font-size:clamp(1.3rem,2.4vw,1.6rem)">Que Athena</h2>
-      <div class="eyebrow">Identity &amp; Reinvention Mentor · NextSeasonHer<span class="tm">™</span></div>
+    <div class="stack g20">
+      <div class="stack g10">
+        <h2 style="font-size:clamp(1.3rem,2.4vw,1.6rem)">Que Athena</h2>
+        <div class="eyebrow">Identity &amp; Reinvention Mentor · NextSeasonHer<span class="tm">™</span></div>
+      </div>
+      <p class="ink">I work with women whose lives have stopped matching who they've become. The marriages, the careers, the versions of themselves they built for a season that's over. My work is identity first, because every other decision gets made by whoever you currently think you are.</p>
+      <p class="ink">I built this after my own divorce taught me what it costs to decide from the wrong place. I'm not a therapist and I don't pretend to be one. What I am is unbiased, patient, and completely on your side, which is the thing I couldn't find when I needed it.</p>
     </div>
-    <p class="ink">I work with women whose lives have stopped matching who they've become. The marriages, the careers, the versions of themselves they built for a season that's over. My work is identity first, because every other decision gets made by whoever you currently think you are.</p>
-    <p class="ink">I built this after my own divorce taught me what it costs to decide from the wrong place. I'm not a therapist and I don't pretend to be one. What I am is unbiased, patient, and completely on your side, which is the thing I couldn't find when I needed it.</p>
   </div>
 </section>
 
@@ -482,11 +514,10 @@ h2 em{font-style:italic; color:var(--burgundy)}
     <p class="ink">You write to me first. Tell me where you are, in as few or as many words as you have. It doesn't have to be neat, and you don't have to have it figured out, because that's the whole reason you're here.</p>
     <p>I read every letter myself. If it's a fit, I write you back and we talk it through a little before anything else happens, by voice note on your own time, or a call if you'd rather. If it isn't a fit, I'll tell you plainly and point you toward what might serve you better.</p>
     <div class="center" style="padding-top:20px">
-      <a class="btn btn-solid" href="mailto:que@nextseasonher.com?subject=Tell%20me%20where%20you%20are&body=You%20don't%20have%20to%20make%20this%20neat.%20Just%20start%20where%20you%20are.%0A%0A%E2%80%94%20What%20decision%20are%20you%20battling%20with%3F%0A%0A%0A%E2%80%94%20How%20long%20have%20you%20been%20going%20back%20and%20forth%20with%20this%3F%0A%0A%0A%E2%80%94%20What%20makes%20it%20so%20hard%20to%20trust%20your%20current%20answer%3F%0A%0A%0A%E2%80%94%20What%20do%20you%20need%20that%20you're%20not%20getting%20anywhere%20else%3F%0A%0A%0AAnything%20else%20you%20want%20me%20to%20know%3A%0A%0A">Write to me</a>
-      <p class="under" style="margin-top:17px">This opens a letter to me, with a few questions<br>already in it. I read every one myself.</p>
+      <a class="btn btn-solid" href="https://go.nextseasonher.com/herownmind" target="_blank" rel="noopener">Write to me</a>
+      <p class="under" style="margin-top:17px">This opens a private page where you can write<br>as little or as much as you have.</p>
       <p style="margin-top:18px;font-size:.9rem">Or write me directly at <a href="mailto:que@nextseasonher.com" style="color:var(--blood)">que@nextseasonher.com</a></p>
     </div>
-    <div class="confirm" style="margin-top:14px"><b>GHL FORM.</b> When the form is ready, drop the embed here and keep the email link below it as a fallback. Four fields: first name, email, one large open box for her letter, and how soon she's looking for support.</div>
   </div>
 </section>
 
@@ -502,7 +533,7 @@ h2 em{font-style:italic; color:var(--burgundy)}
     </div>
     <p style="max-width:32em;margin-inline:auto">You're standing in front of decisions about where you live, what happens to your money, who raises your children and how, and who you spend the next twenty years beside. Most of them are hard to undo. Five weeks of getting clear first is a small thing next to what it costs to decide these from the fog, and I know what that costs because I paid it.</p>
     <div style="padding-top:8px">
-      <a class="btn btn-light" href="#apply">Tell me where you are</a>
+      <a class="btn btn-light" href="https://go.nextseasonher.com/herownmind" target="_blank" rel="noopener">Tell me where you are</a>
       <p class="under" style="margin-top:17px">Start with a letter. Nothing is scheduled,<br>and nothing is decided.</p>
     </div>
   </div>
@@ -519,6 +550,34 @@ h2 em{font-style:italic; color:var(--burgundy)}
     © 2026 Studio Gussi LLC. All rights reserved.
   </div>
 </footer>
+
+<button type="button" class="totop" id="totop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('totop');
+  if(!btn) return;
+  var ticking = false;
+  function update(){
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    btn.classList.toggle('show', y > Math.max(500, window.innerHeight * 0.8));
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(update); }
+  }, {passive:true});
+  window.addEventListener('resize', update);
+  btn.addEventListener('click', function(){
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: calm ? 'auto' : 'smooth'});
+    var top = document.querySelector('.hero');
+    if(top){ top.setAttribute('tabindex','-1'); try{ top.focus({preventScroll:true}); }catch(e){} }
+  });
+  update();
+})();
+</script>
 
 </body>
 </html>
