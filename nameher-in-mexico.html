@@ -30,9 +30,11 @@ img{max-width:100%}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600&family=Montserrat:wght@500;600&display=swap">
 <style>
-/* Layout: full-bleed bands alternating burgundy ground and plaster reading surface;
-   the December spine sits on burgundy as the page's center of gravity.
-   Single committed brand look: NSH palette, Playfair + Raleway + Montserrat. */
+/* Layout: full-bleed bands on a light paper ground. Burgundy is held back for the
+   hero and the close, so it bookends the page instead of filling it. The December
+   spine sits on deep sage, the ChooseHer gift sits on gold, and sage carries the
+   NameHer framework wherever it appears.
+   NSH palette, Playfair + Raleway + Montserrat. */
 :root{
   --burgundy:#560000;
   --burgundy-deep:#3B0000;
@@ -43,6 +45,15 @@ img{max-width:100%}
   --bronze:#7A6242;
   --bronze-bright:#C7A77E;
   --blood:#8C2822;
+  --paper:#F4F1EB;
+  --paper-lift:#E8E4DC;
+  --sage:#B6BEAA;
+  --sage-mid:#949E8A;
+  --sage-deep:#4E5745;
+  --sage-ink:#3C4435;
+  --gold:#D9BE96;
+  --gold-bright:#E0C9A4;
+  --bronze-deep:#5A4630;
   --rule:rgba(122,98,66,.32);
   --rule-dark:rgba(199,167,126,.28);
   --display:"Playfair Display",Georgia,"Times New Roman",serif;
@@ -52,7 +63,7 @@ img{max-width:100%}
 }
 *{box-sizing:border-box}
 body{
-  background:var(--plaster);
+  background:var(--paper);
   color:var(--stone);
   font-family:var(--body);
   font-size:1.0625rem;
@@ -63,7 +74,9 @@ body{
 .band{width:100%}
 .band--dark{background:var(--burgundy);color:var(--plaster)}
 .band--deep{background:var(--burgundy-deep);color:var(--plaster)}
-.band--lift{background:var(--plaster-lift)}
+.band--lift{background:var(--paper-lift)}
+.band--sage{background:var(--sage-deep);color:var(--paper)}
+.band--mist{background:var(--sage);color:var(--sage-ink)}
 .wrap{
   max-width:46rem;margin:0 auto;
   padding-left:max(16px,env(safe-area-inset-left,0px));
@@ -75,6 +88,7 @@ body{
 
 h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;margin:0;color:var(--burgundy)}
 .band--dark h2,.band--dark h3,.band--deep h2,.band--deep h3{color:var(--plaster)}
+.band--sage h2,.band--sage h3{color:var(--paper)}
 h1{font-size:clamp(2.6rem,9vw,4.4rem);line-height:1.02;letter-spacing:-.015em}
 h2{font-size:clamp(1.85rem,5vw,2.6rem);line-height:1.12;letter-spacing:-.01em}
 h3{font-size:1.2rem;line-height:1.3}
@@ -87,6 +101,8 @@ em{font-style:italic}
   margin:0;
 }
 .band--dark .eyebrow,.band--deep .eyebrow{color:var(--bronze-bright)}
+.band--sage .eyebrow{color:var(--gold-bright)}
+.band--mist .eyebrow{color:var(--bronze-deep)}
 
 .stack{display:flex;flex-direction:column;gap:1.9rem}
 .stack--tight{gap:1.05rem}
@@ -98,13 +114,13 @@ em{font-style:italic}
 /* hero */
 .hero .wrap{padding-block:6rem 5rem;align-items:center;text-align:center}
 .hero .cta{align-self:center}
-.hero h1{color:var(--plaster)}
+.hero h1{color:var(--burgundy)}
 .doorway{
   font-family:var(--display);font-style:italic;
   font-size:clamp(1.2rem,3.4vw,1.55rem);line-height:1.4;
-  color:var(--bronze-bright);margin:0;
+  color:var(--bronze-deep);margin:0;
 }
-.hero-sub{font-size:1.15rem;max-width:30rem;color:var(--plaster)}
+.hero-sub{font-size:1.15rem;max-width:30rem;color:var(--sage-ink)}
 
 /* buttons */
 .cta{
@@ -125,6 +141,8 @@ em{font-style:italic}
 .inline-link:hover{border-bottom-color:var(--blood)}
 .inline-link:focus-visible{outline:2px solid var(--blood);outline-offset:2px}
 .band--dark .cta-note,.band--deep .cta-note{color:var(--bronze-bright)}
+.band--sage .cta-note{color:var(--gold-bright)}
+.band--mist .cta-note{color:var(--bronze-deep)}
 
 /* pull quote */
 .pull{
@@ -143,13 +161,13 @@ em{font-style:italic}
 .leg:last-child{border-bottom:1px solid var(--rule-dark)}
 .leg__when{
   font-family:var(--util);font-size:.72rem;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-bright);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);
   padding-top:.3rem;
 }
 .leg__body{min-width:0;display:flex;flex-direction:column;gap:.45rem}
-.leg__what{font-family:var(--display);font-size:1.25rem;line-height:1.25;color:var(--plaster)}
-.leg__note{font-size:1rem;color:rgba(222,218,211,.82)}
-.leg--end .leg__what{color:var(--bronze-bright)}
+.leg__what{font-family:var(--display);font-size:1.25rem;line-height:1.25;color:var(--paper)}
+.leg__note{font-size:1rem;color:rgba(244,241,235,.86)}
+.leg--end .leg__what{color:var(--gold-bright)}
 
 /* movements */
 .moves{display:flex;flex-direction:column;gap:0}
@@ -160,7 +178,7 @@ em{font-style:italic}
 }
 .move:last-child{border-bottom:1px solid var(--rule)}
 .move__dates{font-family:var(--util);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);padding-top:.2rem}
-.move__name{font-family:var(--display);font-style:italic;font-size:1.1rem;color:var(--burgundy)}
+.move__name{font-family:var(--display);font-style:italic;font-size:1.1rem;color:var(--sage-ink)}
 .move__what{min-width:0}
 
 /* day cards */
@@ -194,7 +212,7 @@ em{font-style:italic}
 
 /* price */
 .price{
-  border:1px solid var(--rule);background:var(--plaster-lift);
+  border:1px solid var(--rule);background:var(--paper-lift);
   padding:2.75rem;display:flex;flex-direction:column;gap:1.9rem;
 }
 .price__figure{display:flex;flex-wrap:wrap;align-items:baseline;gap:.75rem 1.25rem}
@@ -204,8 +222,14 @@ em{font-style:italic}
 .terms__row{display:grid;grid-template-columns:8.5rem 1fr;gap:0 1.25rem}
 .terms__k{font-family:var(--util);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);padding-top:.25rem}
 .terms__v{min-width:0;font-variant-numeric:tabular-nums}
+.gift{background:var(--gold);color:#3A2A18;padding:clamp(1.8rem,4.5vw,2.7rem) clamp(1.3rem,4.5vw,2.2rem);text-align:center;display:flex;flex-direction:column;gap:.9rem;align-items:center}
+.gift__tag{font-family:var(--util);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-ink);margin:0}
+.gift__rule{width:2.75rem;height:1px;border:0;background:var(--sage-ink);opacity:.55;margin:.15rem 0}
+.gift__head{font-family:var(--display);font-size:clamp(1.4rem,3.6vw,1.9rem);line-height:1.25;color:var(--burgundy);margin:0;text-wrap:balance}
+.gift__head em{font-style:italic}
+.gift p{max-width:34rem;margin:0}
 .bonus{
-  border-left:2px solid var(--blood);padding:.2rem 0 .2rem 1.1rem;
+  border-left:2px solid var(--sage-deep);padding:.2rem 0 .2rem 1.1rem;
   font-size:1rem;color:var(--stone);
 }
 
@@ -220,25 +244,25 @@ em{font-style:italic}
 .close .wrap{padding-block:4.5rem}
 .handle{
   font-family:var(--util);font-size:.78rem;font-weight:500;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-bright);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-deep);
 }
-.handle a{color:var(--bronze-bright);text-decoration:none;border-bottom:1px solid var(--rule-dark)}
-.handle a:hover{color:var(--plaster);border-color:var(--plaster)}
-.sig{font-family:var(--display);font-style:italic;font-size:clamp(1.15rem,3.2vw,1.4rem);line-height:1.35;color:var(--bronze-bright);text-wrap:balance}
+.handle a{color:var(--bronze-deep);text-decoration:none;border-bottom:1px solid var(--rule)}
+.handle a:hover{color:var(--burgundy);border-color:var(--burgundy)}
+.sig{font-family:var(--display);font-style:italic;font-size:clamp(1.15rem,3.2vw,1.4rem);line-height:1.35;color:var(--bronze-deep);text-wrap:balance}
 .close__stack{align-items:center;text-align:center}
 .close__stack .cta{align-self:center}
 .close__head{font-size:clamp(2.2rem,7.5vw,3.2rem);line-height:1.05;letter-spacing:-.015em}
-.close__beat{display:flex;align-items:center;justify-content:center;gap:.9rem;font-style:italic;font-size:.5em;line-height:1.2;letter-spacing:.01em;color:var(--bronze-bright);margin-bottom:.9rem}
+.close__beat{display:flex;align-items:center;justify-content:center;gap:.9rem;font-style:italic;font-size:.5em;line-height:1.2;letter-spacing:.01em;color:var(--bronze-deep);margin-bottom:.9rem}
 .close__beat::before,.close__beat::after{content:"";width:2.2rem;height:1px;background:currentColor;opacity:.6}
 .close__summary{
   font-family:var(--util);font-size:.76rem;font-weight:600;
   letter-spacing:.16em;text-transform:uppercase;line-height:2.1;
-  color:var(--plaster);max-width:30rem;
-  border-top:1px solid var(--rule-dark);border-bottom:1px solid var(--rule-dark);
+  color:var(--sage-ink);max-width:30rem;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
   padding-block:1.15rem;
 }
-.close__arc{font-size:1.12rem;line-height:1.6;max-width:34rem;color:rgba(222,218,211,.9);text-wrap:pretty}
-.close__note{font-size:.98rem;line-height:1.55;max-width:30rem;color:rgba(222,218,211,.76)}
+.close__arc{font-size:1.12rem;line-height:1.6;max-width:34rem;color:var(--sage-ink);text-wrap:pretty}
+.close__note{font-size:.98rem;line-height:1.55;max-width:30rem;color:var(--sage-ink)}
 
 /* images */
 .shot{margin:0}
@@ -251,7 +275,7 @@ em{font-style:italic}
 .quote__shot img{width:100%;height:auto;display:block}
 .quote__body{min-width:0;max-width:36rem;display:flex;flex-direction:column;align-items:center;gap:1.1rem}
 .quote__text{font-family:var(--display);font-style:italic;font-size:clamp(1.3rem,3.6vw,1.65rem);line-height:1.35;color:var(--burgundy);text-wrap:pretty}
-.host__cred{font-family:var(--util);font-size:.74rem;letter-spacing:.06em;color:var(--bronze-bright);opacity:.85;margin:0}
+.host__cred{font-family:var(--util);font-size:.74rem;letter-spacing:.06em;color:var(--bronze);margin:0}
 .quote__full{font-size:1rem;line-height:1.75;color:var(--stone);max-width:34rem;text-wrap:pretty}
 .quote__who{font-family:var(--util);font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze)}
 .tm{font-size:.34em;vertical-align:super;letter-spacing:0;font-style:normal}
@@ -262,9 +286,31 @@ em{font-style:italic}
 .host__shot{margin:0}
 .host__shot img{width:100%;height:auto;display:block}
 .host__text{min-width:0}
-.host__p{font-size:1.08rem;line-height:1.62;color:rgba(222,218,211,.88)}
-.host__turn{border-top:1px solid var(--rule-dark);padding-top:1.4rem;margin-top:.3rem}
-.host__kicker{font-family:var(--display);font-size:clamp(1.3rem,3.6vw,1.6rem);line-height:1.3;color:var(--bronze-bright);text-wrap:balance}
+.host__p{font-size:1.08rem;line-height:1.62;color:var(--stone)}
+.host__turn{border-top:1px solid var(--rule);padding-top:1.4rem;margin-top:.3rem}
+.host__kicker{font-family:var(--display);font-size:clamp(1.3rem,3.6vw,1.6rem);line-height:1.3;color:var(--burgundy);text-wrap:balance}
+
+/* terms and conditions */
+.legal{background:var(--paper-lift);border-top:1px solid var(--rule)}
+.legal .wrap{padding-block:2.6rem}
+.legal__owner{font-family:var(--util);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);margin:0 0 .4rem}
+.legal details{border-top:1px solid var(--rule)}
+.legal summary{
+  font-family:var(--util);font-size:.72rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sage-ink);
+  padding-block:1.25rem;cursor:pointer;list-style:none;
+  display:flex;align-items:center;gap:.6rem;
+}
+.legal summary::-webkit-details-marker{display:none}
+.legal summary::after{content:"+";font-size:1.05rem;font-weight:500;line-height:1;margin-left:auto;color:var(--bronze)}
+.legal details[open] summary::after{content:"\2212"}
+.legal summary:focus-visible{outline:2px solid var(--blood);outline-offset:3px}
+.legal__body{display:flex;flex-direction:column;gap:1.5rem;padding-bottom:2.4rem;font-size:.9rem;line-height:1.7;color:var(--stone)}
+.legal__clause{display:flex;flex-direction:column;gap:.45rem}
+.legal h3{font-family:var(--util);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-ink);line-height:1.4;margin:0}
+.legal ul{margin:0;padding-left:1.15rem;display:flex;flex-direction:column;gap:.35rem}
+.legal__meta{font-size:.82rem;color:var(--stone-soft);display:flex;flex-direction:column;gap:.3rem;border-top:1px solid var(--rule);padding-top:1.2rem}
+.legal__meta a{color:var(--blood);text-decoration:none;border-bottom:1px solid rgba(140,40,34,.4)}
 
 @media (max-width:40rem){
   .wrap{padding-block:4.25rem}
@@ -282,13 +328,13 @@ em{font-style:italic}
 </style>
 </head>
 <body>
-<header class="band band--dark hero">
+<header class="band band--mist hero">
   <div class="wrap stack centered">
     <p class="eyebrow">Playa del Carmen &middot; December 4 to 6, 2026</p>
     <h1>NameHer<span class="tm">&trade;</span><br>in Mexico</h1>
     <p class="doorway">Mexico isn&rsquo;t your purpose, just the doorway to it.</p>
     <p class="hero-sub">Three days in a room with five other women. Then twenty five more days, through the end of the year.</p>
-    <a class="cta cta--light" href="https://instagram.com/que.athena">Message me to hold a seat</a>
+    <a class="cta cta--dark" href="https://instagram.com/que.athena">Message me to hold a seat</a>
   </div>
 </header>
 
@@ -305,7 +351,7 @@ em{font-style:italic}
   </div>
 </section>
 
-<section class="band band--dark">
+<section class="band band--sage">
   <div class="wrap stack stack--loose">
     <div class="stack stack--tight opener centered">
       <p class="eyebrow">What makes this different</p>
@@ -350,7 +396,7 @@ em{font-style:italic}
 <section class="band">
   <div class="wrap stack">
     <p class="eyebrow">The twenty eight days</p>
-    <h2>Four movements</h2>
+    <h2>NameHer<span class="tm">&trade;</span> four movements</h2>
     <p class="lead">Each one takes a week. The first opens in the room with me and finishes at your kitchen table.</p>
     <div class="moves">
       <div class="move">
@@ -445,16 +491,24 @@ em{font-style:italic}
         <p class="seat__what">The decision itself, on New Year&rsquo;s Eve, shared in our private room with the other women. You leave her in 2026</p>
       </div>
       <div class="seat__row">
-        <p class="seat__when">Jan 9</p>
-        <p class="seat__what"><em>ChooseHer</em>&trade;: The Woman You&rsquo;re Being in 2027. The live January workshop, included in your seat</p>
-      </div>
-      <div class="seat__row">
         <p class="seat__when">After</p>
         <p class="seat__what">Lifetime access to the whole audio program. All twenty eight days stay yours, to run again whenever you need them</p>
       </div>
     </div>
     <p class="cta-note">Your own lodging and travel. This is an event rather than a stay, which is why it works for women already living in Mexico. Playa, Cancún and Tulum are a drive. Mérida, Mexico City, Guadalajara and Puerto Vallarta are a short flight into Cancún.</p>
     <a class="cta cta--dark" href="https://instagram.com/que.athena">Message me to hold a seat</a>
+  </div>
+</section>
+
+<section class="band" style="padding-block:0">
+  <div class="wrap">
+    <div class="gift">
+      <p class="gift__tag">A gift, only for the six</p>
+      <hr class="gift__rule">
+      <h2 class="gift__head"><em>ChooseHer</em>&trade;: The Woman You&rsquo;re Being in 2027</h2>
+      <p>A live workshop on Saturday, January 9. You name who comes next and you choose her, nine days after you retire the woman you&rsquo;ve been. It sells on its own for $111.</p>
+      <p>It isn&rsquo;t part of the three days and it isn&rsquo;t part of the twenty eight. I&rsquo;m giving it to the women in this first circle, because you&rsquo;re the ones going first.</p>
+    </div>
   </div>
 </section>
 
@@ -521,7 +575,7 @@ em{font-style:italic}
   </div>
 </section>
 
-<section class="band band--dark">
+<section class="band band--lift">
   <div class="wrap stack">
     <p class="eyebrow">Meet your host</p>
     <div class="host">
@@ -583,23 +637,138 @@ em{font-style:italic}
       </div>
       <div class="faq__item">
         <p class="faq__q">What happens after December 31?</p>
-        <p class="faq__a">You&rsquo;ll have retired her. In January you choose who comes next, in a live workshop, <em>ChooseHer</em>&trade;: The Woman You&rsquo;re Being in 2027, on Saturday, January 9. It&rsquo;s included in your seat, so there&rsquo;s nothing more to buy. You&rsquo;ll hear about it once, on Sunday afternoon in the room, and there&rsquo;s no expectation that you take it.</p>
+        <p class="faq__a">You&rsquo;ll have retired her, and nine days later you choose who comes next. That&rsquo;s <em>ChooseHer</em>&trade; on January 9, and it&rsquo;s my gift to this first circle. After that, what comes next is yours to decide, and I&rsquo;ll tell you about it when you ask.</p>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="band band--deep close">
+<footer class="band band--mist close">
   <div class="wrap stack close__stack">
     <p class="eyebrow">Mexico Does Look Good On You.</p>
     <h2 class="close__head"><span class="close__beat">Let&rsquo;s Make it Look Better.</span>Say yes to your purpose.</h2>
     <p class="sig">Mexico isn&rsquo;t your purpose, just the doorway to it.</p>
     <p class="close__summary">Six women &middot; Three days &middot; Six seats<br>Workshop &middot; Bodyshop &middot; Playshop<br>December 4 to 6, 2026 &middot; Playa del Carmen</p>
     <p class="close__arc">You come ready to decide your purpose. You leave having named the woman who got you this far and won&rsquo;t get you there. Releasing her. Embracing the one who comes next.</p>
-    <a class="cta cta--light" href="https://instagram.com/que.athena">Message @que.athena to hold a seat</a>
+    <a class="cta cta--dark" href="https://instagram.com/que.athena">Message @que.athena to hold a seat</a>
     <p class="close__note">Tell me where you live and what you can&rsquo;t decide. I&rsquo;ll tell you honestly whether this is the room for it. If it isn&rsquo;t, I&rsquo;ll say so.</p>
     <p class="handle"><a href="https://instagram.com/que.athena">@que.athena</a> &nbsp;&middot;&nbsp; <a href="https://nextseasonher.com">nextseasonher.com</a></p>
   </div>
 </footer>
+
+<section class="band legal" id="terms">
+  <div class="wrap">
+    <p class="legal__owner">Studio Gussi LLC, trading as NextSeasonHer<span class="tm">&trade;</span></p>
+    <details>
+      <summary>Terms and conditions</summary>
+      <div class="legal__body">
+
+        <p>These terms are the agreement between you and Studio Gussi LLC for a seat at <em>NameHer</em>&trade; in Mexico, December 4 to 6, 2026. Paying for a seat means you have read them and you accept them. Please read them before you pay rather than after.</p>
+
+        <div class="legal__clause">
+          <h3>1. What you are booking</h3>
+          <p>One seat at <em>NameHer</em>&trade; in Mexico. That seat includes the virtual opening circle on December 1, 2026; three days in person in central Playa del Carmen on December 4, 5 and 6, 2026; days 4 to 28 of the <em>NameHer</em>&trade; audio program, delivered daily from December 7 to 31, 2026; the private group for the six women in this circle; printed materials for all twenty eight days; and meals together across the three days, beginning with Friday dinner. The <em>ChooseHer</em>&trade; workshop on January 9, 2027 is included as a gift to this first circle. Lifetime access to the audio program means access for as long as NextSeasonHer<span class="tm">&trade;</span> offers that program.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>2. Who can book</h3>
+          <p>You must be 18 or older.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>3. Seats</h3>
+          <p>Six seats. A seat is yours once a payment has been received, and seats are filled in the order payments arrive.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>4. Price and payment</h3>
+          <p>$777 USD for this first circle. You can pay in full, or in two payments of $400 USD, the first when you book and the second by November 28, 2026, which comes to $800 USD in total. All payments are taken in US dollars through Stripe. Any card, bank or currency conversion fees are yours. Both payments must clear before December 4, 2026. If the second payment has not cleared by November 28, 2026 your seat may be released, and the first payment is not returned.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>5. Refunds</h3>
+          <p>All payments are final. There are no refunds, in full or in part, including if you do not attend, arrive late, leave early, or miss part of the audio program. Six seats is a small room and a seat released close to the date cannot realistically be filled again.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>6. Transfers</h3>
+          <p>Your seat is personal to you. It cannot be sold, given away or used by someone else. If something serious happens before November 28, 2026, write to me and I may move your seat to a future circle. That is at my discretion and it is a courtesy rather than a right under these terms.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>7. If I cancel or move the dates</h3>
+          <p>If I cancel the in-person days outright, you choose between a full refund of everything you have paid and a seat in the next circle.</p>
+          <p>If something outside my reasonable control makes the in-person days impossible on these dates, including travel restrictions, severe weather, a public health order, venue failure or serious illness, I may move them to new dates or run that part of the program online. Your seat moves with it. If you cannot make the new dates, you keep the full audio program and the gift workshop and I will hold you a seat at the next in-person circle. Cash refunds are not available in that situation.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>8. What is not included</h3>
+          <p>Travel to and from Playa del Carmen, your lodging, airport transfers, travel insurance, Saturday dinner, and anything you choose to spend on your own time. Your passport, visa and entry requirements are your responsibility. I strongly recommend travel insurance that covers cancellation, medical care and getting you home.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>9. This is not therapy or medical care</h3>
+          <p><em>NameHer</em>&trade; is identity work led by a mentor. It is not psychotherapy, counseling, medical or psychiatric treatment, and it does not replace any of those. I am not a licensed therapist or physician, and nothing in the program is a diagnosis, a treatment or clinical advice. If you are already receiving care, keep receiving it. If you are in the middle of something acute, tell me before you book and I will be honest with you about whether December is the right month.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>10. Your health and how you take part</h3>
+          <p>Part of Saturday involves a walk to the beach and gentle work in the body. By booking you confirm that you are well enough to take part in light physical activity, that you have considered your own health in deciding to come, and that you will take part only at a level that is safe for you. You take part at your own risk, and you can sit out any exercise at any time with no explanation needed. Tell me in advance about anything that affects how you take part or what you eat, including allergies and dietary needs.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>11. Limits on liability</h3>
+          <p>To the fullest extent the law allows, Studio Gussi LLC is not liable for indirect or consequential losses, for travel or lodging costs, for loss or injury arising from your own acts or omissions, or for the acts of third parties such as hotels, restaurants, drivers, venues or airlines. Where liability cannot be excluded, it is limited to the amount you paid for your seat. Nothing in these terms excludes any liability that cannot lawfully be excluded.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>12. Confidentiality</h3>
+          <p>What the women in this room say stays in this room. You agree not to repeat another woman&rsquo;s story outside the circle, and not to record any part of any session, in person or in the group, by audio, video or photograph of the work itself.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>13. Photographs</h3>
+          <p>I take photographs at the closing circle and may take others across the three days, and I may use them to show the work of NextSeasonHer<span class="tm">&trade;</span>. If you would rather not appear, tell me in writing before December 4, 2026 and I will keep you out of anything I publish. Do not post photographs or video of another woman without her agreement.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>14. The materials belong to me</h3>
+          <p>NextSeasonHer<span class="tm">&trade;</span>, <em>NameHer</em>&trade;, <em>ChooseHer</em>&trade;, and the audio, worksheets and printed materials are the intellectual property of Studio Gussi LLC. They are licensed to you for your own personal use. You may not copy, share, sell, publish, teach or build a program from them, in whole or in part.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>15. Conduct</h3>
+          <p>This only works if the room is safe. I may ask someone to leave the circle, the group or the program for behaviour that harms another woman or the work itself, and no refund is due in that case.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>16. Your information</h3>
+          <p>I use your contact details to run the program, to send you what you have bought, and to reach you about this retreat. I do not sell them and I do not share them outside what is needed to deliver the program. You can ask me to delete them once the program has ended.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>17. How the audio program reaches you</h3>
+          <p>The daily recordings and exercises are delivered to a private channel. I may change the platform I deliver them on, and I will tell you before I do.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>18. These terms</h3>
+          <p>These terms are the whole agreement about your seat, and they replace anything said in conversation, in messages or on social media. If any part of them cannot be enforced, the rest still stands. I may update them before December 4, 2026, and I will tell you if anything material changes. They are governed by the laws of the state in which Studio Gussi LLC is organized, and any dispute will be brought in the courts of that state.</p>
+        </div>
+
+        <div class="legal__clause">
+          <h3>19. Reaching me</h3>
+          <p>Message <a class="inline-link" href="https://ig.me/m/que.athena">@que.athena</a> on Instagram, or use the contact details at <a class="inline-link" href="https://nextseasonher.com">nextseasonher.com</a>.</p>
+        </div>
+
+        <div class="legal__meta">
+          <p>Last updated October 27, 2026.</p>
+          <p>Studio Gussi LLC, trading as NextSeasonHer<span class="tm">&trade;</span>. <em>NameHer</em>&trade;, <em>ChooseHer</em>&trade; and NextSeasonHer<span class="tm">&trade;</span> are trademarks of Studio Gussi LLC.</p>
+        </div>
+
+      </div>
+    </details>
+  </div>
+</section>
 </body>
 </html>
