@@ -77,6 +77,22 @@ body{
 .band--lift{background:var(--paper-lift)}
 .band--sage{background:var(--sage-deep);color:var(--paper)}
 .band--mist{background:var(--sage);color:var(--sage-ink)}
+/* photo bands: the hero and the close sit on the sunset with a burgundy scrim */
+.band--photo{
+  background-color:#2A0A0A;
+  background-image:linear-gradient(rgba(34,6,6,.76),rgba(34,6,6,.86)),url(sunset.jpg);
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  color:var(--plaster);
+}
+.band--photo h1,.band--photo h2,.band--photo h3{color:#FBF7F2}
+.band--photo .eyebrow,.band--photo .doorway,.band--photo .sig,
+.band--photo .close__beat,.band--photo .cta-note{color:var(--bronze-bright)}
+.band--photo .hero-sub,.band--photo .close__arc,
+.band--photo .close__note,.band--photo .close__summary{color:rgba(244,241,235,.92)}
+.band--photo .close__summary{border-top-color:var(--rule-dark);border-bottom-color:var(--rule-dark)}
+.band--photo .handle,.band--photo .handle a{color:var(--bronze-bright)}
+.band--photo .handle a{border-bottom-color:var(--rule-dark)}
+.band--photo .handle a:hover{color:#FBF7F2;border-color:#FBF7F2}
 .wrap{
   max-width:46rem;margin:0 auto;
   padding-left:max(16px,env(safe-area-inset-left,0px));
@@ -114,7 +130,7 @@ em{font-style:italic}
 /* hero */
 .hero .wrap{padding-block:6rem 5rem;align-items:center;text-align:center}
 .hero .cta{align-self:center}
-.hero h1{color:var(--burgundy)}
+.hero h1{color:#FFFFFF;text-shadow:0 2px 30px rgba(26,4,4,.65)}
 .doorway{
   font-family:var(--display);font-style:italic;
   font-size:clamp(1.2rem,3.4vw,1.55rem);line-height:1.4;
@@ -135,6 +151,9 @@ em{font-style:italic}
 .cta--light:hover{background:var(--plaster)}
 .cta--dark{background:var(--burgundy);color:var(--plaster)}
 .cta--dark:hover{background:var(--blood)}
+.cta--ghost{background:transparent;color:var(--burgundy);border-color:rgba(86,0,0,.45)}
+.cta--ghost:hover{background:var(--burgundy);color:var(--plaster);border-color:var(--burgundy)}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
 .cta:focus-visible{outline:2px solid var(--bronze-bright);outline-offset:3px}
 .cta-note{font-size:.92rem;color:var(--stone-soft)}
 .inline-link{color:var(--blood);text-decoration:none;border-bottom:1px solid rgba(140,40,34,.45);transition:border-color .18s ease}
@@ -323,18 +342,19 @@ em{font-style:italic}
   .host{gap:2rem}
   .price{padding:1.5rem}
   .cta,.close__stack .cta{align-self:stretch;justify-content:center;text-align:center}
+  .cta-row{flex-direction:column;align-items:stretch;gap:.7rem}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
-<header class="band band--mist hero">
+<header class="band band--photo hero">
   <div class="wrap stack centered">
     <p class="eyebrow">Playa del Carmen &middot; December 4 to 6, 2026</p>
     <h1>NameHer<span class="tm">&trade;</span><br>in Mexico</h1>
     <p class="doorway">Mexico isn&rsquo;t your purpose, just the doorway to it.</p>
     <p class="hero-sub">Three days in a room with five other women. Then twenty five more days, through the end of the year.</p>
-    <a class="cta cta--dark" href="https://instagram.com/que.athena">Message me to hold a seat</a>
+    <a class="cta cta--light" href="https://instagram.com/que.athena">Message me to hold a seat</a>
   </div>
 </header>
 
@@ -435,14 +455,14 @@ em{font-style:italic}
           <p class="day__tag">The circle</p>
         </div>
         <p>Arrive any time from four. Nothing you need starts before six, so an afternoon flight and a drive after work both get you here in time. At 5:45 the doors close and the phones go away for the night.</p>
-        <p>Then each woman says out loud, to the room, who she has been performing as. Most have never said it to another person. Dinner together afterwards with no structure on it, because the bond goes deeper over food.</p>
+        <p>Then each woman says out loud, to the room, who she has been performing as. Most have never said it to another person. Then dinner together, at a table booked for all of us where every woman orders her own, with no structure on it, because the bond goes deeper over food.</p>
       </div>
       <div class="day">
         <div class="day__head">
           <p class="day__name">Saturday</p>
           <p class="day__tag">Workshop and bodyshop</p>
         </div>
-        <p>The morning is on paper. The roles, the performances, the patterns, in writing, shared only if you want to share it.</p>
+        <p>The morning is on paper. The roles, the performances, the patterns, in writing, shared only if you want to share it. Then a long lunch, together or on your own, at one of two places nearby I&rsquo;ll point you to.</p>
         <p>The afternoon moves to the water. We walk there in silence and work in your body, because you&rsquo;ve been holding this for years and paper doesn&rsquo;t reach it. The evening is free. You need a night to yourself.</p>
       </div>
       <div class="day">
@@ -468,7 +488,7 @@ em{font-style:italic}
       </div>
       <div class="seat__row">
         <p class="seat__when">Dec 4 to 6</p>
-        <p class="seat__what">Three days in person in Playa del Carmen, led by me. Meals together across the three days, starting with Friday dinner. Saturday dinner is your night to yourself</p>
+        <p class="seat__what">Three days in person in Playa del Carmen, led by me. Coffee, tea, fruit and light snacks in the room each day, and a table booked for all of us at Friday dinner</p>
       </div>
       <div class="seat__row">
         <p class="seat__when">Dec 7 to 31</p>
@@ -495,7 +515,7 @@ em{font-style:italic}
         <p class="seat__what">Lifetime access to the whole audio program. All twenty eight days stay yours, to run again whenever you need them</p>
       </div>
     </div>
-    <p class="cta-note">Your own lodging and travel. This is an event rather than a stay, which is why it works for women already living in Mexico. Playa, Cancún and Tulum are a drive. Mérida, Mexico City, Guadalajara and Puerto Vallarta are a short flight into Cancún.</p>
+    <p class="cta-note">Your own lodging, travel and meals. This is an event rather than a stay, which is why it works for women already living in Mexico. Playa, Cancún and Tulum are a drive. Mérida, Mexico City, Guadalajara and Puerto Vallarta are a short flight into Cancún.</p>
     <a class="cta cta--dark" href="https://instagram.com/que.athena">Message me to hold a seat</a>
   </div>
 </section>
@@ -566,12 +586,16 @@ em{font-style:italic}
         </div>
         <div class="terms__row">
           <p class="terms__k">Not included</p>
-          <p class="terms__v">Lodging and travel. Saturday dinner, which is yours to spend however you want. I&rsquo;ll send recommendations for all three.</p>
+          <p class="terms__v">Lodging, travel and meals. Friday dinner is a table booked for all of us, and each woman orders her own. I&rsquo;ll send recommendations for where to stay, how to get here and where to eat.</p>
         </div>
       </div>
       <p class="bonus">Hold a seat by November 6 and you also get a private one-to-one session with me before December 1, on the one thing you can&rsquo;t decide. Yours for moving early. It comes off the table on November 7.</p>
     </div>
-    <p class="cta-note"><a class="inline-link" href="https://ig.me/m/que.athena">Message me</a> and I&rsquo;ll send you the payment link and the full details. I&rsquo;d rather have a conversation with you first than take your money from a button.</p>
+    <div class="cta-row">
+      <a class="cta cta--dark" href="https://ig.me/m/que.athena">Message me to hold a seat</a>
+      <a class="cta cta--ghost" href="https://buy.stripe.com/14A9ASbig1fFfOv46w43S00">Pay in full &middot; $777</a>
+    </div>
+    <p class="cta-note">I&rsquo;d rather talk first, because six seats means I care who&rsquo;s in them. If you&rsquo;ve already decided, take the second door. Either way you&rsquo;ll hear from me within the hour.</p>
   </div>
 </section>
 
@@ -624,6 +648,10 @@ em{font-style:italic}
         <p class="faq__a">No. Some women will drive in from Tulum or Cancún each day and sleep in their own beds. If you&rsquo;re flying in from Mexico City, Mérida or anywhere else in the country, book three nights here and tell me, and I&rsquo;ll send you three places I&rsquo;d put my own mother in.</p>
       </div>
       <div class="faq__item">
+        <p class="faq__q">Is food included?</p>
+        <p class="faq__a">Coffee, tea, water, fruit and light snacks are in the room every day. Meals are yours, which means every woman eats what her body needs and nobody pays for a set menu she can&rsquo;t eat. Friday dinner is a table booked for all of us, each woman ordering her own, and Saturday has a long lunch break with two places nearby I&rsquo;ll send you to.</p>
+      </div>
+      <div class="faq__item">
         <p class="faq__q">What if I can&rsquo;t get there by six on Friday?</p>
         <p class="faq__a">Arrival runs from four to 5:45 with nothing programmed in it. If traffic from Cancún or a delayed flight makes you late, message me and I&rsquo;ll hold the circle a few minutes. You won&rsquo;t miss the opening.</p>
       </div>
@@ -643,14 +671,14 @@ em{font-style:italic}
   </div>
 </section>
 
-<footer class="band band--mist close">
+<footer class="band band--photo close">
   <div class="wrap stack close__stack">
     <p class="eyebrow">Mexico Does Look Good On You.</p>
     <h2 class="close__head"><span class="close__beat">Let&rsquo;s Make it Look Better.</span>Say yes to your purpose.</h2>
     <p class="sig">Mexico isn&rsquo;t your purpose, just the doorway to it.</p>
     <p class="close__summary">Six women &middot; Three days &middot; Six seats<br>Workshop &middot; Bodyshop &middot; Playshop<br>December 4 to 6, 2026 &middot; Playa del Carmen</p>
     <p class="close__arc">You come ready to decide your purpose. You leave having named the woman who got you this far and won&rsquo;t get you there. Releasing her. Embracing the one who comes next.</p>
-    <a class="cta cta--dark" href="https://instagram.com/que.athena">Message @que.athena to hold a seat</a>
+    <a class="cta cta--light" href="https://instagram.com/que.athena">Message @que.athena to hold a seat</a>
     <p class="close__note">Tell me where you live and what you can&rsquo;t decide. I&rsquo;ll tell you honestly whether this is the room for it. If it isn&rsquo;t, I&rsquo;ll say so.</p>
     <p class="handle"><a href="https://instagram.com/que.athena">@que.athena</a> &nbsp;&middot;&nbsp; <a href="https://nextseasonher.com">nextseasonher.com</a></p>
   </div>
@@ -667,7 +695,7 @@ em{font-style:italic}
 
         <div class="legal__clause">
           <h3>1. What you are booking</h3>
-          <p>One seat at <em>NameHer</em>&trade; in Mexico. That seat includes the virtual opening circle on December 1, 2026; three days in person in central Playa del Carmen on December 4, 5 and 6, 2026; days 4 to 28 of the <em>NameHer</em>&trade; audio program, delivered daily from December 7 to 31, 2026; the private group for the six women in this circle; printed materials for all twenty eight days; and meals together across the three days, beginning with Friday dinner. The <em>ChooseHer</em>&trade; workshop on January 9, 2027 is included as a gift to this first circle. Lifetime access to the audio program means access for as long as NextSeasonHer<span class="tm">&trade;</span> offers that program.</p>
+          <p>One seat at <em>NameHer</em>&trade; in Mexico. That seat includes the virtual opening circle on December 1, 2026; three days in person in central Playa del Carmen on December 4, 5 and 6, 2026; days 4 to 28 of the <em>NameHer</em>&trade; audio program, delivered daily from December 7 to 31, 2026; the private group for the six women in this circle; printed materials for all twenty eight days; and coffee, tea, water, fruit and light snacks in the room on each of the three days. Meals are not included. The <em>ChooseHer</em>&trade; workshop on January 9, 2027 is included as a gift to this first circle. Lifetime access to the audio program means access for as long as NextSeasonHer<span class="tm">&trade;</span> offers that program.</p>
         </div>
 
         <div class="legal__clause">
@@ -682,7 +710,7 @@ em{font-style:italic}
 
         <div class="legal__clause">
           <h3>4. Price and payment</h3>
-          <p>$777 USD for this first circle. You can pay in full, or in two payments of $400 USD, the first when you book and the second by November 28, 2026, which comes to $800 USD in total. All payments are taken in US dollars through Stripe. Any card, bank or currency conversion fees are yours. Both payments must clear before December 4, 2026. If the second payment has not cleared by November 28, 2026 your seat may be released, and the first payment is not returned.</p>
+          <p>$777 USD for this first circle. You can pay in full, or in two payments of $400 USD, the first when you book and the second by November 28, 2026, which comes to $800 USD in total. Women who applied for the sponsored seat may also be offered three payments of $259 USD, the last by November 28, 2026. All payments are taken in US dollars through Stripe. Any card, bank or currency conversion fees are yours. Both payments must clear before December 4, 2026. If the second payment has not cleared by November 28, 2026 your seat may be released, and the first payment is not returned.</p>
         </div>
 
         <div class="legal__clause">
@@ -703,7 +731,7 @@ em{font-style:italic}
 
         <div class="legal__clause">
           <h3>8. What is not included</h3>
-          <p>Travel to and from Playa del Carmen, your lodging, airport transfers, travel insurance, Saturday dinner, and anything you choose to spend on your own time. Your passport, visa and entry requirements are your responsibility. I strongly recommend travel insurance that covers cancellation, medical care and getting you home.</p>
+          <p>Travel to and from Playa del Carmen, your lodging, airport transfers, travel insurance, your meals, including Friday dinner, and anything you choose to spend on your own time. Your passport, visa and entry requirements are your responsibility. I strongly recommend travel insurance that covers cancellation, medical care and getting you home.</p>
         </div>
 
         <div class="legal__clause">
@@ -713,7 +741,7 @@ em{font-style:italic}
 
         <div class="legal__clause">
           <h3>10. Your health and how you take part</h3>
-          <p>Part of Saturday involves a walk to the beach and gentle work in the body. By booking you confirm that you are well enough to take part in light physical activity, that you have considered your own health in deciding to come, and that you will take part only at a level that is safe for you. You take part at your own risk, and you can sit out any exercise at any time with no explanation needed. Tell me in advance about anything that affects how you take part or what you eat, including allergies and dietary needs.</p>
+          <p>Part of Saturday involves a walk to the beach and gentle work in the body. By booking you confirm that you are well enough to take part in light physical activity, that you have considered your own health in deciding to come, and that you will take part only at a level that is safe for you. You take part at your own risk, and you can sit out any exercise at any time with no explanation needed. Tell me in advance about anything that affects how you take part or what you eat, including allergies, so the snacks in the room are safe for you.</p>
         </div>
 
         <div class="legal__clause">
@@ -762,7 +790,7 @@ em{font-style:italic}
         </div>
 
         <div class="legal__meta">
-          <p>Last updated October 27, 2026.</p>
+          <p>Last updated October 28, 2026.</p>
           <p>Studio Gussi LLC, trading as NextSeasonHer<span class="tm">&trade;</span>. <em>NameHer</em>&trade;, <em>ChooseHer</em>&trade; and NextSeasonHer<span class="tm">&trade;</span> are trademarks of Studio Gussi LLC.</p>
         </div>
 
