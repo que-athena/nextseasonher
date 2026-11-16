@@ -26,7 +26,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);f
 header.hero{background:var(--burgundy);color:var(--gold);padding:96px 0 84px;text-align:center}
 .hero .eyebrow{color:#C7A77E}
 .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,11vw,66px);line-height:1.02;letter-spacing:-.01em;color:#FBF7F2;margin:0 0 24px}
-.hero p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,5vw,24px);line-height:1.45;margin:0 auto;max-width:28ch;color:var(--gold)}
+.hero p{font-family:var(--sans);font-weight:400;font-size:clamp(16px,4.2vw,18px);letter-spacing:.04em;line-height:1.6;margin:0 auto;max-width:30ch;color:var(--gold)}
 
 .intro{padding:88px 0 24px;text-align:center}
 .intro p{margin:0 auto 18px;max-width:36ch;color:var(--soft)}
@@ -122,7 +122,7 @@ footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0p
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">NextSeasonHer™ · DatingAsHer™</p>
+    <p class="eyebrow"><span style="white-space:nowrap">NextSeasonHer™</span> · <span style="white-space:nowrap">DatingAsHer™</span></p>
     <h1>The Second Date Test</h1>
     <p>Did he show up like a husband, or like a boyfriend?</p>
   </div>
@@ -202,7 +202,7 @@ footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0p
 
     <div class="group">
       <p class="group-title">Leading</p>
-      <div class="q small" data-q="m1"><h3>Did he plan the date?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m1"><h3>Did he ask you out and then say, "Let me know where you want to go and when"?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
       <div class="q small" data-q="m2"><h3>Did he offer to assist you with getting there or getting home?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
       <div class="q small" data-q="m3"><h3>Did you accept his help?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
     </div>
@@ -210,14 +210,14 @@ footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0p
     <div class="group">
       <p class="group-title">Intentions</p>
       <div class="q small" data-q="m4"><h3>Did he volunteer his readiness without you asking?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
-      <div class="q small" data-q="m5"><h3>When he shared his intentions, did your body feel settled rather than reactive?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m5"><h3>When he shared his intentions, did your body feel reactive rather than settled?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
       <div class="q small" data-q="m6"><h3>Do you want to go out with him again regardless of his intentions?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
     </div>
 
     <div class="group">
       <p class="group-title">Being known</p>
       <div class="q small" data-q="m7"><h3>Did you feel resistance to him asking about you?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
-      <div class="q small" data-q="m8"><h3>When he asked about you, did you talk about other people, like coworkers, family or exes?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m8"><h3>When he asked about you, did you talk more about other people, like coworkers, family or exes?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
     </div>
 
     <div class="group">
@@ -233,7 +233,7 @@ footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0p
       <div class="q small" data-q="m13"><h3>Did you text him after the date?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
       <div class="q small" data-q="m14"><h3>Did he ask you to?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
       <div class="q small" data-q="m15"><h3>Did you feel butterflies after leaving him?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
-      <div class="q small" data-q="m16"><h3>Did you feel a strong desire to not see him again despite enjoying the date?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m16"><h3>Did you feel a strong desire to NOT see him again despite enjoying the date?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
     </div>
 
     <div class="mirror-out" aria-live="polite">
@@ -246,12 +246,12 @@ footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0p
 
   <section class="actions" aria-labelledby="actTitle">
     <h2 id="actTitle">Keep it, or bring it to me</h2>
-    <p>Save this date for your records. Or send your Mirror to me with a request for a 1:1, and we'll start right where you are.</p>
+    <p>Save this date for your records. Or send your Mirror to me with a request for DatingAsHer™ Private, and we'll start right where you are.</p>
     <div class="btns">
       <button type="button" class="btn" id="saveBtn">Save my test as a PDF</button>
-      <a class="btn ghost" id="mailBtn" href="#">Request a 1:1 with Que</a>
+      <a class="btn ghost" id="mailBtn" href="#">Request DatingAsHer™ Private</a>
     </div>
-    <p class="small-print">Request a 1:1 opens your email with your answers already written in. Nothing is sent until you press send.</p>
+    <p class="small-print">Request DatingAsHer™ Private opens your email with your answers already written in. Nothing is sent until you press send.</p>
     <div class="reset"><button type="button" id="resetBtn">Start a new date</button></div>
   </section>
 
@@ -310,7 +310,7 @@ footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0p
       document.getElementById('verdict').textContent=v;document.getElementById('verdictText').textContent=t;
     }
     var n=[];
-    if(s.h1==='n'){ if(s.m1==='n'||s.m3==='n'){n.push("He didn't lead, and you may have taken the lead before he could. Next date, leave room: no plan, and accept his help.");} else if(s.m1||s.m3){n.push("He didn't lead, even with room to. Count that one.");} }
+    if(s.h1==='n'){ if(s.m1==='y'||s.m3==='n'){n.push("He didn't lead, and the plan or the getting there may have landed on you. Give him one more date with room to lead: don't pick the place, and accept his help.");} else if(s.m1||s.m3){n.push("He didn't lead, even with room to. Count that one.");} }
     if(s.h2==='n'&&s.m4==='n'){n.push('His intentions were unclear, and you asked before he offered. Next time, let him bring it up.');}
     if(s.h5==='n'&&s.m13==='y'&&s.m14==='n'){n.push("He didn't follow up, and you texted first. Give him the chance to pursue before you decide.");}
     n.forEach(function(x){var li=document.createElement('li');li.textContent=x;notes.appendChild(li);});
@@ -318,13 +318,13 @@ footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0p
 
   var PATTERNS=[
     {t:'Leading before he does',d:"You're doing his part: planning, paying or reaching out first. It can feel generous. It also keeps you in the girlfriend role.",
-      test:function(){return (s.m1==='n')+(s.m3==='n')+(s.m9==='y')+(s.m13==='y'&&s.m14==='n')>=2;}},
+      test:function(){return (s.m1==='y')+(s.m3==='n')+(s.m9==='y')+(s.m13==='y'&&s.m14==='n')>=2;}},
     {t:'Difficulty receiving',d:"Being asked about, helped or paid for feels uncomfortable, or like a debt. A husband will want to give. Notice what makes receiving hard.",
       test:function(){return (s.m7==='y')+(s.m11==='y')+(s.m12==='y')+(s.m3==='n')>=2;}},
     {t:'Hiding behind other people',d:"When he asked about you, the story went to everyone else. He can't choose a woman he hasn't met.",
       test:function(){return s.m8==='y';}},
     {t:'Wanting him past what he offers',d:"You'd see him again whatever his intentions, or they left your body unsettled. That's attraction outrunning your standard.",
-      test:function(){return s.m6==='y'&&(s.m4==='n'||s.m5==='n');}},
+      test:function(){return s.m6==='y'&&(s.m4==='n'||s.m5==='y');}},
     {t:'Pulling away from the steady one',d:"You enjoyed the date and still want to run. Sometimes peace feels unfamiliar, so it reads as boring.",
       test:function(){return s.m16==='y';}}
   ];
@@ -341,14 +341,14 @@ footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0p
   function yn(v){return v==='y'?'Yes':v==='n'?'No':'—';}
   function buildMail(){
     var keys=['h1','h2','h3','h4','h5'],yes=keys.filter(function(k){return s[k]==='y';}).length;
-    var body='Hi Que,\n\nI took the Second Date Test and I\'d like to talk about a DatingAsHer™ 1:1.\n\n';
+    var body='Hi Que,\n\nI took the Second Date Test and I\'d like to talk about DatingAsHer™ Private.\n\n';
     if(s.who||s.when){body+='Date: '+(s.who||'')+(s.who&&s.when?', ':'')+(s.when||'')+'\n\n';}
     body+='HIM: '+yes+' of 5\n';keys.forEach(function(k){body+='- '+LABEL[k]+' '+yn(s[k])+'\n';});
     body+='\nMY MIRROR\n';for(var i=1;i<=16;i++){body+='- '+LABEL['m'+i]+' '+yn(s['m'+i])+'\n';}
     var hits=PATTERNS.filter(function(p){return p.test();}).map(function(p){return p.t;});
     if(hits.length){body+='\nPatterns it showed: '+hits.join('; ')+'\n';}
     body+='\nA little about me and what I want help with:\n\n';
-    document.getElementById('mailBtn').href='mailto:'+EMAIL+'?subject='+encodeURIComponent('DatingAsHer™ 1:1 request')+'&body='+encodeURIComponent(body);
+    document.getElementById('mailBtn').href='mailto:'+EMAIL+'?subject='+encodeURIComponent('DatingAsHer™ Private request')+'&body='+encodeURIComponent(body);
   }
   document.getElementById('saveBtn').addEventListener('click',function(){window.print();});
   document.getElementById('resetBtn').addEventListener('click',function(){s={};try{localStorage.removeItem(KEY);}catch(e){}paint();window.scrollTo({top:0});});
