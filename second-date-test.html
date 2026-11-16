@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>The Second Date Test | NextSeasonHer™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F3EE; --card:#FDFCFA; --ink:#3A3632; --soft:#6B665F; --line:rgba(87,83,77,.14);
+  --plaster:#E3DED6; --accent:#8C2822; --burgundy:#560000; --bronze:#7A6242; --gold:#E0C9A4;
+  --tint:#F4E7E4;
+  --serif:'Bodoni Moda','Bodoni 72',Didot,Georgia,serif;
+  --sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px))}
+.eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--bronze);margin:0 0 18px}
+
+header.hero{background:var(--burgundy);color:var(--gold);padding:96px 0 84px;text-align:center}
+.hero .eyebrow{color:#C7A77E}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,11vw,66px);line-height:1.02;letter-spacing:-.01em;color:#FBF7F2;margin:0 0 24px}
+.hero p{font-family:var(--sans);font-weight:400;font-size:clamp(16px,4.2vw,18px);letter-spacing:.04em;line-height:1.6;margin:0 auto;max-width:30ch;color:var(--gold)}
+
+.intro{padding:88px 0 24px;text-align:center}
+.intro p{margin:0 auto 18px;max-width:36ch;color:var(--soft)}
+.intro .rule{width:44px;height:1px;background:var(--bronze);opacity:.5;margin:40px auto 0;border:0}
+
+.field{margin:56px 0 0}
+.field label{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--soft);margin:0 0 10px}
+.field input{width:100%;font:inherit;font-size:18px;color:var(--ink);background:var(--card);border:1px solid var(--plaster);border-radius:12px;padding:16px 18px}
+.field input:focus{outline:2px solid rgba(140,40,34,.3);outline-offset:1px;border-color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+
+section.part{padding:120px 0 0}
+.part-head{text-align:center;margin:0 0 64px}
+.part-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(36px,9vw,48px);line-height:1.06;color:var(--accent);margin:0 0 18px}
+.part-head p{margin:0 auto;max-width:34ch;color:var(--soft)}
+
+.q{padding:44px 0;border-top:1px solid var(--line)}
+.q:last-child{border-bottom:1px solid var(--line)}
+.q .num{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--bronze);margin:0 0 10px}
+.q h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,6vw,28px);line-height:1.25;margin:0 0 10px;color:var(--ink)}
+.q .hint{margin:0 0 26px;color:var(--soft);font-size:16px}
+.q.small h3{font-size:clamp(20px,5vw,23px)}
+.q.small{padding:36px 0}
+.bill{margin:-6px 0 28px;padding:22px 22px 6px;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.bill-title{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--bronze);margin:0 0 14px}
+.bill p{margin:0 0 16px;font-size:16px;line-height:1.6;color:var(--soft)}
+.bill strong{color:var(--ink);font-weight:600}
+.yn{display:flex;gap:14px}
+.yn button{flex:1;max-width:160px;font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:.04em;padding:15px 0;border-radius:999px;border:1px solid var(--plaster);background:var(--card);color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.yn button:hover{border-color:var(--bronze)}
+.yn button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.yn button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.group{margin:72px 0 0}
+.group:first-of-type{margin-top:0}
+.group-title{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--bronze);margin:0 0 6px;text-align:center}
+
+.result{margin:96px 0 0;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:56px 32px;text-align:center}
+.result .count{font-family:var(--serif);font-size:72px;line-height:1;color:var(--accent);margin:0 0 6px}
+.result .of{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);font-weight:600;margin:0 0 30px}
+.result h3{font-family:var(--serif);font-weight:500;font-size:clamp(26px,6.5vw,32px);line-height:1.2;margin:0 0 14px}
+.result p{margin:0 auto;max-width:34ch;color:var(--soft)}
+.result .notes{margin:32px auto 0;max-width:40ch;text-align:left;padding:0;list-style:none}
+.result .notes li{border-left:2px solid var(--gold);padding:4px 0 4px 16px;margin:0 0 14px;font-size:16px;color:var(--ink)}
+.result.pending .count{color:var(--plaster)}
+.rulebox{margin:40px auto 0;max-width:40ch;font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.45;color:var(--burgundy)}
+
+.mirror-out{margin:96px 0 0;background:var(--burgundy);color:var(--gold);border-radius:24px;padding:56px 32px}
+.mirror-out .eyebrow{color:#C7A77E;text-align:center}
+.mirror-out h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,7vw,36px);color:#FBF7F2;margin:0 0 28px;text-align:center}
+.pat{border-top:1px solid rgba(224,201,164,.22);padding:24px 0}
+.pat h4{font-family:var(--serif);font-weight:500;font-size:22px;color:#FBF7F2;margin:0 0 6px}
+.pat p{margin:0;color:var(--gold);font-size:16px}
+.mirror-out .empty{text-align:center;font-family:var(--serif);font-style:italic;color:rgba(224,201,164,.7);font-size:19px}
+.mirror-out .close{margin:28px 0 0;text-align:center;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--gold)}
+
+.actions{padding:96px 0 0;text-align:center}
+.actions h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,8vw,40px);color:var(--accent);margin:0 0 16px}
+.actions p{margin:0 auto 36px;max-width:34ch;color:var(--soft)}
+.btns{display:flex;flex-direction:column;align-items:center;gap:14px}
+.btn{display:inline-block;width:100%;max-width:340px;font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:.03em;padding:18px 24px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:#fff;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.small-print{margin:22px auto 0;max-width:36ch;font-size:14px;color:var(--soft)}
+.reset{margin:56px 0 0;text-align:center}
+.reset button{background:none;border:0;font:inherit;font-size:14px;color:var(--soft);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+.next{margin:120px 0 0;padding:80px 0 0;border-top:1px solid var(--line);text-align:center}
+.next p.big{font-family:var(--serif);font-size:clamp(24px,6vw,30px);line-height:1.3;margin:0 auto 18px;max-width:22ch}
+.next p{margin:0 auto;max-width:34ch;color:var(--soft)}
+.next strong{color:var(--accent)}
+footer{margin:120px 0 0;padding:36px 0 calc(48px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);text-align:center;font-size:13px;color:var(--soft)}
+
+@media print{
+  @page{size:Letter;margin:.6in}
+  body{background:#fff;font-size:11pt}
+  header.hero{background:none;color:var(--ink);padding:0 0 10px;text-align:left;border-bottom:2px solid var(--burgundy)}
+  .hero h1{color:var(--burgundy);font-size:26pt;margin:0 0 4px}.hero p{color:var(--bronze);font-size:12pt;max-width:none;margin:0}
+  .intro,.actions,.reset,.next,footer,.yn button[aria-pressed="false"]{display:none!important}
+  section.part{padding:18px 0 0}.part-head{margin:0 0 6px;text-align:left}.part-head h2{font-size:18pt}.part-head p{display:none}
+  .q,.q.small{padding:6px 0;break-inside:avoid}.q h3,.q.small h3{font-size:11pt;margin:0}.q .hint,.q .num{display:none}
+  .yn button{border:0;background:none!important;color:var(--accent)!important;padding:0;max-width:none;flex:none;text-align:left}
+  .group{margin:12px 0 0}.group-title{text-align:left}
+  .result,.mirror-out{margin:16px 0 0;padding:16px;border:1px solid #ccc;background:none;color:var(--ink);break-inside:avoid;text-align:left}
+  .mirror-out h3,.pat h4,.result h3{color:var(--burgundy)}.pat p,.mirror-out .close{color:var(--ink)}
+  .field{margin:12px 0 0}.field input{border:0;padding:0;background:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow"><span style="white-space:nowrap">NextSeasonHer™</span> · <span style="white-space:nowrap">DatingAsHer™</span></p>
+    <h1>The Second Date Test</h1>
+    <p>Did he show up like a husband, or like a boyfriend?</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="intro">
+    <p>Answer within 24 hours of the date, before you text your girls about him.</p>
+    <p>Tap yes or no for each question. Your answers stay on this device.</p>
+    <hr class="rule">
+    <div class="field two">
+      <div><label for="who">His first name or initial</label><input id="who" data-k="who" autocomplete="off"></div>
+      <div><label for="when">Date of the date</label><input id="when" data-k="when" type="date"></div>
+    </div>
+  </div>
+
+  <section class="part" aria-labelledby="hisTitle">
+    <div class="part-head">
+      <p class="eyebrow">Part one · His Effort</p>
+      <h2 id="hisTitle">Did he show up like a husband?</h2>
+      <p>Answer for what he did. Not for how it felt.</p>
+    </div>
+
+    <div class="q" data-q="h1">
+      <p class="num">One</p>
+      <h3>Did he lead?</h3>
+      <p class="hint">He chose the plan, the time and the place, and made sure you got there and home.</p>
+      <div class="yn" role="group" aria-label="Did he lead?"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div>
+    </div>
+    <div class="q" data-q="h2">
+      <p class="num">Two</p>
+      <h3>Did he make his intentions clear?</h3>
+      <p class="hint">You know whether he's dating for marriage, because he said so in his own words.</p>
+      <div class="yn" role="group" aria-label="Did he make his intentions clear?"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div>
+    </div>
+    <div class="q" data-q="h3">
+      <p class="num">Three</p>
+      <h3>Was he curious about you?</h3>
+      <p class="hint">He asked questions, listened, and remembered what you said.</p>
+      <div class="yn" role="group" aria-label="Was he curious about you?"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div>
+    </div>
+    <div class="q" data-q="h4">
+      <p class="num">Four</p>
+      <h3>Did he talk about money, work and the people in his life with respect?</h3>
+      <p class="hint">Calm and solution-minded is a yes. Complaining, blaming or negative is a no.</p>
+      <div class="bill">
+        <p class="bill-title">Then notice how the bill went</p>
+        <p><strong>He paid, and it never became a question.</strong> He didn't ask, hint or wait to see what you'd do. This is the stronger signal, and it outweighs the one below.</p>
+        <p><strong>He offered to pay.</strong> Polite, and still a question he handed to you. A man who offers is leaving the door open for you to pay.</p>
+      </div>
+      <div class="yn" role="group" aria-label="Did he talk about money, work and people with respect?"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div>
+    </div>
+    <div class="q" data-q="h5">
+      <p class="num">Five</p>
+      <h3>Did he follow up on his own?</h3>
+      <p class="hint">He reached out after the date and moved toward a next plan without you prompting him.</p>
+      <div class="yn" role="group" aria-label="Did he follow up on his own?"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div>
+    </div>
+
+    <div class="result pending" id="result" aria-live="polite">
+      <p class="count" id="count">·</p>
+      <p class="of" id="of">Answer all five</p>
+      <h3 id="verdict">Your result appears here</h3>
+      <p id="verdictText">Take your time. One honest tap at a time.</p>
+      <ul class="notes" id="notes"></ul>
+      <p class="rulebox">One clear red flag on something you won't negotiate outweighs any score.</p>
+    </div>
+  </section>
+
+  <section class="part" aria-labelledby="herTitle">
+    <div class="part-head">
+      <p class="eyebrow">Part two · Her Mirror</p>
+      <h2 id="herTitle">How did you show up?</h2>
+      <p>No score here. This part is for you, and it gets clearer over several dates.</p>
+    </div>
+
+    <div class="group">
+      <p class="group-title">Leading</p>
+      <div class="q small" data-q="m1"><h3>Did he ask you out and then say, "Let me know where you want to go and when"?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m2"><h3>Did he offer to assist you with getting there or getting home?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m3"><h3>Did you accept his help?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+    </div>
+
+    <div class="group">
+      <p class="group-title">Intentions</p>
+      <div class="q small" data-q="m4"><h3>Did he volunteer his readiness without you asking?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m5"><h3>When he shared his intentions, did your body feel reactive rather than settled?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m6"><h3>Do you want to go out with him again regardless of his intentions?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+    </div>
+
+    <div class="group">
+      <p class="group-title">Being known</p>
+      <div class="q small" data-q="m7"><h3>Did you feel resistance to him asking about you?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m8"><h3>When he asked about you, did you talk more about other people, like coworkers, family or exes?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+    </div>
+
+    <div class="group">
+      <p class="group-title">Receiving</p>
+      <div class="q small" data-q="m9"><h3>Did you offer to pay?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m10"><h3>Did he allow you to pay?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m11"><h3>Did you feel odd about him paying?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m12"><h3>Did you feel like you would owe him something if he paid?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+    </div>
+
+    <div class="group">
+      <p class="group-title">After</p>
+      <div class="q small" data-q="m13"><h3>Did you text him after the date?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m14"><h3>Did he ask you to?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m15"><h3>Did you feel butterflies after leaving him?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+      <div class="q small" data-q="m16"><h3>Did you feel a strong desire to NOT see him again despite enjoying the date?</h3><div class="yn" role="group"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></div></div>
+    </div>
+
+    <div class="mirror-out" aria-live="polite">
+      <p class="eyebrow">What your mirror is showing</p>
+      <h3>Her Mirror</h3>
+      <div id="patterns"><p class="empty">Your patterns appear here as you answer.</p></div>
+      <p class="close">Patterns matter more than any one night. Notice what repeats.</p>
+    </div>
+  </section>
+
+  <section class="actions" aria-labelledby="actTitle">
+    <h2 id="actTitle">Keep it, or bring it to me</h2>
+    <p>Save this date for your records. Or send your Mirror to me with a request for DatingAsHer™ Private, and we'll start right where you are.</p>
+    <div class="btns">
+      <button type="button" class="btn" id="saveBtn">Save my test as a PDF</button>
+      <a class="btn ghost" id="mailBtn" href="#">Request DatingAsHer™ Private</a>
+    </div>
+    <p class="small-print">Request DatingAsHer™ Private opens your email with your answers already written in. Nothing is sent until you press send.</p>
+    <div class="reset"><button type="button" id="resetBtn">Start a new date</button></div>
+  </section>
+
+  <section class="next">
+    <p class="big">This test works for any date.</p>
+    <p>The full version is built from your own Husband Profile, inside <strong>The Husband Toolkit</strong>. Comment <strong>HUSBAND</strong> on Instagram and I'll send it to you.</p>
+  </section>
+</main>
+
+<footer><div class="wrap">Que Athena · Marriage-Minded Dating Mentor · NextSeasonHer™ · © 2026 Studio Gussi LLC</div></footer>
+
+<script>
+(function(){
+  var KEY='secondDateTest.v1', s={};
+  try{s=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){s={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}}
+  var EMAIL='hello@nextseasonher.com';
+  var qs=[].slice.call(document.querySelectorAll('[data-q]'));
+  var inputs=[].slice.call(document.querySelectorAll('input[data-k]'));
+  var LABEL={};qs.forEach(function(q){LABEL[q.dataset.q]=q.querySelector('h3').textContent;});
+
+  function paint(){
+    qs.forEach(function(q){
+      var v=s[q.dataset.q];
+      q.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v===v));});
+    });
+    inputs.forEach(function(i){i.value=s[i.dataset.k]||'';});
+    renderHis();renderMirror();buildMail();
+  }
+  qs.forEach(function(q){
+    q.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click',function(){
+        s[q.dataset.q]=(s[q.dataset.q]===b.dataset.v)?undefined:b.dataset.v;save();paint();
+      });
+    });
+  });
+  inputs.forEach(function(i){i.addEventListener('input',function(){s[i.dataset.k]=i.value;save();buildMail();});});
+
+  function renderHis(){
+    var keys=['h1','h2','h3','h4','h5'],done=keys.filter(function(k){return s[k];}).length,yes=keys.filter(function(k){return s[k]==='y';}).length;
+    var box=document.getElementById('result'),notes=document.getElementById('notes');notes.innerHTML='';
+    if(done<5){
+      box.classList.add('pending');
+      document.getElementById('count').textContent=done?yes:'·';
+      document.getElementById('of').textContent=done?(done+' of 5 answered'):'Answer all five';
+      document.getElementById('verdict').textContent='Your result appears here';
+      document.getElementById('verdictText').textContent='Take your time. One honest tap at a time.';
+    }else{
+      box.classList.remove('pending');
+      document.getElementById('count').textContent=yes;
+      document.getElementById('of').textContent=(yes===1?'yes':'yeses')+' out of 5';
+      var v,t;
+      if(yes>=4){v='Second date.';t="He's showing up like a man who's ready.";}
+      else if(yes===3){v='One more date, eyes open.';t='Watch the questions he missed.';}
+      else{v='Release him, kindly.';t="He may be a good man. He isn't showing up as your husband.";}
+      document.getElementById('verdict').textContent=v;document.getElementById('verdictText').textContent=t;
+    }
+    var n=[];
+    if(s.h1==='n'){ if(s.m1==='y'||s.m3==='n'){n.push("He didn't lead, and the plan or the getting there may have landed on you. Give him one more date with room to lead: don't pick the place, and accept his help.");} else if(s.m1||s.m3){n.push("He didn't lead, even with room to. Count that one.");} }
+    if(s.h2==='n'&&s.m4==='n'){n.push('His intentions were unclear, and you asked before he offered. Next time, let him bring it up.');}
+    if(s.h5==='n'&&s.m13==='y'&&s.m14==='n'){n.push("He didn't follow up, and you texted first. Give him the chance to pursue before you decide.");}
+    n.forEach(function(x){var li=document.createElement('li');li.textContent=x;notes.appendChild(li);});
+  }
+
+  var PATTERNS=[
+    {t:'Leading before he does',d:"You're doing his part: planning, paying or reaching out first. It can feel generous. It also keeps you in the girlfriend role.",
+      test:function(){return (s.m1==='y')+(s.m3==='n')+(s.m9==='y')+(s.m13==='y'&&s.m14==='n')>=2;}},
+    {t:'Difficulty receiving',d:"Being asked about, helped or paid for feels uncomfortable, or like a debt. A husband will want to give. Notice what makes receiving hard.",
+      test:function(){return (s.m7==='y')+(s.m11==='y')+(s.m12==='y')+(s.m3==='n')>=2;}},
+    {t:'Hiding behind other people',d:"When he asked about you, the story went to everyone else. He can't choose a woman he hasn't met.",
+      test:function(){return s.m8==='y';}},
+    {t:'Wanting him past what he offers',d:"You'd see him again whatever his intentions, or they left your body unsettled. That's attraction outrunning your standard.",
+      test:function(){return s.m6==='y'&&(s.m4==='n'||s.m5==='y');}},
+    {t:'Pulling away from the steady one',d:"You enjoyed the date and still want to run. Sometimes peace feels unfamiliar, so it reads as boring.",
+      test:function(){return s.m16==='y';}}
+  ];
+  function renderMirror(){
+    var box=document.getElementById('patterns'),hits=PATTERNS.filter(function(p){return p.test();}),answered=Object.keys(s).filter(function(k){return /^m/.test(k)&&s[k];}).length;
+    box.innerHTML='';
+    if(!hits.length){
+      var p=document.createElement('p');p.className='empty';
+      p.textContent=answered<16?'Your patterns appear here as you answer.':'Nothing stands out on this date. Keep checking across the next few.';
+      box.appendChild(p);return;
+    }
+    hits.forEach(function(h){var d=document.createElement('div');d.className='pat';var a=document.createElement('h4');a.textContent=h.t;var b=document.createElement('p');b.textContent=h.d;d.appendChild(a);d.appendChild(b);box.appendChild(d);});
+  }
+  function yn(v){return v==='y'?'Yes':v==='n'?'No':'—';}
+  function buildMail(){
+    var keys=['h1','h2','h3','h4','h5'],yes=keys.filter(function(k){return s[k]==='y';}).length;
+    var body='Hi Que,\n\nI took the Second Date Test and I\'d like to talk about DatingAsHer™ Private.\n\n';
+    if(s.who||s.when){body+='Date: '+(s.who||'')+(s.who&&s.when?', ':'')+(s.when||'')+'\n\n';}
+    body+='HIM: '+yes+' of 5\n';keys.forEach(function(k){body+='- '+LABEL[k]+' '+yn(s[k])+'\n';});
+    body+='\nMY MIRROR\n';for(var i=1;i<=16;i++){body+='- '+LABEL['m'+i]+' '+yn(s['m'+i])+'\n';}
+    var hits=PATTERNS.filter(function(p){return p.test();}).map(function(p){return p.t;});
+    if(hits.length){body+='\nPatterns it showed: '+hits.join('; ')+'\n';}
+    body+='\nA little about me and what I want help with:\n\n';
+    document.getElementById('mailBtn').href='mailto:'+EMAIL+'?subject='+encodeURIComponent('DatingAsHer™ Private request')+'&body='+encodeURIComponent(body);
+  }
+  document.getElementById('saveBtn').addEventListener('click',function(){window.print();});
+  document.getElementById('resetBtn').addEventListener('click',function(){s={};try{localStorage.removeItem(KEY);}catch(e){}paint();window.scrollTo({top:0});});
+  paint();
+})();
+</script>
+</body>
+</html>
