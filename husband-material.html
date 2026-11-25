@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#560000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Husband Material">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="husband-material.webmanifest">
+<link rel="apple-touch-icon" href="hm-icon-180.png">
+<link rel="icon" href="hm-icon-192.png">
+<title>Husband Material | NextSeasonHer™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Mr+Dafoe&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FAF5EE; --blush:#F4DDD3; --blush-light:#F8E6DE; --card:#FFFDFA; --ink:#1E1412; --body:#3A2A26; --soft:#5E4B45;
+  --line:rgba(30,20,18,.12); --edge:#E6D6CC; --burgundy:#560000; --lip:#7A0F1C; --lip-nude:#E59A8E; --on-dark:#EBD3CB;
+  --grad:radial-gradient(120% 90% at 78% 8%, rgba(140,40,34,.42), transparent 62%), linear-gradient(176deg,#4A0404 0%,#2E0505 58%,#190404 100%);
+  --glow:radial-gradient(120% 90% at 78% 8%, rgba(140,40,34,.22), transparent 62%), linear-gradient(176deg,#F8E6DE 0%,#F1D3C7 60%,#E8BFB0 100%);
+  --display:'Playfair Display',Georgia,serif;
+  --script:'Mr Dafoe','Brush Script MT',cursive;
+  --sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --nav:68px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--body);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:calc(var(--nav) + env(safe-area-inset-bottom,0px) + 80px)}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.wrap a:not(.btn):not(.tile):not(.man){color:var(--burgundy);text-underline-offset:3px}
+.eyebrow{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--burgundy);margin:0 0 12px}
+.lip{font-family:var(--script);font-weight:400;color:var(--lip);display:inline-block;line-height:1;font-size:1.5em;vertical-align:baseline;margin:0 .08em 0 .12em;transform:rotate(-11deg) translateY(-.06em);transform-origin:left bottom;filter:url(#lipstick)}
+.on-dark .lip{color:var(--lip-nude)}
+h1,h2,.display{font-family:var(--display);font-weight:800;color:var(--ink);letter-spacing:-.005em}
+h2{font-size:clamp(32px,8.6vw,42px);line-height:1.1;margin:0 0 14px}
+h3{font-family:var(--sans);font-weight:600;font-size:19px;color:var(--ink);margin:0 0 8px;line-height:1.3}
+p{margin:0 0 14px}
+.soft{color:var(--soft)}
+.small{font-size:14px}
+.screen{padding-top:22px;padding-bottom:36px}
+svg.ic{width:22px;height:22px;flex:none}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:15;background:rgba(250,245,238,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.topbar .in{display:flex;align-items:center;gap:8px;height:52px;max-width:640px;margin:0 auto;padding:0 10px}
+.backbtn{background:transparent;border:0;color:var(--burgundy);padding:8px 10px;min-height:44px;font-size:16px;gap:4px}
+.backbtn svg{width:20px;height:20px}
+.topbar .t{flex:1;text-align:center;font-weight:600;color:var(--ink);font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:62px}
+
+/* screen head */
+.shead{background:linear-gradient(180deg,var(--tint) 0%,var(--ivory) 100%);padding:40px 0 30px}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;flex:none}
+.badge svg{width:22px;height:22px}
+.badge.sm{width:36px;height:36px;border-radius:11px}
+.badge.sm svg{width:18px;height:18px}
+
+/* photos */
+.photo{position:relative;border-radius:20px;overflow:hidden;margin:0 0 22px;display:flex;align-items:flex-end;justify-content:flex-start}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px}
+.photo .ph svg{width:40px;height:40px;opacity:.55}
+.photo .cap{position:relative;margin:12px;background:rgba(30,20,18,.62);color:#F8E6DE;font-size:12px;font-weight:600;border-radius:999px;padding:5px 11px;max-width:calc(100% - 24px)}
+
+/* hero */
+.hero{background:var(--grad);color:var(--on-dark);padding:calc(68px + env(safe-area-inset-top,0px)) 0 60px;text-align:center;position:relative;overflow:hidden;background-size:cover;background-position:center}
+.hero .eyebrow{color:var(--blush);margin-bottom:20px}
+.hero h1{font-size:clamp(44px,12vw,68px);line-height:1.04;color:var(--blush-light);margin:0 0 18px;position:relative}
+.hero h1 .lip{display:block;margin:0 auto;transform:rotate(-11deg);transform-origin:center;width:max-content;font-size:1.25em}
+.hero p{font-size:17px;font-weight:500;margin:0 auto;max-width:30ch;position:relative}
+.hero .deco{position:absolute;opacity:.16;color:var(--lip-nude)}
+
+/* cards & controls */
+.card{background:var(--card);border:1px solid var(--edge);border-radius:20px;padding:24px 22px;margin:0 0 20px}
+.card.glow{background:var(--glow);border-color:transparent}
+.card.tint{border-color:transparent}
+.card.dark{background:var(--grad);border:0;color:var(--on-dark)}
+.card.dark h3,.card.dark .display{color:var(--blush-light)}
+.card.dark .eyebrow{color:var(--blush)}
+.row{display:flex;gap:10px;align-items:center}
+.between{display:flex;justify-content:space-between;align-items:center;gap:12px}
+label,.label{display:block;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--soft);margin:20px 0 8px}
+textarea,input[type=text],input[type=date],input[type=number],select{width:100%;font-family:var(--sans);font-size:17px;line-height:1.45;color:var(--ink);background:#fff;border:1px solid var(--edge);border-radius:10px;padding:11px 13px}
+textarea{resize:none;overflow:hidden;min-height:60px}
+textarea:focus,input:focus,select:focus{outline:2px solid rgba(86,0,0,.3);outline-offset:1px;border-color:var(--burgundy)}
+button,.btn{font-family:var(--sans);font-size:15px;font-weight:600;border-radius:999px;padding:11px 18px;cursor:pointer;border:1px solid var(--burgundy);background:var(--burgundy);color:var(--blush-light);min-height:44px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+button.ghost,.btn.ghost{background:transparent;color:var(--burgundy)}
+.card.dark button.ghost,.card.dark .btn.ghost{color:var(--blush);border-color:var(--blush)}
+.card.dark button:not(.ghost),.card.dark .btn:not(.ghost){background:var(--blush);border-color:var(--blush);color:#2E0505}
+button.wide,.btn.wide{width:100%}
+button:focus-visible,a:focus-visible{outline:2px solid var(--burgundy);outline-offset:3px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--edge);background:#fff;color:var(--ink);font-weight:500;padding:9px 14px;min-height:40px;font-size:15px}
+.chip[aria-pressed="true"]{background:var(--c-ink,var(--burgundy));border-color:var(--c-ink,var(--burgundy));color:#fff}
+.chip.star::after{content:" ★";color:var(--lip)}
+.chip.star[aria-pressed="true"]::after{color:var(--lip-nude)}
+.chip.locked{background:var(--burgundy);border-color:var(--burgundy);color:var(--blush-light)}
+.seg{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.seg button{border:1px solid var(--edge);background:#fff;color:var(--ink);font-weight:500;flex:1 1 auto}
+.seg button[aria-pressed="true"]{background:var(--burgundy);border-color:var(--burgundy);color:var(--blush-light)}
+.q{padding:20px 0;border-top:1px solid var(--line)}
+.q:first-child{border-top:0}
+.progress{height:8px;border-radius:999px;background:var(--blush);overflow:hidden}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--lip-nude),var(--burgundy));transition:width .3s}
+.pill{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.06em;border-radius:999px;padding:4px 10px;background:var(--blush);color:var(--burgundy)}
+.pill.over{background:var(--lip);color:var(--blush-light)}
+.note{background:var(--blush-light);border-radius:14px;padding:16px 18px;font-size:15px;color:var(--soft);margin:16px 0}
+.say{font-size:18px;line-height:1.5;color:var(--ink);margin:8px 0 14px}
+.toast{position:fixed;left:50%;bottom:calc(var(--nav) + 84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--blush-light);padding:10px 18px;border-radius:999px;font-size:14px;z-index:40;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center}
+.toast.show{opacity:1}
+[hidden]{display:none!important}
+.private .nm{filter:blur(6px)}
+
+/* nav */
+nav.bottom{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(250,245,238,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav.bottom ul{display:flex;max-width:640px;margin:0 auto;padding:0;list-style:none}
+nav.bottom li{flex:1}
+nav.bottom a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:var(--nav);color:var(--soft);text-decoration:none;font-size:12px;font-weight:600}
+nav.bottom a svg{width:22px;height:22px}
+nav.bottom a[aria-current="page"]{color:var(--burgundy)}
+nav.bottom a[aria-current="page"] svg{fill:var(--blush)}
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(var(--nav) + 14px + env(safe-area-inset-bottom,0px));z-index:21;box-shadow:0 8px 24px rgba(86,0,0,.28);padding:12px 18px}
+
+/* home */
+.paths{display:grid;gap:12px}
+.path{display:flex;gap:14px;align-items:center;justify-content:flex-start;text-align:left;width:100%;background:#fff;border:1px solid var(--edge);border-radius:16px;padding:16px;color:var(--ink);font-weight:500;min-height:68px}
+.path[aria-pressed="true"]{border-color:var(--burgundy);box-shadow:inset 0 0 0 1px var(--burgundy)}
+.path strong{display:block;font-size:17px}
+.path span.d{font-size:14px;color:var(--soft);font-weight:400}
+.steps{list-style:none;margin:0;padding:0}
+.steps li{display:flex;gap:14px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0}
+.tick{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--edge);display:flex;align-items:center;justify-content:center;font-size:14px;color:transparent}
+.tick.on{background:var(--burgundy);border-color:var(--burgundy);color:var(--blush-light)}
+.steps a{color:var(--ink)!important;font-weight:600;text-decoration:none;flex:1}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{display:flex;flex-direction:column;gap:14px;background:#fff;border:1px solid var(--edge);border-radius:18px;padding:18px;color:var(--ink);text-decoration:none;font-weight:600;min-height:136px}
+.tile span.d{display:block;font-weight:400;font-size:13px;color:var(--soft);margin-top:2px}
+.stat{border-radius:18px;padding:18px 12px;text-align:center}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-size:30px;line-height:1.1}
+.stat span{font-size:12px;font-weight:600;letter-spacing:.04em}
+.que{display:flex;gap:14px;align-items:center}
+.que img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none;border:3px solid var(--blush)}
+.glance{display:flex;gap:14px;align-items:center;padding:14px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+.glance:first-of-type{border-top:0}
+
+/* profile */
+.stepper{display:flex;gap:6px;margin:0 0 28px}
+.stepper a{flex:1;text-align:center;font-size:12px;font-weight:600;color:var(--soft)!important;text-decoration:none;padding-top:8px;border-top:4px solid var(--edge)}
+.stepper a.done{border-color:var(--lip-nude);color:var(--ink)!important}
+.stepper a.cur{border-color:var(--burgundy);color:var(--burgundy)!important}
+.tiers{display:grid;gap:6px;justify-items:center;margin:6px 0 4px}
+.tiers div{border-radius:14px;padding:12px 14px;text-align:center;font-weight:600;font-size:15px}
+.tiers small{display:block;font-weight:400;font-size:13px}
+.slots{display:flex;gap:8px;margin:12px 0}
+.slots span{flex:1;height:46px;border-radius:12px;border:2px dashed rgba(244,221,211,.45);display:flex;align-items:center;justify-content:center}
+.slots span.on{background:var(--blush);border:0;color:var(--burgundy)}
+.check{border:2px solid var(--burgundy);border-radius:20px;padding:22px 20px;margin:20px 0;background:#fff}
+.hcard{background:var(--grad);color:var(--on-dark);border-radius:24px;padding:38px 24px;text-align:center}
+.hcard .eyebrow{color:var(--blush)}
+.hcard .t{font-family:var(--display);font-weight:800;font-size:36px;line-height:1.05;color:var(--blush-light);margin:0 0 6px}
+.hcard .t .lip{display:block;margin:0 auto;width:max-content;transform:rotate(-11deg);transform-origin:center;font-size:1.2em}
+.hcard ol{text-align:left;margin:18px auto 14px;padding:0;list-style:none;max-width:320px;counter-reset:n}
+.hcard li{counter-increment:n;padding:10px 0;border-top:1px solid rgba(244,221,211,.2);color:var(--blush-light);font-weight:600}
+.hcard li::before{content:counter(n);display:inline-block;width:26px;color:var(--lip-nude);font-family:var(--display)}
+.hcard li small{display:block;font-weight:400;color:var(--on-dark);padding-left:26px;font-size:14px}
+.hcard .base{font-size:13px;color:var(--on-dark);margin:0 0 8px}
+.hcard li .me{display:block;padding-left:26px;margin-top:6px;font-size:14px;font-weight:500;color:var(--lip-nude)}
+.hcard li .me b{font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11px;margin-right:6px}
+.who{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#EADCD2;color:#5C3A2B;font-size:12px;font-weight:600;flex:none}
+.who.me{background:#B23A2E;color:#fff}
+.hcard .foot{font-size:12px;color:var(--blush);letter-spacing:.06em;margin:6px 0 0}
+
+/* roster & charts */
+.man{display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit}
+.man .name{font-family:var(--display);font-weight:800;font-size:24px;color:var(--ink);line-height:1.1}
+.meter{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:13px;color:var(--soft)}
+.meter .progress{flex:1}
+svg.radar{width:100%;height:auto}
+svg.radar text{font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--soft)}
+.log{padding:16px 0;border-top:1px solid var(--line);font-size:15px}
+.log:first-child{border-top:0}
+.track{display:flex;gap:4px;margin:12px 0 6px;position:relative}
+.track div{height:14px;border-radius:6px;background:var(--blush)}
+.track div.past{background:var(--lip-nude)}
+.tlabels{display:flex;gap:4px;font-size:11.5px;color:var(--soft);font-weight:600}
+.dots{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 2px}
+.dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.split{margin:0 0 20px}
+.sbar{height:14px;border-radius:999px;background:#F3D9C9;overflow:hidden;margin-top:6px}
+.sbar i{display:block;height:100%;background:var(--burgundy);border-radius:999px}
+.hbar{display:grid;grid-template-columns:110px 1fr 38px;gap:10px;align-items:center;font-size:14px;margin:0 0 14px}
+.hbar .b{height:12px;border-radius:999px;background:var(--blush);overflow:hidden}
+.hbar .b i{display:block;height:100%;border-radius:999px}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:13px;font-weight:600;border-radius:999px;padding:5px 11px}
+
+/* scripts & scenarios */
+.script{padding:20px 0;border-top:1px solid var(--line)}
+.script:first-child{border-top:0}
+details.sc{border-top:1px solid var(--line)}
+details.sc:first-of-type{border-top:0}
+details.sc summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;color:var(--ink);min-height:48px;display:flex;justify-content:space-between;gap:10px}
+details.sc summary::-webkit-details-marker{display:none}
+details.sc summary::after{content:"+";color:var(--burgundy);font-size:20px;line-height:1}
+details.sc[open] summary::after{content:"–"}
+details.sc .body{padding:0 0 16px}
+.do{display:grid;grid-template-columns:28px 1fr;gap:12px;margin:0 0 16px;align-items:start}
+.do .badge{width:28px;height:28px;border-radius:9px}
+.do .badge svg{width:16px;height:16px}
+
+/* pause */
+.pause{position:fixed;inset:0;z-index:50;background:var(--grad);color:var(--on-dark);overflow-y:auto;padding:calc(32px + env(safe-area-inset-top,0px)) 0 40px}
+.pause h2{color:var(--blush-light)}
+.pause .timerwrap{position:relative;width:220px;height:220px;margin:14px auto 6px}
+.pause .timer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:56px;color:var(--blush-light);margin:0}
+.pause .stdlist{list-style:none;padding:0;margin:0}
+.pause .stdlist li{padding:10px 0;border-top:1px solid rgba(244,221,211,.2);color:var(--blush-light);font-weight:600}
+.pause .stdlist li small{display:block;font-weight:400;color:var(--on-dark)}
+.pause textarea{background:var(--blush-light)}
+.pause .close{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:12px;width:44px;height:44px;padding:0;background:transparent;border:1px solid rgba(244,221,211,.4);color:var(--blush-light);font-size:20px}
+
+.voice{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--edge);border-radius:16px;padding:12px 14px;margin:0 0 22px}
+.voice .vb{width:44px;height:44px;border-radius:50%;flex:none;background:var(--burgundy);color:var(--blush-light);display:flex;align-items:center;justify-content:center}
+.voice .vb svg{width:20px;height:20px}
+.voice audio{width:100%;height:36px;margin:0}
+.voice.draft{border-style:dashed;border-color:var(--lip-nude)}
+.pause .voice{background:rgba(255,255,255,.08);border-color:rgba(244,221,211,.25)}
+.pause .voice p{color:var(--blush-light)!important}
+.celebrate{text-align:center}
+.celebrate .display{font-size:34px;line-height:1.1}
+.verdict{text-align:center}
+.verdict .vi{width:64px;height:64px;border-radius:50%;background:rgba(244,221,211,.14);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:var(--lip-nude)}
+.verdict .vi svg{width:32px;height:32px}
+.balance{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:end;margin:14px 0 4px;height:120px}
+.balance div{border-radius:12px 12px 4px 4px;display:flex;align-items:flex-end;justify-content:center;font-weight:600;font-size:13px;padding-bottom:8px}
+@media (min-width:560px){.charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}}
+@media print{nav.bottom,.fab,.pause,.topbar{display:none!important}body{padding:0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg aria-hidden="true" width="0" height="0" style="position:absolute"><defs><filter id="lipstick" x="-10%" y="-30%" width="120%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n"></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"></feDisplacementMap></filter></defs></svg>
+
+<header class="topbar" id="topbar" hidden><div class="in"><button type="button" class="backbtn" id="backBtn" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</button><span class="t" id="tbTitle"></span></div></header>
+
+<div id="view"></div>
+
+<button type="button" class="fab" id="fab" aria-label="I want to text him">💄 I want to text him</button>
+
+<nav class="bottom" aria-label="Main">
+  <ul>
+    <li><a href="#home" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Home</a></li>
+    <li><a href="#profile" data-tab="profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"></path></svg>Profiles</a></li>
+    <li><a href="#roster" data-tab="roster"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.5A6.5 6.5 0 0 1 21.5 20"></path></svg>Roster</a></li>
+    <li><a href="#date" data-tab="date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>The Date</a></li>
+    <li><a href="#more" data-tab="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="12" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="19" cy="12" r="1.5"></circle></svg>More</a></li>
+  </ul>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="pauseLayer"></div>
+<input type="file" id="importFile" accept="application/json,.json" hidden>
+
+<script>
+(function(){
+'use strict';
+var KEY='husbandMaterial.v2';
+/* DRAFT shows where voice notes and photos go. Set to false at launch. */
+var DRAFT=true;
+/* Que's voice notes: paste each audio link between the quotes and the player appears in that section. */
+var AUDIO={welcome:'',profile:'',nonneg:'',tests:'',before:'',after:'',pause:'',reset:'',situation:'',her:''};
+/* Photos: paste each image link between the quotes. Empty slots show a branded placeholder. */
+/* Photos: free under the Unsplash License. Paste a different image link between the quotes to swap one. */
+function U(id){return 'https://images.unsplash.com/'+id+'?auto=format&fit=crop&w=1200&q=70&sat=-100';}
+var IMG={hero:U('photo-1613829877795-1e17f18f38b5'),home:U('photo-1634749715333-627ef55abbab'),profile:U('photo-1517971071642-34a2d3ecc9cd'),roster:U('photo-1507546530-14a03f8d180a'),date:U('photo-1654427884859-5431167e9f90'),before:U('photo-1714700513036-558227ceabc4'),situation:U('photo-1463397952320-023b1defe8a9'),talk:U('photo-1753719055862-6b744a02ad72'),husband:U('photo-1504257234803-3fa883dcdcc1')};
+var IMGIDEA={hero:'Close-up of red lipstick and a mirror, warm evening light',home:'Woman journaling at a café table, coffee, soft natural light',profile:'Open notebook with a handwritten list, a pen and a gold ring',roster:'Phone face down on a linen tablecloth beside a cappuccino',date:'Two wine glasses on a candlelit restaurant table',before:'Woman fastening an earring, getting ready, golden hour',situation:'Woman at a window with morning coffee, looking out, calm',talk:'Two coffee cups across a table, mid-conversation, hands only',husband:'Two hands together, an engagement ring, warm tones'};
+
+/* ---------- icons ---------- */
+var IC={
+ heart:'<path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/>',
+ check:'<path d="M10 6h10M10 12h10M10 18h10"/><path d="M3.5 6l1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/>',
+ users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18.5 14.5A6.5 6.5 0 0 1 21.5 20"/>',
+ calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ pen:'<path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/>',
+ timer:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/>',
+ quote:'<path d="M5 7h5v5c0 3-2 5-4 6M14 7h5v5c0 3-2 5-4 6"/>',
+ compass:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+ path:'<circle cx="6" cy="5" r="2"/><circle cx="18" cy="19" r="2"/><path d="M8 5h6a3.5 3.5 0 0 1 0 7h-4a3.5 3.5 0 0 0 0 7h6"/>',
+ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+ chart:'<path d="M3 21h18"/><rect x="5" y="11" width="3" height="7" rx="1"/><rect x="10.5" y="5" width="3" height="13" rx="1"/><rect x="16" y="14" width="3" height="4" rx="1"/>',
+ sign:'<path d="M12 22V3"/><path d="M5 5h11l3 2.5L16 10H5z"/><path d="M19 13H8l-3 2.5L8 18h11z"/>',
+ chat:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
+ rings:'<circle cx="9" cy="14.5" r="5"/><circle cx="15" cy="14.5" r="5"/><path d="M10.5 6L12 3.5 13.5 6 12 8z"/>',
+ shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+ sparkle:'<path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><path d="M19 3v4M17 5h4"/>',
+ home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+ flame:'<path d="M12 22c4 0 7-3 7-7 0-5-4-7-5-12-2 3-3 5-3 7-1-1-2-2-2-4-2 2-4 5-4 9 0 4 3 7 7 7z"/>',
+ lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+ leaf:'<path d="M5 20c0-9 6-15 15-15 0 9-6 15-14 15"/><path d="M5 20l9-9"/>',
+ eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+ dots:'<circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/>',
+ phone:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>',
+ x:'<path d="M6 6l12 12M18 6L6 18"/>',
+ headphones:'<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="7" rx="1.5"/><rect x="17" y="14" width="4" height="7" rx="1.5"/>',
+ image:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/>',
+ mirror:'<ellipse cx="12" cy="9" rx="6" ry="7"/><path d="M12 16v6M9 22h6"/><path d="M9.5 6.5a3.5 3.5 0 0 1 3-1.5"/>',
+ download:'<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>'
+};
+function ic(n,size){return '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"'+(size?' style="width:'+size+'px;height:'+size+'px"':'')+'>'+(IC[n]||'')+'</svg>';}
+
+/* screen colours: [tint, ink, icon, title] */
+var SC={home:['#F8E6DE','#560000','home','Home'],profile:['#F5D3D9','#8E2340','heart','His Profile'],tests:['#F3D9C9','#9A4426','check','His Tests'],roster:['#EADCD2','#5C3A2B','users','The Roster'],man:['#EADCD2','#5C3A2B','users','His card'],
+ date:['#F1E3C8','#7A5418','calendar','The Date'],before:['#F1E3C8','#7A5418','calendar','Before the Date'],after:['#F6DCD6','#7A0F1C','pen','After the Date'],prescreen:['#EADCD2','#5C3A2B','chat','Before you say yes'],
+ scripts:['#EADBE3','#6E3A55','quote','Scripts'],when:['#E3E2D0','#555A33','compass','What do I do when'],timeline:['#F3D9C9','#9A4426','path','Her Timeline'],reset:['#F1E3C8','#7A5418','sun','Sunday Reset'],
+ patterns:['#EADBE3','#6E3A55','chart','Her Patterns'],situation:['#F8D9CF','#B23A2E','sign','Situationship path'],her:['#F8D9CF','#B23A2E','mirror','Her Profile'],more:['#F5D3D9','#8E2340','dots','More']};
+function badge(key,sm){var c=SC[key]||SC.home;return '<span class="badge'+(sm?' sm':'')+'" style="background:'+c[0]+';color:'+c[1]+'">'+ic(c[2])+'</span>';}
+function head(key,eyebrow,title,sub){var c=SC[key];return '<div class="shead" style="--tint:'+c[0]+'"><div class="wrap"><div class="row" style="gap:12px;margin-bottom:14px">'+badge(key)+'<p class="eyebrow" style="margin:0;color:'+c[1]+'">'+eyebrow+'</p></div><h2>'+title+'</h2>'+(sub?'<p class="soft" style="margin:0">'+sub+'</p>':'')+'</div></div>';}
+function photo(key,h,tintKey){var c=SC[tintKey]||SC.home;
+ return '<figure class="photo" style="height:'+h+'px;margin-left:0;margin-right:0;background:radial-gradient(90% 120% at 85% 0%,rgba(255,255,255,.55),transparent 60%),linear-gradient(160deg,#EDE6E1 0%,#CFC6C1 100%);color:#5E4B45"><div class="ph">'+ic(IMG[key]?c[2]:(DRAFT?'image':c[2]))+'</div>'+(IMG[key]?'<img src="'+esc(IMG[key])+'" alt="'+esc(IMGIDEA[key])+'" loading="lazy" onerror="this.remove()">':(DRAFT?'<figcaption class="cap">Photo slot · '+esc(IMGIDEA[key])+'</figcaption>':''))+'</figure>';}
+
+/* ---------- content ---------- */
+var BASELINE=['Honest','Kind','Respectful','Single and available','Safe to be around'];
+var LIB=[
+ ['Character',[['Consistent','His actions match his words, week after week'],['Emotionally mature','He can name a feeling without making it your problem',1],['Accountable','He owns his mistakes without a speech'],['Patient','He isn\'t rushing you or himself'],['Humble','Secure enough not to need the spotlight'],['Calm under pressure','A problem makes him steadier']]],
+ ['Leadership and provision',[['He leads','He plans, decides and follows through',1],['Provider energy','He takes care, and it feels natural to him',1],['Protective','You feel safer with him than without him'],['Decisive','He chooses, and he stands by it'],['Ambitious','He\'s building something he cares about'],['Strong mindset and discipline','He does what he said he\'d do, including for himself',1]]],
+ ['Marriage and family',[['Marriage-minded','Ready for marriage, and ready as soon as he finds her',1],['Wants children (or doesn\'t)','He wants what you want'],['Family-oriented','Family is a value, and it shows'],['Healthy with his own family','Close, with boundaries'],['Good with your children','Patient, present, respectful of their other parent'],['At peace with his past','His exes come up rarely, and without bitterness']]],
+ ['Faith and values',[['Shares your faith','Or respects it the way you need'],['Strong values','Growth, solutions, family',1],['Growth-oriented','He\'s still becoming'],['Solution-minded','When something goes wrong, he goes straight to fixing it'],['Generous','With time, money and credit']]],
+ ['Money and stability',[['Financial fit','His money life fits the life you want',1],['Financially responsible','No chaos, no secrets'],['Proud of his work','He respects what he does'],['Stable','Emotionally, financially, energetically',1]]],
+ ['Communication',[['Strong communicator','You never have to guess where you stand',1],['Consistent contact','He reaches out without being reminded'],['Says what he means','No riddles, no hints'],['Curious about you','He asks, listens and remembers'],['Good listener','You leave the conversation feeling heard']]],
+ ['Lifestyle',[['Healthy habits','He takes care of his body and mind'],['Loves travel','Or makes room for yours'],['Location fit','He could build a life where you want to live'],['Social life you enjoy','His people feel like your kind of people'],['Shares your pace','Weekends, mornings and plans feel easy']]],
+ ['Chemistry',[['Attraction','You want to be close to him'],['Humor','He makes you laugh, and he laughs easily'],['Affection','Warmth that fits where you are'],['Love language match','Yours, the one he speaks, and his own',1],['Likeable personality','Stable, intentional, driven, fun, calm in his energy',1]]]
+];
+var GT={'Character':['#F6DCD6','#7A0F1C','shield'],'Leadership and provision':['#F3D9C9','#9A4426','compass'],'Marriage and family':['#F5D3D9','#8E2340','rings'],'Faith and values':['#EADBE3','#6E3A55','sparkle'],'Money and stability':['#F1E3C8','#7A5418','home'],'Communication':['#EADCD2','#5C3A2B','chat'],'Lifestyle':['#E3E2D0','#555A33','globe'],'Chemistry':['#F8D9CF','#B23A2E','flame'],'Your own':['#F8E6DE','#560000','pen']};
+function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+var Q={},QORDER=[];
+LIB.forEach(function(g){g[1].forEach(function(it){var id=slug(it[0]);Q[id]={id:id,name:it[0],meaning:it[1],star:!!it[2],group:g[0]};QORDER.push(id);});});
+
+var TESTS={
+ 'he-leads':{t:['When he asks where you want to go, say "You choose."','Ask what time he\'s picking you up or sending the car.'],pass:'He names a place and a time, and handles getting you there.',fail:'"I\'m easy, whatever you want." You end up planning.'},
+ 'marriage-minded':{t:['By date three, say "I\'m dating with marriage in mind. What are you looking for?"','Notice whether he brings up the future without being asked.'],pass:'He answers plainly, his answer includes marriage, and he talks about what he\'s building.',fail:'"Let\'s see where it goes." Or everything stays in the present tense.'},
+ 'curious-about-you':{t:['Count the questions he asks.','Mention something small and see if he remembers it next time.'],pass:'He asks follow-ups and remembers details.',fail:'You know his life story and he knows your job title.'},
+ 'consistent':{t:['Watch the gap between what he says and what he does over two weeks.'],pass:'His follow-through matches his words.',fail:'Big words, small follow-through, or hot and cold contact.'},
+ 'emotionally-mature':{t:['Share a small disappointment and watch his reaction.','Ask about his last relationship.'],pass:'He listens without fixing too fast, and speaks about his past without blame.',fail:'He gets defensive, or every ex is "crazy."'},
+ 'accountable':{t:['Notice what happens when he\'s late or forgets something.'],pass:'He owns it simply and adjusts.',fail:'Excuses, or he makes it your fault.'},
+ 'financially-responsible':{t:['Notice how he talks about money, work and spending.'],pass:'Calm and solution-minded, with plans.',fail:'Complaining, blaming, or money drama in the first dates.'},
+ 'financial-fit':{t:['Notice how he talks about money, work and spending.','Ask what a good life looks like to him in five years.'],pass:'Calm and solution-minded, and his picture of a good life fits yours.',fail:'Money chaos, or a life you wouldn\'t want to share.'},
+ 'provider-energy':{t:['Notice whether he pays without it becoming a question.','Notice how he handles small needs: a coat, a ride, a door.'],pass:'He takes care of things without being asked.',fail:'He waits to see if you\'ll pay, or keeps score.'},
+ 'family-oriented':{t:['Ask about his parents and siblings.','Ask what family means to him.'],pass:'He speaks with warmth and some boundaries.',fail:'Cut off from everyone, or still ruled by them.'},
+ 'healthy-with-his-own-family':{t:['Ask about his parents and siblings.'],pass:'Warmth, with clear boundaries.',fail:'Cut off from everyone, or still ruled by them.'},
+ 'strong-values':{t:['Ask about his parents.','Present a small problem and watch how he solves it.'],pass:'He talks about family with warmth, and goes straight to a solution.',fail:'He complains, blames, or shrugs it off.'},
+ 'strong-communicator':{t:['Notice whether he updates you on his own.','Notice what happens when he can\'t make a plan.'],pass:'He tells you early and offers another time.',fail:'Silence, last-minute cancels, or vague texts.'},
+ 'consistent-contact':{t:['Notice who reaches out first, over a week.'],pass:'He reaches out on his own, on a rhythm.',fail:'You start most conversations.'},
+ 'shares-your-faith':{t:['Ask what his faith looks like in a normal week.'],pass:'His week reflects what he says he believes.',fail:'It\'s a word on his profile and nothing more.'},
+ 'wants-children-or-doesn-t':{t:['Ask directly by date three.'],pass:'His answer matches yours, without hedging.',fail:'"Maybe someday," when you need a clear yes or no.'},
+ 'location-fit':{t:['Ask how he sees distance working. Notice who plans the visits.'],pass:'He plans and pays for visits and talks timeline.',fail:'Endless texting, no visits, no plan.'},
+ 'stable':{t:['Notice his energy across a few dates: same man each time?'],pass:'Steady mood, steady plans, steady life.',fail:'Big highs, big lows, or chaos he expects you to absorb.'}
+};
+var LD_TESTS=['He plans and pays for visits.','Video calls happen on a rhythm he keeps.','He talks about which city, and when.'];
+
+var MIRROR=[['Leading',['Did he ask you out and then say, "Let me know where you want to go and when"?','Did he offer to assist you with getting there or getting home?','Did you accept his help?']],
+ ['Intentions',['Did he volunteer his readiness without you asking?','When he shared his intentions, did your body feel reactive rather than settled?','Do you want to go out with him again regardless of his intentions?']],
+ ['Being known',['Did you feel resistance to him asking about you?','When he asked about you, did you talk more about other people, like coworkers, family or exes?']],
+ ['Receiving',['Did you offer to pay?','Did he allow you to pay?','Did you feel odd about him paying?','Did you feel like you would owe him something if he paid?']],
+ ['After',['Did you text him after the date?','Did he ask you to?','Did you feel butterflies after leaving him?','Did you feel a strong desire to NOT see him again despite enjoying the date?']]];
+
+var SCRIPTS=[
+ ['He asks where you want to go','You choose. I love seeing someone\'s taste.'],
+ ['He asks you to plan the date','I\'d love for you to plan it. Surprise me.'],
+ ['He asks to split the bill','I\'d love for you to take care of tonight.'],
+ ['Asking his intentions (by date three)','I\'m dating with marriage in mind. What are you looking for?'],
+ ['After a good date, once he\'s reached out','I had a lovely time. Thank you for tonight.'],
+ ['"Wyd" late at night','No reply tonight. Tomorrow, if you want: "Morning. Was asleep. How\'s your day?"'],
+ ['He asks you out last minute','I\'d love to see you. I already have plans tonight. Ask me for later this week?'],
+ ['He wants to come over, or invites you to his place early','I\'m not doing home dates yet. Let\'s pick somewhere out.'],
+ ['He asks to be exclusive before talking marriage','I\'m glad you want that. What does exclusive mean to you, and where do you see this going?'],
+ ['The "what are we" conversation','I\'ve enjoyed this. I\'m dating for marriage. Are you looking for the same, and do you see that with me?'],
+ ['He went quiet, then came back','Good to hear from you. (Then let him lead the next plan.)'],
+ ['Releasing him, kindly','I\'ve enjoyed getting to know you. I don\'t feel we\'re a match for what I\'m looking for, and I wish you the best.'],
+ ['He asks why','I\'m looking for something specific, and I trust my sense of it. Thank you for understanding.']
+];
+var RELEASE=SCRIPTS[11][1], WHATAREWE=SCRIPTS[9][1];
+var WHEN=[
+ ['He hasn\'t said what he wants by date three','Ask once, plainly. A clear answer keeps him on your Roster. A vague one is your answer.','I\'m dating with marriage in mind. What are you looking for?'],
+ ['He went quiet for days','You don\'t chase. If he comes back, welcome him briefly and let him plan the next date. If it happens twice, release him.','Good to hear from you.'],
+ ['He only texts and never plans','Texting is a phone call he didn\'t make. Give it one nudge. If no plan follows within a week, release him.','I\'d love to see you in person.'],
+ ['He wants to come over, or invites me to his place early','Home dates come after he\'s stated serious intent. Watch how he takes it.','I\'m not doing home dates yet. Let\'s pick somewhere out.'],
+ ['He asked to be exclusive','Exclusive without a marriage conversation is a boyfriend. Ask what he means.','I\'m glad you want that. What does exclusive mean to you, and where do you see this going?'],
+ ['He\'s great on paper and I don\'t feel chemistry','Give it one more date with no pressure. Calm can feel unfamiliar at first. If date three still feels flat, release him kindly.',''],
+ ['I feel chemistry and he failed a non-negotiable','The non-negotiable wins. Chemistry with a man who can\'t meet your standard is the pattern you\'re retiring.',''],
+ ['We\'ve been talking for weeks and haven\'t met','Check Her Timeline. If he hasn\'t moved toward meeting within your limit, he\'s a pen pal. Then let him decide.','I\'d love to meet. When works for you?'],
+ ['He\'s long-distance','Switch him to long-distance mode on his card. Distance is workable when he\'s the one building the bridge.',''],
+ ['He has children, or I do','Ask how he handles time, co-parenting and introductions. A man ready for marriage has thought about blending a family.',''],
+ ['He\'s divorced and "not sure about marriage again"','Believe him. Not sure is a no for now. Release him kindly, or set a clear limit and keep your Roster open.',''],
+ ['He disappeared and came back','Welcome him warmly, briefly, and let him rebuild. He starts back at the beginning of Her Timeline.','Good to hear from you.'],
+ ['I\'m in a situationship right now','Go to the situationship path. It walks you through the conversation and what to do with his answer.','']
+];
+var SAFETY=['We\'re meeting somewhere public','A friend knows where I\'ll be and has my live location','I know how I\'m getting home, on my own terms','I haven\'t shared my home address yet','I\'ll stay at a pace of drinks that keeps me clear','I\'ve looked him up, and his name and photos match'];
+var RESET=['Who\'s on my Roster right now?','Who led this week, and who did I carry?','Is anyone past his phase limit?','What did I do this week that I\'m proud of?','One boundary I\'m keeping next week'];
+var LOGQ=[
+ ['plan','Who chose the plan?',[['he','He did',1],['both','We both did',.5],['me','I did',0]]],
+ ['ride','How did you get there and home?',[['he','He arranged it',1],['me','I did',0]]],
+ ['pay','Who paid?',[['auto','He did, without it being a question',1],['offered','He offered',.75],['split','We split',.25],['me','I did',0]]],
+ ['intent','Did he say what he\'s looking for?',[['marriage','Yes, marriage',1],['other','Yes, something else',0],['notyet','Not yet',.5]]],
+ ['curious','Did he ask about you?',[['lot','A lot',1],['some','Some',.5],['barely','Barely',0]]],
+ ['body','Your body after the date',[['settled','Settled',1],['mixed','Mixed',.5],['reactive','Reactive',0]]]
+];
+var FOLLOW=[['yes','Yes, on his own',1],['no','No',0],['me','I texted first',0]];
+var RECIP={'consistent':'I keep my word to myself: my boundaries, my timeline, my standard.','emotionally-mature':'I steady myself, and I name my feelings without handing them to him.','accountable':'I own my part quickly and simply.','patient':'I let things unfold without rushing to secure him.','humble':'I\'m secure enough to let him shine.','calm-under-pressure':'I bring calm to a problem, and I let him help solve it.',
+ 'he-leads':'I let him lead. I say "You choose," and I receive the plan.','provider-energy':'I receive without feeling I owe him.','protective':'I let myself be protected and cared for.','decisive':'I\'m clear about what I want, and I respect his decisions.','ambitious':'I\'m building a life I love, with or without him.','strong-mindset-and-discipline':'I keep the promises I make to myself.',
+ 'marriage-minded':'I\'m ready for marriage. My life has room for a husband, and I say what I want by date three.','wants-children-or-doesn-t':'I\'m clear on what I want for children, and I say it early.','family-oriented':'I make room for family, his and mine.','healthy-with-his-own-family':'I have healthy boundaries with my own family.','good-with-your-children':'I introduce my children slowly, and I watch how he shows up.','at-peace-with-his-past':'I\'m at peace with my past, and I talk about it without bitterness.',
+ 'shares-your-faith':'My faith is lived, week to week.','strong-values':'I live my values out loud.','growth-oriented':'I\'m still becoming, and I invest in it.','solution-minded':'When something goes wrong, I look for the next step.','generous':'I give from overflow, without keeping score.',
+ 'financial-fit':'My own money house is in order.','financially-responsible':'I handle my money with calm and clarity.','proud-of-his-work':'I\'m proud of the work I do.','stable':'I\'m steady: emotionally, financially, energetically.',
+ 'strong-communicator':'I say what I want clearly and early.','consistent-contact':'I respond warmly, and I let him reach out first.','says-what-he-means':'I say what I mean, without hints.','curious-about-you':'I let myself be known. When he asks, I talk about my own life.','good-listener':'I listen to understand him.',
+ 'healthy-habits':'I take care of my body and mind.','loves-travel':'I make room for adventure in my own life.','location-fit':'I know where I want to live, and I\'m open about it.','social-life-you-enjoy':'I have a full life and friends of my own.','shares-your-pace':'I protect my rhythm, and I share it.',
+ 'attraction':'I feel good in my body, and I let myself be desired.','humor':'I let myself be playful.','affection':'I\'m open to warmth at a pace that feels safe.','love-language-match':'I know my love language, and I can receive his.','likeable-personality':'I\'m warm, calm and easy to be around.'};
+function herText(id){var r=S.her[id];if(r&&r.t!=null)return r.t;return RECIP[id]||'';}
+var NNCHECK=['If he had everything else, and not this, would you release him?','Can you test it, or ask about it, in the first three dates?','Does it go past your baseline, the standard every decent man should meet?'];
+
+/* ---------- state ---------- */
+function uid(){return Math.random().toString(36).slice(2,9);}
+function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function addDays(ds,n){var d=new Date(ds+'T12:00:00');d.setDate(d.getDate()+n);return d;}
+function nice(d){return d.toLocaleDateString(undefined,{weekday:'short',month:'long',day:'numeric'});}
+function defaults(){return {v:2,path:'',baseline:BASELINE.slice(),baseDone:false,kept:{},meaning:{},nn:[],custom:[],tests:{},men:[],
+ phases:[{name:'Rotational talking',what:'Learn his intentions, desires and non-negotiables. He moves toward meeting in person.',limit:30,bounds:''},
+  {name:'Rotational courting',what:'After meeting, he decides to court you. Still not exclusive. He plans dates and goes deeper.',limit:90,bounds:''},
+  {name:'Courtship and engagement',what:'He expresses a deep desire to be your husband. Families, legal conversations, ring, date.',limit:30,bounds:''}],
+ her:{},unsent:[],resets:[],resetDraft:['','','','',''],sit:{},privacy:false,draft:null};}
+var S;try{S=JSON.parse(localStorage.getItem(KEY));}catch(e){S=null;}
+if(!S||S.v!==2)S=defaults();
+function fill(){var d=defaults();Object.keys(d).forEach(function(k){if(S[k]===undefined)S[k]=d[k];});}
+fill();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function esc(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function cust(id){return S.custom.filter(function(x){return x.id===id;})[0];}
+function qname(id){if(Q[id])return Q[id].name;var c=cust(id);return c?c.name:'';}
+function qgroup(id){return Q[id]?Q[id].group:'Your own';}
+function qmeaning(id){return (S.meaning[id]||'').trim()||(Q[id]?Q[id].meaning:'');}
+function kept(){return QORDER.filter(function(id){return S.kept[id];}).concat(S.custom.map(function(c){return c.id;}));}
+function nnList(){return S.nn.filter(function(id){return qname(id);});}
+function niceList(){return kept().filter(function(id){return S.nn.indexOf(id)<0;});}
+function testsFor(id){var mine=(S.tests[id]||[]).filter(function(t){return t.trim();});if(mine.length)return mine;return TESTS[id]?TESTS[id].t:[];}
+function man(id){return S.men.filter(function(m){return m.id===id;})[0];}
+function active(){return S.men.filter(function(m){return m.status==='active';});}
+function daysSince(d){if(!d)return 0;return Math.floor((new Date(today()+'T12:00:00')-new Date(d+'T12:00:00'))/86400000)+1;}
+var LDP=[{name:'Long-distance talking',limit:30},{name:'Closing the distance',limit:90}];
+function phaseOf(m){if(m.ld&&m.phase<2)return LDP[m.phase]||LDP[0];var p=S.phases[m.phase]||S.phases[0];return {name:p.name,limit:+p.limit||30};}
+function phaseNames(m){return m.ld?[LDP[0].name,LDP[1].name,S.phases[2].name]:S.phases.map(function(x){return x.name;});}
+function phaseLimits(m){return m.ld?[30,90,+S.phases[2].limit||30]:S.phases.map(function(x){return +x.limit||30;});}
+function toast(t){var el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(function(){el.classList.remove('show');},2600);}
+function copy(t){function ok(){toast('Copied');}function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){toast('Copy didn’t work here');}document.body.removeChild(a);}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,fb);else fb();}
+function grow(el){if(el&&el.tagName==='TEXTAREA'){el.style.height='auto';el.style.height=(el.scrollHeight+2)+'px';}}
+function voice(key,title){var lbl='<p class="small" style="margin:0 0 4px;font-weight:600;color:var(--ink)">'+(title||'A voice note from Que')+'</p>';
+ if(AUDIO[key])return '<div class="voice"><span class="vb">'+ic('headphones')+'</span><div style="flex:1;min-width:0">'+lbl+'<audio controls preload="none" src="'+esc(AUDIO[key])+'"></audio></div></div>';
+ if(DRAFT)return '<div class="voice draft"><span class="vb">'+ic('headphones')+'</span><div style="flex:1;min-width:0">'+lbl+'<p class="small soft" style="margin:0">Voice note slot · script in the content doc</p></div></div>';return '';}
+function copyBtn(t){return '<button type="button" class="ghost" data-act="copy" data-t="'+esc(t)+'">Copy</button>';}
+
+/* ---------- scoring ---------- */
+function optVal(list,a){var v=null;list.forEach(function(o){if(o[0]===a)v=o[2];});return v;}
+function logScore(l){var v=[];LOGQ.forEach(function(q){var x=optVal(q[2],l[q[0]]);if(x!=null)v.push(x);});var f=optVal(FOLLOW,l.follow);if(f!=null)v.push(f);return v.length?v.reduce(function(a,b){return a+b;},0)/v.length:null;}
+function effort(m){var v=[];m.logs.forEach(function(l){['plan','ride','pay'].forEach(function(k){var q=LOGQ.filter(function(x){return x[0]===k;})[0];var x=optVal(q[2],l[k]);if(x!=null)v.push(x);});var f=optVal(FOLLOW,l.follow);if(f!=null)v.push(f);});
+ return v.length?Math.round(v.reduce(function(a,b){return a+b;},0)/v.length*100):null;}
+function nnRate(m,id){var y=0,n=0;m.logs.forEach(function(l){if(l.nn&&l.nn[id]){n++;if(l.nn[id]==='y')y++;}});return n?y/n:null;}
+function nnUntested(m){return nnList().filter(function(id){return nnRate(m,id)===null;});}
+function verdict(ans,ids,crossed){
+ if(crossed)return {k:'release',v:'Release him, kindly.',t:'He crossed your baseline. A second date doesn\'t fix that. He\'s off your Roster.'};
+ var answered=ids.filter(function(id){return ans[id];}),no=ids.filter(function(id){return ans[id]==='n';});
+ if(no.length)return {k:'release',v:'Release him, kindly.',t:no.length===1?'"'+qname(no[0])+'" didn\'t pass, and one clear miss on a non-negotiable outweighs everything else. Unless it was a real misunderstanding, he isn\'t husband material for you.':no.length+' non-negotiables didn\'t pass. He may be a good man. He isn\'t your husband.'};
+ if(ids.length&&answered.length===ids.length)return {k:'second',v:'Second date.',t:'Every non-negotiable you tested passed. He gets more of your time.'};
+ return {k:'more',v:'One more date, eyes open.',t:'Some non-negotiables are still untested. Use their tests next time.'};}
+var VCOL={'Second date.':['#560000','#F8E6DE'],'Release him, kindly.':['#E8BFB0','#560000'],'One more date, eyes open.':['#F1E3C8','#7A5418']};
+
+/* ---------- charts ---------- */
+function ring(p,size,col,inner,track){p=Math.max(0,Math.min(1,p||0));var r=(size-8)/2,c=2*Math.PI*r,h=size/2;
+ return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'" aria-hidden="true" style="flex:none;display:block"><circle cx="'+h+'" cy="'+h+'" r="'+r+'" fill="none" stroke="'+(track||'#F4DDD3')+'" stroke-width="6"/><circle cx="'+h+'" cy="'+h+'" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="6" stroke-linecap="round" stroke-dasharray="'+c.toFixed(1)+'" stroke-dashoffset="'+(c*(1-p)).toFixed(1)+'" transform="rotate(-90 '+h+' '+h+')"/>'+(inner!=null?'<text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-weight="800" font-size="'+Math.round(size*.3)+'" fill="currentColor">'+inner+'</text>':'')+'</svg>';}
+function gauge(p){var v=p==null?0:p/100,a=Math.PI*(1-v),x=100+80*Math.cos(a),y=100-80*Math.sin(a);
+ return '<svg viewBox="0 0 200 116" width="100%" style="max-width:260px;display:block;margin:4px auto 0" role="img" aria-label="He leads '+(p==null?'not logged yet':p+' percent')+'"><defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#E59A8E"/><stop offset="1" stop-color="#560000"/></linearGradient></defs><path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#F4DDD3" stroke-width="16" stroke-linecap="round"/>'+(p?'<path d="M20 100 A80 80 0 0 1 '+x.toFixed(1)+' '+y.toFixed(1)+'" fill="none" stroke="url(#gg)" stroke-width="16" stroke-linecap="round"/>':'')+'<text x="100" y="90" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-weight="800" font-size="34" fill="#1E1412">'+(p==null?'–':p+'%')+'</text><text x="100" y="111" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="10.5" font-weight="600" letter-spacing="1.6" fill="#5E4B45">HE LEADS</text></svg>';}
+function radar(m){var ids=nnList();if(ids.length<3)return '';var n=ids.length,cx=120,cy=110,r=78,pts=[],axes='',labels='',rings='';
+ [0.33,0.66,1].forEach(function(f){var ps=[];for(var i=0;i<n;i++){var a=-Math.PI/2+i*2*Math.PI/n;ps.push((cx+Math.cos(a)*r*f).toFixed(1)+','+(cy+Math.sin(a)*r*f).toFixed(1));}rings+='<polygon points="'+ps.join(' ')+'" fill="'+(f===1?'#FBEFEA':'none')+'" stroke="#E6D6CC"/>';});
+ ids.forEach(function(id,i){var a=-Math.PI/2+i*2*Math.PI/n,v=nnRate(m,id);v=v==null?0:v;pts.push((cx+Math.cos(a)*r*v).toFixed(1)+','+(cy+Math.sin(a)*r*v).toFixed(1));
+  axes+='<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+Math.cos(a)*r).toFixed(1)+'" y2="'+(cy+Math.sin(a)*r).toFixed(1)+'" stroke="#E6D6CC"/>';
+  var lx=cx+Math.cos(a)*(r+12),ly=cy+Math.sin(a)*(r+12),anc=Math.abs(Math.cos(a))<.3?'middle':(Math.cos(a)>0?'start':'end');var nm=qname(id);if(nm.length>18)nm=nm.slice(0,17)+'…';labels+='<text x="'+lx.toFixed(1)+'" y="'+(ly+(Math.sin(a)>.3?10:Math.sin(a)<-.3?-2:4)).toFixed(1)+'" text-anchor="'+anc+'">'+esc(nm)+'</text>';});
+ return '<svg class="radar" viewBox="-62 -8 364 236" role="img" aria-label="How he matches your non-negotiables">'+rings+axes+'<polygon points="'+pts.join(' ')+'" fill="rgba(122,15,28,.25)" stroke="#7A0F1C" stroke-width="2.4" stroke-linejoin="round"/>'+labels+'</svg>';}
+function trend(m){var vals=m.logs.map(logScore).filter(function(v){return v!=null;});if(vals.length<2)return '<p class="small soft" style="margin:0">The trend line appears after two dates.</p>';
+ var w=280,h=110,p=12,step=(w-2*p)/(vals.length-1),pts=vals.map(function(v,i){return [p+i*step,h-p-v*(h-2*p)];});
+ var line=pts.map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1);}).join(' '),area='M'+pts[0][0]+','+(h-p)+' L'+line.replace(/ /g,' L')+' L'+pts[pts.length-1][0]+','+(h-p)+' Z';
+ var last=vals[vals.length-1],first=vals[0],dir=last>first+.08?'He\'s stepping up.':(last<first-.08?'He\'s fading.':'Holding steady.');
+ return '<svg viewBox="0 0 '+w+' '+h+'" width="100%" role="img" aria-label="Effort over his dates: '+dir+'"><defs><linearGradient id="ta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E59A8E" stop-opacity=".55"/><stop offset="1" stop-color="#E59A8E" stop-opacity="0"/></linearGradient></defs>'+
+  [.25,.5,.75].map(function(f){return '<line x1="'+p+'" x2="'+(w-p)+'" y1="'+(h-p-f*(h-2*p))+'" y2="'+(h-p-f*(h-2*p))+'" stroke="#F1E4DC"/>';}).join('')+
+  '<path d="'+area+'" fill="url(#ta)"/><polyline points="'+line+'" fill="none" stroke="#7A0F1C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+pts.map(function(q){return '<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="4.5" fill="#560000" stroke="#fff" stroke-width="2"/>';}).join('')+'</svg><p class="small" style="margin:6px 0 0;font-weight:600;color:var(--burgundy)">'+dir+'</p>';}
+function phaseTrack(m){var lim=phaseLimits(m),names=phaseNames(m),d=daysSince(m.since);
+ return '<div class="track">'+lim.map(function(l,i){var fill=i==m.phase?Math.min(100,d/l*100):0;return '<div class="'+(i<m.phase?'past':'')+'" style="flex:'+l+';'+(i==m.phase?'background:linear-gradient(90deg,#E59A8E 0%,#560000 '+fill+'%,#F4DDD3 '+fill+'%)':'')+'"></div>';}).join('')+'</div><div style="display:grid;gap:4px;margin-top:8px">'+lim.map(function(l,i){var c=i<m.phase?'#E59A8E':(i==m.phase?'#560000':'#F4DDD3');return '<div class="row small" style="gap:8px;'+(i==m.phase?'font-weight:600;color:var(--ink)':'color:var(--soft)')+'"><span style="width:10px;height:10px;border-radius:50%;background:'+c+';flex:none"></span>'+esc(names[i])+' · '+l+' days'+(i==m.phase?' · you are here':'')+'</div>';}).join('')+'</div>';}
+function split(label,him,total){var p=total?Math.round(him/total*100):0;return '<div class="split"><div class="between small"><span style="font-weight:600;color:var(--ink)">'+label+'</span><span><strong style="color:var(--burgundy)">Him '+p+'%</strong> · You '+(100-p)+'%</span></div><div class="sbar"><i style="width:'+p+'%"></i></div></div>';}
+
+/* ---------- screens ---------- */
+var R={};
+R.home=function(){
+ var steps=[[!!S.path,'Choose where you are','#home-path'],[S.baseDone,'Set your baseline','#profile/1'],[kept().length>=5,'Choose your nice-to-haves','#profile/2'],[nnList().length>=1,'Lock in your non-negotiables','#profile/3'],[nnList().some(function(id){return S.her[id]&&S.her[id].r;}),'Write Her side','#profile/4'],[nnList().some(function(id){return (S.tests[id]||[]).length;}),'Choose your tests','#tests'],[S.men.length>0,'Add someone to your Roster','#roster'],[S.men.some(function(m){return m.logs.length;}),'Log your first date','#after']];
+ var done=steps.filter(function(s){return s[0];}).length;
+ var act=active(),logs=0;S.men.forEach(function(m){logs+=m.logs.length;});
+ var heroBg=IMG.hero?' style="background:linear-gradient(180deg,rgba(46,5,5,.72),rgba(25,4,4,.86)),url(\''+esc(IMG.hero)+'\') center/cover #2E0505"':'';
+ var h='<header class="hero on-dark"'+heroBg+'>'+(IMG.hero?'':'<span class="deco" style="left:-20px;top:30px">'+ic('rings',120)+'</span><span class="deco" style="right:-26px;bottom:-10px">'+ic('heart',140)+'</span>')+'<div class="wrap"><p class="eyebrow">NextSeasonHer™ · DatingAsHer™</p><h1>Husband <span class="lip">Material</span></h1><p>Decide who he is before he shows up. Then let the evidence decide.</p>'+(DRAFT&&!IMG.hero?'<p class="small" style="margin-top:14px;opacity:.75">Photo slot · '+esc(IMGIDEA.hero)+'</p>':'')+'</div></header><div class="wrap screen" style="padding-top:18px">';
+ h+=photo('home',210,'home');
+ h+='<div class="card glow"><p class="eyebrow">Welcome 🤎</p><p style="margin:0 0 12px;color:var(--ink)">Husband Material turns the standard in your head into something you can see, test and keep. Start with His Profile. Everything else builds from there.</p>'+voice('welcome','Listen: how to use Husband Material').replace('margin:0 0 14px','margin:0')+'</div>';
+ h+='<div class="card"><div class="row" style="gap:16px;align-items:center;margin-bottom:6px"><span style="color:var(--burgundy)">'+ring(done/steps.length,72,'#560000',done+'/'+steps.length)+'</span><div><h3 style="margin:0">Start here</h3><p class="small soft" style="margin:2px 0 0">About 15 minutes to your Husband Profile card.</p></div></div><ul class="steps">'+steps.map(function(s){return '<li><span class="tick'+(s[0]?' on':'')+'" aria-hidden="true">✓</span><a href="'+s[2]+'">'+s[1]+'</a></li>';}).join('')+'</ul></div>';
+ if(S.men.length){h+='<div class="grid3" style="margin:0 0 12px"><div class="stat" style="background:#EADCD2;color:#5C3A2B"><b>'+act.length+'</b><span>On your Roster</span></div><div class="stat" style="background:#F6DCD6;color:#7A0F1C"><b>'+logs+'</b><span>Dates logged</span></div><div class="stat" style="background:#F1E3C8;color:#7A5418"><b>'+S.unsent.length+'</b><span>Texts unsent</span></div></div>';
+  if(act.length)h+='<div class="card"><div class="between"><p class="eyebrow" style="margin:0">Your Roster at a glance</p><a class="small" href="#roster">Open</a></div>'+act.map(function(m){var p=phaseOf(m),d=daysSince(m.since),e=effort(m),over=d>p.limit;return '<a class="glance" href="#man/'+m.id+'"><span style="color:'+(over?'#7A0F1C':'#1E1412')+'">'+ring(d/p.limit,52,over?'#7A0F1C':'#E59A8E',d)+'</span><div style="flex:1;min-width:0"><div class="between"><strong class="nm" style="color:var(--ink);font-size:17px">'+esc(m.name)+'</strong>'+(over?'<span class="pill over">Decide</span>':'<span class="small soft">day '+d+' of '+p.limit+'</span>')+'</div><div class="meter" style="margin-top:4px"><span>Leads</span><div class="progress"><i style="width:'+(e||0)+'%"></i></div><strong style="color:var(--burgundy)">'+(e==null?'–':e+'%')+'</strong></div></div></a>';}).join('')+'</div>';}
+ h+='<div class="card" id="home-path"><h3>Where are you right now?</h3><div class="paths">'+
+  [['none','I\'m not dating anyone yet','Build His Profile, then use the pre-screen questions before saying yes.','prescreen'],['talking','I\'m talking to someone, or a few','Build His Profile, add them to your Roster, and use Before the Date.','roster'],['situation','I\'m in a situationship','Start with the situationship path, then build His Profile.','situation']].map(function(p){return '<button type="button" class="path" data-act="path" data-v="'+p[0]+'" aria-pressed="'+(S.path===p[0])+'">'+badge(p[3],1)+'<span><strong>'+p[1]+'</strong><span class="d">'+p[2]+'</span></span></button>';}).join('')+'</div>'+
+  (S.path==='situation'?'<p style="margin:14px 0 0"><a class="btn wide" href="#situation">Open the situationship path</a></p>':'')+'</div>';
+ h+='<p class="eyebrow" style="margin-top:22px">Your weekly rhythm</p><div class="grid2">'+[['reset','Sunday Reset','5 minutes, once a week'],['before','Before the Date','Your brief for tonight'],['after','After the Date','The 2-minute log'],['when','What do I do when…','Rules and scripts']].map(function(t){return '<a class="tile" href="#'+t[0]+'">'+badge(t[0],1)+'<span>'+t[1]+'<span class="d">'+t[2]+'</span></span></a>';}).join('')+'</div>';
+ return h+'</div>';};
+
+/* ---- situationship path ---- */
+var SIT_STEPS=['Start','Name it','Check him','The talk','His answer'];
+function sitStepper(n){return '<div class="stepper">'+SIT_STEPS.map(function(s,i){return '<a href="#situation/'+i+'" class="'+(i<n?'done':(i===n?'cur':''))+'">'+s+'</a>';}).join('')+'</div>';}
+function doRow(icon,html,bg,col){return '<div class="do"><span class="badge" style="background:'+(bg||'#F8D9CF')+';color:'+(col||'#B23A2E')+'">'+ic(icon)+'</span><p style="margin:0">'+html+'</p></div>';}
+R.situation=function(arg){var n=+arg||0,s=S.sit;
+ var h=head('situation','The situationship path · step '+n+' of 4',['From “what are we?” to an answer','Name it','Check him against your standard','Have the conversation','Read his answer'][n],'')+'<div class="wrap screen">'+sitStepper(n);
+ if(n===0){
+  h+=photo('situation',210,'situation')+voice('situation','Listen: before you start this path');
+  h+='<div class="card"><p class="eyebrow">What a situationship is</p><p style="color:var(--ink)">Time, feelings and closeness, with no title and no direction. You\'re giving him what a partner gives, and he hasn\'t said what he\'s building with you.</p><p style="margin:0">It feels safer to stay because nothing has been asked. Asking is the only way out, in either direction.</p></div>';
+  h+='<div class="card glow"><p class="eyebrow">What this path does</p><p style="color:var(--ink)">It takes you from guessing to knowing in four steps, and 14 days at most.</p>'+
+   doRow('pen','<strong style="color:var(--ink)">1. Name it.</strong> Write what\'s really happening, in facts.','#fff')+doRow('check','<strong style="color:var(--ink)">2. Check him.</strong> Hold him against your baseline and your non-negotiables.','#fff')+doRow('chat','<strong style="color:var(--ink)">3. The talk.</strong> One honest conversation, in person or on a call.','#fff')+doRow('leaf','<strong style="color:var(--ink)">4. His answer.</strong> Act on it, whatever it is.','#fff')+'</div>';
+  h+='<div class="card dark"><p class="eyebrow">Before you start</p><p class="display" style="font-size:24px;line-height:1.2;margin:0 0 8px">You can care about him and still ask.</p><p style="margin:0">This path doesn\'t ask you to stop caring. It asks you to stop waiting.</p></div>';
+  h+='<p><a class="btn wide" href="#situation/1">Start step 1</a></p>';}
+ if(n===1){
+  h+='<div class="card"><p class="small soft">Write facts, the way a friend watching from the outside would describe it.</p><label for="s0">His first name or initial</label><input type="text" id="s0" data-bind="sit.name" value="'+esc(s.name||'')+'"><label for="s1">How long has this been going?</label><input type="text" id="s1" data-bind="sit.len" value="'+esc(s.len||'')+'" placeholder="e.g. four months"><label for="s2">What has he said he wants, in his words?</label><textarea id="s2" data-bind="sit.said" placeholder="Quote him, if you can">'+esc(s.said||'')+'</textarea><label for="s3">What are you giving? Time, care, closeness, planning</label><textarea id="s3" data-bind="sit.give">'+esc(s.give||'')+'</textarea><label for="s4">What is he giving?</label><textarea id="s4" data-bind="sit.get">'+esc(s.get||'')+'</textarea></div>';
+  var g=+s.gN||0,t=+s.tN||0;
+  h+='<div class="card"><p class="eyebrow">The balance</p><p class="small soft">Rate each from 1 to 5.</p><p style="margin:10px 0 0;font-weight:600;color:var(--ink)">How much you give</p><div class="seg" data-act="sitn" data-k="gN">'+[1,2,3,4,5].map(function(x){return '<button type="button" data-v="'+x+'" aria-pressed="'+(g===x)+'">'+x+'</button>';}).join('')+'</div><p style="margin:14px 0 0;font-weight:600;color:var(--ink)">How much he gives</p><div class="seg" data-act="sitn" data-k="tN">'+[1,2,3,4,5].map(function(x){return '<button type="button" data-v="'+x+'" aria-pressed="'+(t===x)+'">'+x+'</button>';}).join('')+'</div>';
+  if(g&&t)h+='<div class="balance"><div style="height:'+g*20+'%;background:#F8D9CF;color:#B23A2E">You · '+g+'</div><div style="height:'+t*20+'%;background:#560000;color:#F8E6DE">Him · '+t+'</div></div><p style="margin:10px 0 0;font-weight:600;color:var(--burgundy)">'+(g>t?'You\'re carrying more of this than he is.':g===t?'It\'s even. Now find out where it\'s going.':'He\'s giving more than you. Find out what he\'s building.')+'</p>';
+  h+='</div><div class="card"><label for="s5" style="margin-top:0">If nothing changed for a year, how would you feel?</label><textarea id="s5" data-bind="sit.year">'+esc(s.year||'')+'</textarea></div><p><a class="btn wide" href="#situation/2">Next: check him</a></p>';}
+ if(n===2){var ids=nnList(),sn=s.nn||{},bl=s.base;
+  h+='<div class="card"><p class="eyebrow">Your baseline</p><p class="small soft">'+esc(S.baseline.join(' · '))+'</p><p style="margin:0;font-weight:600;color:var(--ink)">Has he crossed any of these?</p><div class="seg" data-act="sitbase"><button type="button" data-v="n" aria-pressed="'+(bl==='n')+'">No</button><button type="button" data-v="y" aria-pressed="'+(bl==='y')+'">Yes</button></div></div>';
+  h+='<div class="card"><p class="eyebrow">Your non-negotiables</p>'+(ids.length?ids.map(function(id){var a=sn[id];return '<div class="q"><p style="margin:0;font-weight:600;color:var(--ink)">'+esc(qname(id))+'</p><div class="seg" data-act="sitnn" data-id="'+id+'"><button type="button" data-v="y" aria-pressed="'+(a==='y')+'">He meets it</button><button type="button" data-v="n" aria-pressed="'+(a==='n')+'">He doesn\'t</button><button type="button" data-v="u" aria-pressed="'+(a==='u')+'">Not sure</button></div></div>';}).join(''):'<p class="soft" style="margin:0">Lock in your non-negotiables in <a href="#profile/3">His Profile</a> first. It takes about ten minutes, and this step depends on it.</p>')+'</div>';
+  var yes=ids.filter(function(id){return sn[id]==='y';}).length,no=ids.filter(function(id){return sn[id]==='n';}).length;
+  if(ids.length&&(yes+no))h+='<div class="card glow"><div class="row" style="gap:16px"><span style="color:var(--ink)">'+ring(yes/ids.length,76,'#560000',yes+'/'+ids.length,'#fff')+'</span><div><h3 style="margin:0">He meets '+yes+' of your '+ids.length+'</h3><p class="small soft" style="margin:2px 0 0">'+(no?no+' clear miss'+(no>1?'es':''):'No clear misses so far')+'</p></div></div></div>';
+  if(bl==='y'||no)h+='<div class="card dark"><p class="eyebrow">You may already have your answer</p><p style="margin:0">'+(bl==='y'?'He crossed your baseline. You don\'t need a conversation to leave.':'A missed non-negotiable is an answer on its own.')+' You can still have the conversation for clarity. You don\'t need his yes to go.</p></div>';
+  h+='<p><a class="btn wide" href="#situation/3">Next: the conversation</a></p>';}
+ if(n===3){
+  h+=photo('talk',180,'situation');
+  h+='<div class="card"><p class="eyebrow">How to have it</p>'+doRow('phone','<strong style="color:var(--ink)">Where.</strong> In person or on a call. Never by text. A text lets him answer later, and later is how situationships survive.')+doRow('calendar','<strong style="color:var(--ink)">When.</strong> A calm moment. Not right after intimacy, not in the middle of a disagreement, not late at night.')+doRow('quote','<strong style="color:var(--ink)">How.</strong> Say it once, then stop talking. Let the silence be his to fill.')+doRow('x','<strong style="color:var(--ink)">Don\'t</strong> explain it, soften it into a joke, or answer for him with "you don\'t have to decide now."')+'</div>';
+  h+='<div class="card dark"><p class="eyebrow">Say this</p><p class="display" style="font-size:24px;line-height:1.3;margin:0 0 14px">“'+esc(WHATAREWE)+'”</p>'+copyBtn(WHATAREWE)+'<p class="small" style="margin:14px 0 0;color:var(--on-dark)">If you need a softer way in: “Can I share something with you?” Then say it.</p></div>';
+  var rd=s.ready||{};
+  h+='<div class="card"><p class="eyebrow">Ready check</p>'+['I\'ve chosen in person or a call','I know what I\'ll do with each answer (step 4)','I\'m willing to hear no'].map(function(x,i){return '<label class="row" style="gap:12px;font-size:16px;font-weight:500;color:var(--ink);letter-spacing:0"><input type="checkbox" data-sitready="'+i+'" '+(rd[i]?'checked':'')+' style="width:22px;height:22px;flex:none;accent-color:#B23A2E"> '+x+'</label>';}).join('')+'</div>';
+  h+='<div class="card"><label for="s6" style="margin-top:0">Afterward: his exact words</label><textarea id="s6" data-bind="sit.words" placeholder="Write them down before you replay them">'+esc(s.words||'')+'</textarea></div><p><a class="btn wide" href="#situation/4">Next: read his answer</a></p>';}
+ if(n===4){
+  h+='<div class="card"><p style="margin:0 0 4px;font-weight:600;color:var(--ink)">What did he say?</p><div class="paths" style="margin-top:10px">'+[['yes','A clear yes, with a plan','He wants marriage, and he sees it with you.'],['notyet','"Yes, but I\'m not ready"','He wants it someday, not now.'],['vague','Vague, or "let\'s see"','No yes, no no.'],['no','No','He isn\'t looking for marriage, or not with you.']].map(function(o){return '<button type="button" class="path" data-act="sitans" data-v="'+o[0]+'" aria-pressed="'+(s.ans===o[0])+'"><span><strong>'+o[1]+'</strong><span class="d">'+o[2]+'</span></span></button>';}).join('')+'</div></div>';
+  if(s.ans==='yes')h+='<div class="card glow"><p class="eyebrow">He moves to courting</p><p>His clock starts today. A real yes shows up in the next 14 days: he plans dates, talks about the future without being asked, and makes room for you in his life.</p><p style="margin:0">If the yes stays in words only, come back here and choose "vague."</p></div><button type="button" class="wide" data-act="sitroster">Add '+esc(s.name||'him')+' to my Roster as courting</button>';
+  if(s.ans==='notyet')h+='<div class="card glow"><p class="eyebrow">Believe him</p><p>"Not ready" is a no for now. You\'re ready, and you\'re allowed to want someone who is too.</p><p style="margin:0">Release him kindly. If he becomes ready, he knows where to find you, and he starts at the beginning of Her Timeline.</p></div><div class="card"><p class="say">“'+esc(RELEASE)+'”</p>'+copyBtn(RELEASE)+'</div>';
+  if(s.ans==='vague'){var st=s.vagueStart||today(),d=daysSince(st),end=addDays(st,13);
+   h+='<div class="card glow"><div class="row" style="gap:16px"><span style="color:var(--ink)">'+ring(Math.min(1,d/14),80,'#B23A2E',Math.min(d,14),'#fff')+'</span><div><p class="eyebrow" style="margin:0 0 2px">Day '+Math.min(d,14)+' of 14</p><h3 style="margin:0">Decide by '+nice(end)+'</h3></div></div></div>';
+   h+='<div class="card"><p class="eyebrow">For these 14 days</p>'+doRow('users','Keep your Roster open. You\'re not exclusive with a maybe.')+doRow('heart','Don\'t give more to earn a clearer answer. Keep things exactly where they are.')+doRow('compass','Let him lead the next step. Don\'t bring it up again.')+doRow('leaf','On day 14, no clear yes means release him, kindly.')+'</div>';}
+  if(s.ans==='no')h+='<div class="card dark"><p class="eyebrow">You just got your time back</p><p>He told you the truth. That\'s a gift, even when it doesn\'t feel like one.</p><p class="say" style="color:var(--blush-light)">“'+esc(RELEASE)+'”</p>'+copyBtn(RELEASE)+'</div>';
+  if(s.ans&&s.ans!=='yes')h+='<div class="card"><p class="eyebrow">If it hurts</p><p>It might, a little or a lot. Grief after clarity heals cleaner than hope without it.</p><p style="margin:0">If this is the second or third time you\'ve been here, look at <a href="#patterns">Her Patterns</a>. NameHer is where we look at why.</p></div>';
+  h+='<div class="card"><p class="eyebrow">Want me with you for this?</p><p class="soft">In The First Look, we prepare for this conversation together, and I debrief with you afterward.</p><a class="btn ghost" href="mailto:hello@nextseasonher.com?subject=The%20First%20Look%20%C2%B7%20DatingAsHer%E2%84%A2&body=I%27d%20like%20to%20book%20The%20First%20Look.">Book The First Look</a></div>';}
+ return h+'</div>';};
+
+/* ---- profile ---- */
+var PSTEPS=['Baseline','Nice to have','Non-negotiables','Her side','Your card'];
+function pStepper(n){return '<div class="stepper">'+PSTEPS.map(function(s,i){return '<a href="#profile/'+(i+1)+'" class="'+(i+1<n?'done':(i+1===n?'cur':''))+'">'+s+'</a>';}).join('')+'</div>';}
+var chk=null;
+R.profile=function(arg){var n=+arg||0;
+ if(n===0){return head('profile','His Profile','Who is he?','Before you meet him, decide what he has to be, and who you\'ll be when he shows up.')+'<div class="wrap screen">'+photo('profile',200,'profile')+voice('profile','Listen: how to build His Profile')+
+  '<div class="card"><p class="eyebrow">His three layers, and her side</p><div class="tiers"><div style="width:100%;background:#EADCD2;color:#5C3A2B">Your baseline<small>Every man you date meets these. Not up for testing.</small></div><div style="width:82%;background:#F5D3D9;color:#8E2340">Nice to have<small>They add to his picture. They never decide.</small></div><div style="width:62%;background:#560000;color:#F8E6DE">Non-negotiables<small style="color:#EBD3CB">They decide. Five at most.</small></div><div style="width:100%;background:#F8D9CF;color:#B23A2E;margin-top:10px">Her side<small>Who you are when he shows up.</small></div></div></div>'+
+  '<p><a class="btn wide" href="#profile/1">Start with your baseline</a></p>'+(nnList().length?'<p><a class="btn ghost wide" href="#profile/5">See your card</a></p>':'')+'</div>';}
+ var h=(n===4?head('her','Her Profile · step 4 of 5','Her side',''):head('profile','His Profile · step '+n+' of 5',['Your baseline','Nice to have','Your non-negotiables','','His Profile, Her Profile'][n-1],''))+'<div class="wrap screen">'+pStepper(n);
+ if(n===1){
+  h+='<div class="card glow"><p style="margin:0;color:var(--ink)">Your baseline is what every man has to meet before he\'s even on your Roster. These aren\'t your non-negotiables, because every decent man meets them. If he crosses one, he\'s done.</p></div>';
+  h+='<div class="card"><h3>Your baseline</h3><p class="small soft">Tap to remove one. Add your own below.</p><div class="chips">'+S.baseline.map(function(b,i){return '<button type="button" class="chip" style="--c-ink:#5C3A2B" aria-pressed="true" data-act="delbase" data-i="'+i+'">'+esc(b)+' ×</button>';}).join('')+'</div><div class="row" style="margin-top:12px"><input type="text" id="newBase" aria-label="Add to your baseline" placeholder="e.g. Doesn\'t use drugs"><button type="button" data-act="addbase">Add</button></div></div>';
+  h+='<p><button type="button" class="wide" data-act="basedone">This is my baseline</button></p>';}
+ if(n===2){
+  h+='<div class="card glow"><p style="margin:0;color:var(--ink)">Tap every quality you\'d love in a husband. Most of what women want lives here, and that\'s good. Nice-to-haves add to his picture. They never decide on their own. ★ are from my own profile.</p></div>';
+  LIB.forEach(function(g){var t=GT[g[0]];h+='<div class="card" style="border-left:5px solid '+t[1]+'"><div class="row" style="gap:10px;margin-bottom:10px"><span class="badge sm" style="background:'+t[0]+';color:'+t[1]+'">'+ic(t[2])+'</span><h3 style="margin:0">'+g[0]+'</h3></div><div class="chips">'+g[1].map(function(it){var id=slug(it[0]);return '<button type="button" class="chip'+(Q[id].star?' star':'')+'" style="--c-ink:'+t[1]+'" data-act="keep" data-id="'+id+'" aria-pressed="'+(!!S.kept[id])+'">'+esc(it[0])+'</button>';}).join('')+'</div></div>';});
+  h+='<div class="card"><h3>Something else?</h3><div class="row"><input type="text" id="newQ" aria-label="Add your own quality" placeholder="Add your own quality"><button type="button" data-act="addq">Add</button></div>'+(S.custom.length?'<div class="chips" style="margin-top:10px">'+S.custom.map(function(c){return '<button type="button" class="chip" aria-pressed="true" data-act="delq" data-id="'+c.id+'">'+esc(c.name)+' ×</button>';}).join('')+'</div>':'')+'</div>';
+  h+='<p><a class="btn wide" href="#profile/3">Next: your non-negotiables</a></p>';}
+ if(n===3){var nn=nnList();
+  h+=voice('nonneg','Listen: what a non-negotiable really is');
+  h+='<div class="card dark"><p class="eyebrow">What\'s a non-negotiable?</p><p class="display" style="font-size:28px;line-height:1.15;margin:0 0 12px">The quality you\'d walk away over.</p><p>A non-negotiable is a quality you\'d release a good man over. Even with chemistry. Even if everything else about him is right. If you\'d stay without it, it\'s a nice-to-have.</p><p style="margin:0">Your non-negotiables are specific to the life you\'re building. Five at most. Fewer is stronger.</p><div class="slots" aria-label="'+nn.length+' of 5 chosen">'+[0,1,2,3,4].map(function(i){return '<span class="'+(i<nn.length?'on':'')+'">'+(i<nn.length?ic('lock'):'')+'</span>';}).join('')+'</div><p class="small" style="margin:0;color:var(--blush)">'+nn.length+' of 5 locked in</p></div>';
+  if(nn.length)h+='<div class="card"><h3>Locked in</h3><p class="small soft">Tap one to move it back to nice-to-have.</p><div class="chips">'+nn.map(function(id){return '<button type="button" class="chip locked" data-act="unlock" data-id="'+id+'">🔒 '+esc(qname(id))+'</button>';}).join('')+'</div></div>';
+  h+='<div class="card"><h3>Which of your nice-to-haves decide?</h3><p class="small soft">Tap one to run the non-negotiable check.</p>'+(niceList().length?'<div class="chips">'+niceList().map(function(id){var t=GT[qgroup(id)];return '<button type="button" class="chip" style="border-color:'+t[1]+'55;color:'+t[1]+'" data-act="check" data-id="'+id+'">'+esc(qname(id))+'</button>';}).join('')+'</div>':'<p class="soft" style="margin:0">Choose your <a href="#profile/2">nice-to-haves</a> first.</p>')+'<div id="checkBox">'+checkHTML()+'</div></div>';
+  if(nn.length)h+='<div class="card"><h3>What each one means to you</h3><p class="small soft">In your words. This is what goes on your card.</p>'+nn.map(function(id){return '<label for="mn'+id+'">'+esc(qname(id))+'</label><textarea id="mn'+id+'" data-bind="meaning.'+id+'" placeholder="'+esc(Q[id]?Q[id].meaning:'In my words…')+'">'+esc(S.meaning[id]||'')+'</textarea>';}).join('')+'</div><p><a class="btn wide" href="#profile/4">Next: her side</a></p>';}
+ if(n===4){var nn4=nnList();
+  if(!nn4.length)return h+'<div class="card"><p class="soft" style="margin:0">Lock in your <a href="#profile/3">non-negotiables</a> first. Her side is built from them.</p></div></div>';
+  h+=voice('her','Listen: why his profile has a mirror');
+  h+='<div class="card dark"><p class="eyebrow">Her Profile</p><p class="display" style="font-size:28px;line-height:1.15;margin:0 0 14px">Who are you when he shows up?</p><p>Every quality you\'re asking of him has a matching readiness in you. A man who leads needs a woman who lets him. A man who provides needs a woman who can receive.</p><p style="margin:0">Write your side in your own words. Then rate how true it is today. Honest beats flattering here.</p></div>';
+  nn4.forEach(function(id){var r=S.her[id]||{};h+='<div class="card"><div class="row" style="gap:12px"><span class="who">He</span><h3 style="margin:0">'+esc(qname(id))+'</h3></div><p class="small soft" style="margin:6px 0 0 46px">'+esc(qmeaning(id))+'</p><div class="row" style="gap:12px;margin-top:22px"><span class="who me">Me</span><label for="hr'+id+'" style="margin:0">My side, in my words</label></div><textarea id="hr'+id+'" data-bind="her.'+id+'.t" style="margin-top:12px" placeholder="Who do I need to be for this?">'+esc(herText(id))+'</textarea><p class="small" style="margin:20px 0 0;font-weight:600;color:var(--ink)">How true is this of me today?</p><div class="seg" data-act="herrate" data-id="'+id+'">'+[1,2,3,4,5].map(function(x){return '<button type="button" data-v="'+x+'" aria-pressed="'+(r.r===x)+'">'+x+'</button>';}).join('')+'</div><div class="between small soft" style="margin-top:8px"><span>Not yet</span><span>Fully</span></div></div>';});
+  var rated=nn4.filter(function(id){return S.her[id]&&S.her[id].r;});
+  if(rated.length){var avg=rated.reduce(function(a,id){return a+S.her[id].r;},0)/rated.length/5,low=rated.filter(function(id){return S.her[id].r<=3;}).sort(function(a,b){return S.her[a].r-S.her[b].r;});
+   h+='<div class="card glow"><div class="row" style="gap:18px;margin-bottom:20px"><span style="color:var(--ink)">'+ring(avg,84,'#B23A2E',Math.round(avg*100)+'%','#fff')+'</span><div><p class="eyebrow" style="margin:0 0 4px">Your readiness</p><h3 style="margin:0">'+(avg>=.8?'You\'re ready for him.':avg>=.5?'You\'re on your way.':'This is where your work is.')+'</h3></div></div>'+rated.map(function(id){var v=S.her[id].r;return '<div class="hbar"><span>'+esc(qname(id))+'</span><div class="b" style="background:#fff"><i style="width:'+v*20+'%;background:#B23A2E"></i></div><strong>'+v+'/5</strong></div>';}).join('')+'</div>';
+   if(low.length)h+='<div class="card dark"><p class="eyebrow">Where to grow</p><p class="display" style="font-size:24px;line-height:1.3;margin:0 0 14px">“'+esc(herText(low[0])||qname(low[0]))+'”</p><p>This is the space between who you are today and the woman you\'re becoming. A tool can show you the gap. Closing it is identity work, and it\'s what we do together in NameHer and the Husband Material workshop.</p><a class="btn" href="https://nextseasonher.com/name-her-waitlist.html">Join the NameHer waitlist</a></div>';}
+  h+='<p><a class="btn wide" href="#profile/5">Next: your card</a></p>';}
+ if(n===5){var nn2=nnList();
+  if(!nn2.length)return h+'<div class="card"><p class="soft" style="margin:0">Lock in at least one <a href="#profile/3">non-negotiable</a> to see your card.</p></div></div>';
+  h+='<div class="hcard on-dark" id="hcard"><p class="eyebrow">His Profile · Her Profile</p><p class="t">Husband <span class="lip">Material</span></p><ol>'+nn2.map(function(id){var ht=herText(id);return '<li>'+esc(qname(id))+'<small>'+esc(qmeaning(id))+'</small>'+(ht?'<span class="me"><b>Me</b>'+esc(ht)+'</span>':'')+'</li>';}).join('')+'</ol><p class="base">Baseline: '+esc(S.baseline.join(' · '))+'</p><p class="foot">'+niceList().length+' nice-to-haves · '+nn2.length+' non-negotiables · @nextseasonher 🤎🍂</p></div><p class="small soft" style="text-align:center;margin-top:10px">Screenshot your card. Post it and tag @nextseasonher.</p>';
+  h+='<p><a class="btn wide" href="#tests">Next: choose your tests</a></p>';}
+ return h+'</div>';};
+function checkHTML(){if(!chk)return '';var a=chk.a,first=-1;for(var i=0;i<3;i++){if(a[i]==='n'){first=i;break;}}
+ var all=a[0]==='y'&&a[1]==='y'&&a[2]==='y';
+ var h='<div class="check"><p class="eyebrow">The non-negotiable check</p><h3>Is “'+esc(qname(chk.id))+'” a non-negotiable?</h3>'+NNCHECK.map(function(q,i){return '<div class="q"><p style="margin:0;color:var(--ink)">'+(i+1)+'. '+q+'</p><div class="seg" data-act="chkans" data-i="'+i+'"><button type="button" data-v="y" aria-pressed="'+(a[i]==='y')+'">Yes</button><button type="button" data-v="n" aria-pressed="'+(a[i]==='n')+'">No</button></div></div>';}).join('');
+ if(first===0)h+='<div class="note"><strong style="color:var(--ink)">Then it\'s a nice-to-have.</strong> It stays in your profile and adds to his picture. It doesn\'t decide.</div><button type="button" class="ghost" data-act="chkclose">Keep it as a nice-to-have</button>';
+ else if(first===1)h+='<div class="note"><strong style="color:var(--ink)">Keep it as a nice-to-have for now.</strong> A non-negotiable has to show up early, or you\'ll spend months finding out. If you can name how you\'d test it, it can come back here.</div><button type="button" class="ghost" data-act="chkclose">Keep it as a nice-to-have</button>';
+ else if(first===2)h+='<div class="note"><strong style="color:var(--ink)">That belongs in your baseline.</strong> Every man on your Roster already has to meet it, so it doesn\'t need one of your five.</div><button type="button" data-act="tobase">Move it to my baseline</button>';
+ else if(all)h+='<div class="note" style="background:#560000;color:#F8E6DE"><strong>That\'s a non-negotiable.</strong></div>'+(nnList().length>=5?'<p class="small" style="color:var(--lip)">You already have five. Move one back to nice-to-have first.</p>':'<button type="button" data-act="lock">🔒 Lock it in</button>');
+ return h+'</div>';}
+
+R.tests=function(){var nn=nnList();
+ var h=head('tests','His Tests','Turn a feeling into evidence','For each non-negotiable, tap the tests you\'ll use on real dates. Add your own if you like.')+'<div class="wrap screen">'+voice('tests');
+ if(!nn.length)return h+'<div class="card"><p class="soft" style="margin:0">Lock in your non-negotiables in <a href="#profile/3">His Profile</a> first.</p></div></div>';
+ nn.forEach(function(id){var lib=TESTS[id],mine=S.tests[id]||[],t=GT[qgroup(id)];
+  h+='<div class="card" style="border-top:5px solid '+t[1]+'"><div class="row" style="gap:10px;margin-bottom:10px"><span class="badge sm" style="background:'+t[0]+';color:'+t[1]+'">'+ic(t[2])+'</span><div><p class="eyebrow" style="margin:0;color:'+t[1]+'">Non-negotiable</p><h3 style="margin:0">'+esc(qname(id))+'</h3></div></div>';
+  if(lib){h+='<div class="chips" style="flex-direction:column;align-items:stretch">'+lib.t.map(function(x){return '<button type="button" class="chip" style="text-align:left;justify-content:flex-start;--c-ink:'+t[1]+'" data-act="test" data-id="'+id+'" data-t="'+esc(x)+'" aria-pressed="'+(mine.indexOf(x)>-1)+'">'+(mine.indexOf(x)>-1?'✓ ':'+ ')+esc(x)+'</button>';}).join('')+'</div>'+
+   '<div class="grid2" style="margin-top:12px"><div style="background:#EEF0E4;border-radius:12px;padding:10px 12px"><p class="small" style="margin:0;color:#555A33"><strong>Pass</strong><br>'+esc(lib.pass)+'</p></div><div style="background:#F8D9CF;border-radius:12px;padding:10px 12px"><p class="small" style="margin:0;color:#7A0F1C"><strong>Fail</strong><br>'+esc(lib.fail)+'</p></div></div>';}
+  else h+='<p class="small soft">Write what you can observe or ask on a date.</p>';
+  var own=mine.filter(function(x){return !lib||lib.t.indexOf(x)<0;});
+  h+='<label for="ot'+id+'">Your own test</label><div class="row"><input type="text" id="ot'+id+'" placeholder="Something you can observe or ask"><button type="button" data-act="owntest" data-id="'+id+'">Add</button></div>'+(own.length?'<div class="chips" style="margin-top:10px">'+own.map(function(x){return '<button type="button" class="chip" style="--c-ink:'+t[1]+'" aria-pressed="true" data-act="test" data-id="'+id+'" data-t="'+esc(x)+'">'+esc(x)+' ×</button>';}).join('')+'</div>':'')+'</div>';});
+ return h+'<p><a class="btn wide" href="#roster">Next: your Roster</a></p></div>';};
+
+R.roster=function(){var act=active(),arch=S.men.filter(function(m){return m.status!=='active';});
+ var h=head('roster','The Roster','Who you\'re getting to know','First names or initials only. Each card fills in from your date logs.')+'<div class="wrap screen">';
+ h+='<div class="between" style="margin:0 0 12px"><span class="small soft">'+act.length+' active</span><button type="button" class="ghost" data-act="privacy" aria-pressed="'+S.privacy+'">'+ic('eye')+(S.privacy?'Show names':'Hide names')+'</button></div>';
+ if(!act.length)h+=photo('roster',190,'roster');
+ h+='<div class="card"><label for="newMan" style="margin-top:0">Add someone</label><div class="row"><input type="text" id="newMan" autocomplete="off" placeholder="First name or initial"><button type="button" data-act="addman">Add</button></div><div class="seg" id="newPhase" style="margin-top:10px"><button type="button" data-v="0" aria-pressed="true">Talking</button><button type="button" data-v="1" aria-pressed="false">Courting</button><button type="button" data-v="ld" aria-pressed="false">Long-distance</button></div></div>';
+ act.forEach(function(m){var e=effort(m),p=phaseOf(m),d=daysSince(m.since),over=d>p.limit,last=m.logs[m.logs.length-1],vc=last&&VCOL[last.verdict];
+  h+='<a class="card man" href="#man/'+m.id+'"><span style="color:'+(over?'#7A0F1C':'#1E1412')+'">'+ring(d/p.limit,64,over?'#7A0F1C':'#E59A8E',d)+'</span><div style="flex:1;min-width:0"><div class="between"><span class="name nm">'+esc(m.name)+'</span>'+(over?'<span class="pill over">Decide</span>':(vc?'<span class="tag" style="background:'+vc[0]+';color:'+vc[1]+'">'+esc(last.verdict.replace(/\.$/,''))+'</span>':''))+'</div><p class="small soft" style="margin:2px 0 0">Day '+d+' of '+p.limit+' · '+esc(p.name)+' · '+m.logs.length+' date'+(m.logs.length===1?'':'s')+'</p>'+
+   '<div class="meter"><span>Leads</span><div class="progress"><i style="width:'+(e||0)+'%"></i></div><strong style="color:var(--burgundy)">'+(e==null?'–':e+'%')+'</strong></div></div></a>';});
+ if(arch.length)h+='<details class="sc card" style="padding:4px 18px"><summary>Archive ('+arch.length+')</summary><div class="body">'+arch.map(function(m){return '<div class="log"><strong class="nm">'+esc(m.name)+'</strong> · '+(m.status==='husband'?'💍 Showing up like a husband':'🍂 Released')+(m.taught?'<br><span class="soft">What he taught me: '+esc(m.taught)+'</span>':'')+'</div>';}).join('')+'</div></details>';
+ return h+'</div>';};
+
+R.man=function(id){var m=man(id);if(!m)return R.roster();var e=effort(m),p=phaseOf(m),d=daysSince(m.since),over=d>p.limit,names=phaseNames(m);
+ var h='<div class="shead" style="--tint:#EADCD2"><div class="wrap"><div class="row" style="gap:12px;margin-bottom:10px">'+badge('man')+'<p class="eyebrow" style="margin:0;color:#5C3A2B">His card</p></div><h2 class="nm">'+esc(m.name)+'</h2><p class="soft" style="margin:0">'+m.logs.length+' date'+(m.logs.length===1?'':'s')+' logged'+(m.ld?' · long-distance':'')+'</p></div></div><div class="wrap screen">';
+ h+='<div class="card'+(over?' glow':'')+'"><p class="eyebrow">His clock</p><h3>Day '+d+' of '+p.limit+' in '+esc(p.name)+'</h3>'+(over?'<p style="color:var(--lip);font-weight:600;margin:0">He\'s past your limit. Time to decide.</p>':'')+phaseTrack(m)+
+  '<details class="sc" style="border-top:1px solid var(--line);margin-top:12px"><summary>Change phase or dates</summary><div class="body"><label for="mph" style="margin-top:0">Phase</label><select id="mph" data-mact="phase">'+names.map(function(n,i){return '<option value="'+i+'"'+(i==m.phase?' selected':'')+'>'+esc(n)+'</option>';}).join('')+'</select><label for="msn">In this phase since</label><input type="date" id="msn" data-mact="since" value="'+esc(m.since)+'">'+
+  '<label class="row" style="gap:10px;margin-top:14px;font-size:15px"><input type="checkbox" data-mact="ld" '+(m.ld?'checked':'')+' style="width:22px;height:22px"> Long-distance mode</label></div></details>'+(m.ld?'<div class="note">'+LD_TESTS.map(function(t){return '✓ '+t;}).join('<br>')+'<br>Distance is workable when he\'s the one building the bridge.</div>':'')+'</div>';
+ h+='<div class="charts"><div class="card"><p class="eyebrow">Effort meter</p>'+gauge(e)+'<p class="small soft" style="margin:8px 0 0;text-align:center">From who planned, who got you there, who paid and who followed up.</p></div>'+
+  '<div class="card"><p class="eyebrow">Trend</p>'+trend(m)+'</div></div>';
+ var rd=radar(m);if(rd)h+='<div class="card"><p class="eyebrow">Match chart</p><h3>Your non-negotiables, so far</h3>'+rd+'</div>';
+ var un=nnUntested(m);if(un.length)h+='<div class="card" style="background:#F1E3C8;border-color:transparent"><p class="eyebrow" style="color:#7A5418">Still untested</p><div class="tagrow">'+un.map(function(id){return '<span class="tag" style="background:#fff;color:#7A5418">'+esc(qname(id))+'</span>';}).join('')+'</div></div>';
+ var seen={};m.logs.forEach(function(l){(l.nice||[]).forEach(function(x){seen[x]=(seen[x]||0)+1;});});var sk=Object.keys(seen).filter(function(x){return qname(x);});
+ if(sk.length)h+='<div class="card"><p class="eyebrow">Nice-to-haves you\'ve seen</p><div class="tagrow">'+sk.map(function(x){var t=GT[qgroup(x)];return '<span class="tag" style="background:'+t[0]+';color:'+t[1]+'">'+esc(qname(x))+(seen[x]>1?' ×'+seen[x]:'')+'</span>';}).join('')+'</div></div>';
+ h+='<div class="card"><p class="eyebrow">His dates</p>'+(m.logs.length?'<div class="dots">'+m.logs.map(function(l,i){var c=VCOL[l.verdict]||['#F4DDD3','#560000'];return '<span class="dot" title="'+esc(l.verdict)+'" style="background:'+c[0]+';color:'+c[1]+'">'+(i+1)+'</span>';}).join('')+'</div>'+m.logs.slice().reverse().map(function(l,ri){var i=m.logs.length-1-ri;return '<div class="log"><strong>Date '+(i+1)+' · '+esc(l.date)+'</strong> · '+esc(l.verdict||'')+(l.notes?'<br><span class="soft">'+esc(l.notes)+'</span>':'')+(l.follow?'<br><span class="small soft">Follow-up: '+esc((FOLLOW.filter(function(o){return o[0]===l.follow;})[0]||[])[1]||'')+'</span>':'<p class="small" style="margin:8px 0 4px;font-weight:600">Did he follow up on his own within 24 hours?</p><div class="seg" data-act="follow" data-m="'+m.id+'" data-i="'+i+'">'+FOLLOW.map(function(o){return '<button type="button" data-v="'+o[0]+'">'+o[1]+'</button>';}).join('')+'</div>')+'</div>';}).join(''):'<p class="soft" style="margin:0">No dates logged yet.</p>')+'<p style="margin:14px 0 0;display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="#after/'+m.id+'">'+ic('pen')+'Log a date</a><a class="btn ghost" href="#before/'+m.id+'">Pre-date brief</a></p></div>';
+ h+='<div class="card"><p class="eyebrow">Decide</p><div style="display:grid;gap:10px"><button type="button" data-act="husband" data-m="'+m.id+'">💍 He\'s showing up like a husband</button><button type="button" class="ghost" data-act="release" data-m="'+m.id+'">🍂 Release him, kindly</button></div><div id="endBox"></div></div>';
+ return h+'</div>';};
+
+R.date=function(){return head('date','The Date','Before and after','Everything for the date itself, in order.')+'<div class="wrap screen">'+photo('date',210,'date')+'<div class="grid2">'+[['prescreen','Before you say yes','Three pre-screen questions'],['before','Before the Date','Your brief, tests and safety check'],['after','After the Date','The 2-minute log and verdict'],['scripts','Scripts','Word for word']].map(function(t){return '<a class="tile" href="#'+t[0]+'">'+badge(t[0],1)+'<span>'+t[1]+'<span class="d">'+t[2]+'</span></span></a>';}).join('')+'</div></div>';};
+
+function manPicker(sel,route){var act=active();if(!act.length)return '<div class="card"><p class="soft" style="margin:0">Add him to your <a href="#roster">Roster</a> first.</p></div>';
+ return '<div class="card"><label for="pick" style="margin-top:0">Who is it with?</label><select id="pick" data-route="'+route+'">'+act.map(function(m){return '<option value="'+m.id+'"'+(m.id===sel?' selected':'')+'>'+esc(m.name)+'</option>';}).join('')+'</select></div>';}
+
+R.before=function(id){var act=active();var m=man(id)||act[act.length-1];
+ var h=head('before','Before the Date','Your brief for tonight','')+'<div class="wrap screen">'+photo('before',190,'before')+voice('before')+manPicker(m&&m.id,'before');
+ if(m){var un=nnUntested(m),pickIds=(un.length?un:nnList().slice().sort(function(a,b){return (nnRate(m,a)||0)-(nnRate(m,b)||0);})).slice(0,2),ph=phaseOf(m),bounds=m.ld&&m.phase<2?'':(S.phases[m.phase]||{}).bounds;
+  h+='<div class="card dark"><p class="eyebrow">Tonight\'s two tests</p>'+(pickIds.length?pickIds.map(function(qid,i){var t=testsFor(qid);return '<div class="row" style="gap:12px;align-items:flex-start;margin-top:12px"><span class="badge sm" style="background:rgba(244,221,211,.14);color:#E59A8E;font-family:var(--display);font-weight:800">'+(i+1)+'</span><div><h3 style="margin:0">'+esc(qname(qid))+'</h3><p style="margin:2px 0 0">'+esc(t[0]||'Notice how he shows up for this.')+'</p>'+(herText(qid)?'<p class="small" style="margin:10px 0 0;color:#E59A8E">Your side: '+esc(herText(qid))+'</p>':'')+'</div></div>';}).join(''):'<p>Lock in your non-negotiables in His Profile to get tests here.</p>')+'</div>';
+  h+='<div class="card"><p class="eyebrow">Your boundary in '+esc(ph.name)+'</p><p style="margin:0">'+(bounds?esc(bounds):'<span class="soft">Write your boundaries for each phase in <a href="#timeline">Her Timeline</a>.</span>')+'</p></div>';}
+ h+='<div class="card"><p class="eyebrow">Have these ready</p><div class="script"><h3>If he asks where you want to go</h3><p class="say">“You choose. I love seeing someone\'s taste.”</p></div><div class="script"><h3>If he asks to split the bill</h3><p class="say">“I\'d love for you to take care of tonight.”</p></div><div class="script"><h3>Your one intention</h3><p class="say">“Tonight I\'m here to see who he is, and to let him see me.”</p></div></div>';
+ h+='<div class="card" style="border-left:5px solid #555A33"><div class="row" style="gap:10px;margin-bottom:6px"><span class="badge sm" style="background:#E3E2D0;color:#555A33">'+ic('shield')+'</span><h3 style="margin:0">Safety check</h3></div>'+SAFETY.map(function(s){return '<label class="row" style="gap:12px;font-size:16px;font-weight:500;color:var(--ink);letter-spacing:0"><input type="checkbox" style="width:22px;height:22px;flex:none;accent-color:#555A33"> '+esc(s)+'</label>';}).join('')+'</div>';
+ return h+'</div>';};
+
+R.prescreen=function(){return head('prescreen','Before you say yes','Three questions first','Ask these by message before agreeing to meet. A man dating for marriage answers easily. A man who isn\'t usually goes vague or goes quiet, and both save you an evening.')+'<div class="wrap screen"><div class="card">'+
+ ['What are you hoping to find on here?','What would you love your life to look like in two years?','Are you open to marriage?'].map(function(q,i){return '<div class="script"><div class="row" style="gap:12px;align-items:flex-start"><span class="badge sm" style="background:#EADCD2;color:#5C3A2B;font-family:var(--display);font-weight:800">'+(i+1)+'</span><div style="flex:1"><p class="say" style="margin-top:4px">“'+esc(q)+'”</p>'+copyBtn(q)+'</div></div></div>';}).join('')+
+ '</div><div class="grid2"><div class="card tint" style="background:#EEF0E4"><p class="eyebrow" style="color:#555A33">Green light</p><p class="small" style="margin:0">Clear, specific answers, and he asks you questions back.</p></div><div class="card tint" style="background:#F8D9CF"><p class="eyebrow" style="color:#7A0F1C">Pause</p><p class="small" style="margin:0">Jokes, "just seeing what\'s out there," or he wants to skip straight to meeting at his place.</p></div></div></div>';};
+
+R.after=function(id){var act=active();var m=man(id)||act[act.length-1];
+ var h=head('after','After the Date','The 2-minute log','Within 24 hours, before you talk to anyone about him.')+'<div class="wrap screen">'+voice('after')+manPicker(m&&m.id,'after');
+ if(!m)return h+'</div>';
+ var d=S.draft&&S.draft.man===m.id?S.draft:(S.draft={man:m.id,date:today(),nn:{},mirror:{},nice:[],her:{},notes:''});if(!d.nice)d.nice=[];if(!d.her)d.her={};
+ h+='<div class="card"><label for="ad" style="margin-top:0">Date</label><input type="date" id="ad" data-bind="draft.date" value="'+esc(d.date)+'"><div class="q" style="margin-top:8px"><p style="margin:0;font-weight:600;color:var(--ink)">Did he cross your baseline?</p><p class="small soft" style="margin:2px 0 0">'+esc(S.baseline.join(' · '))+'</p><div class="seg" data-act="dlog" data-k="crossed"><button type="button" data-v="n" aria-pressed="'+(d.crossed==='n')+'">No</button><button type="button" data-v="y" aria-pressed="'+(d.crossed==='y')+'">Yes</button></div></div>'+LOGQ.map(function(q){return '<div class="q"><p style="margin:0;font-weight:600;color:var(--ink)">'+q[1]+'</p><div class="seg" data-act="dlog" data-k="'+q[0]+'">'+q[2].map(function(o){return '<button type="button" data-v="'+o[0]+'" aria-pressed="'+(d[q[0]]===o[0])+'">'+o[1]+'</button>';}).join('')+'</div></div>';}).join('')+'</div>';
+ var ids=nnList();
+ h+='<div class="card"><p class="eyebrow">Your non-negotiables</p>'+(ids.length?ids.map(function(qid){var t=testsFor(qid);return '<div class="q"><p style="margin:0;font-weight:600;color:var(--ink)">'+esc(qname(qid))+'</p>'+(t.length?'<p class="small soft" style="margin:2px 0 0">'+esc(t.join(' · '))+'</p>':'')+'<div class="seg" data-act="dnn" data-id="'+qid+'"><button type="button" data-v="y" aria-pressed="'+(d.nn[qid]==='y')+'">Passed</button><button type="button" data-v="n" aria-pressed="'+(d.nn[qid]==='n')+'">Didn\'t</button><button type="button" data-v="" aria-pressed="'+(!d.nn[qid])+'">Not tested</button></div></div>';}).join(''):'<p class="soft" style="margin:0">Lock in your non-negotiables in <a href="#profile/3">His Profile</a> to get a verdict.</p>')+'</div>';
+ if(ids.length)h+='<div class="card" style="border-left:5px solid #B23A2E"><div class="row" style="gap:12px;margin-bottom:8px"><span class="badge sm" style="background:#F8D9CF;color:#B23A2E">'+ic('mirror')+'</span><h3 style="margin:0">Did you show up as her?</h3></div><p class="small soft" style="margin:0">Your side of each non-negotiable, on this date.</p>'+ids.map(function(qid){return '<div class="q"><p style="margin:0;color:var(--ink)">'+esc(herText(qid)||qname(qid))+'</p><div class="seg" data-act="dher" data-id="'+qid+'">'+[['y','Yes'],['p','Partly'],['n','Not yet']].map(function(o){return '<button type="button" data-v="'+o[0]+'" aria-pressed="'+(d.her[qid]===o[0])+'">'+o[1]+'</button>';}).join('')+'</div></div>';}).join('')+'</div>';
+ var nl=niceList();if(nl.length)h+='<div class="card"><p class="eyebrow">Nice-to-haves you noticed</p><p class="small soft">Optional. They add to his card. They don\'t change the verdict.</p><div class="chips">'+nl.map(function(x){var t=GT[qgroup(x)];return '<button type="button" class="chip" style="--c-ink:'+t[1]+'" data-act="dnice" data-id="'+x+'" aria-pressed="'+(d.nice.indexOf(x)>-1)+'">'+esc(qname(x))+'</button>';}).join('')+'</div></div>';
+ if(ids.length||d.crossed==='y'){var v=verdict(d.nn,ids,d.crossed==='y');
+  h+='<div class="card dark verdict"><div class="vi">'+ic(v.k==='second'?'rings':v.k==='release'?'leaf':'eye')+'</div><p class="eyebrow">Your verdict</p><p class="display" style="font-size:32px;margin:0 0 8px">'+v.v+'</p><p style="margin:0">'+esc(v.t)+'</p></div>';
+  var next=v.k==='release'?SCRIPTS[11]:(d.intent==='notyet'?SCRIPTS[3]:SCRIPTS[4]);
+  h+='<div class="card"><p class="eyebrow">Your next text</p><h3>'+esc(next[0])+'</h3><p class="say">“'+esc(next[1])+'”</p>'+(v.k!=='release'?'<p class="small soft">Only once he\'s reached out first. Pursuit is his part.</p>':'')+copyBtn(next[1])+'</div>';}
+ h+='<details class="sc card" style="padding:4px 18px"><summary>Her Mirror: how did you show up?</summary><div class="body">'+MIRROR.map(function(g,gi){return '<p class="eyebrow" style="margin-top:14px">'+g[0]+'</p>'+g[1].map(function(q,qi){var k=gi+'-'+qi;return '<div class="q"><p style="margin:0;color:var(--ink)">'+esc(q)+'</p><div class="seg" data-act="dmir" data-k="'+k+'"><button type="button" data-v="y" aria-pressed="'+(d.mirror[k]==='y')+'">Yes</button><button type="button" data-v="n" aria-pressed="'+(d.mirror[k]==='n')+'">No</button></div></div>';}).join('');}).join('')+'</div></details>';
+ h+='<div class="card"><label for="an" style="margin-top:0">What you noticed</label><textarea id="an" data-bind="draft.notes" placeholder="What he did, in facts">'+esc(d.notes)+'</textarea><p style="margin:14px 0 0"><button type="button" class="wide" data-act="savelog">Save this date to his card</button></p></div>';
+ return h+'</div>';};
+
+R.scripts=function(){return head('scripts','Scripts','Word for word','Copy them as they are, or say them in your own voice.')+'<div class="wrap screen"><div class="card">'+SCRIPTS.map(function(s){return '<div class="script"><h3>'+esc(s[0])+'</h3><p class="say">“'+esc(s[1])+'”</p>'+copyBtn(s[1])+'</div>';}).join('')+'</div></div>';};
+
+R.when=function(){return head('when','What do I do when…','The tricky moments','The rule, what to do, and what to say.')+'<div class="wrap screen"><div class="card" style="padding:4px 18px">'+WHEN.map(function(w,i){return '<details class="sc"><summary>'+esc(w[0])+'</summary><div class="body"><p>'+esc(w[1])+'</p>'+(w[2]?'<p class="say">“'+esc(w[2])+'”</p>'+copyBtn(w[2]):'')+(i===WHEN.length-1?'<p style="margin:12px 0 0"><a class="btn" href="#situation">Open the situationship path</a></p>':'')+(i===8?'<p style="margin:12px 0 0"><a class="btn ghost" href="#roster">Open your Roster</a></p>':'')+'</div></details>';}).join('')+'</div></div>';};
+
+R.timeline=function(){var lim=S.phases.map(function(p){return +p.limit||0;}),tot=lim.reduce(function(a,b){return a+b;},0),cols=['#E59A8E','#B23A2E','#560000'];
+ return head('timeline','Her Timeline','Phases with limits','My own phases are filled in as the model. Change the limits to yours, and write your boundaries now, before you\'re in the moment.')+'<div class="wrap screen">'+
+ '<div class="card glow"><p class="eyebrow">From first message to engagement</p><p class="display" style="font-size:40px;margin:0 0 4px">'+tot+' days</p><p class="small soft">About '+Math.round(tot/30)+' months, if he\'s the one.</p><div class="track">'+lim.map(function(l,i){return '<div style="flex:'+(l||1)+';background:'+cols[i]+'"></div>';}).join('')+'</div><div class="tlabels">'+S.phases.map(function(p,i){return '<span style="flex:'+(lim[i]||1)+'">'+esc(p.name)+'</span>';}).join('')+'</div></div>'+
+ S.phases.map(function(p,i){return '<div class="card" style="border-left:5px solid '+cols[i]+'"><p class="eyebrow">Phase '+(i+1)+'</p><label for="pn'+i+'">Name</label><input type="text" id="pn'+i+'" data-bind="phases.'+i+'.name" value="'+esc(p.name)+'"><label for="pw'+i+'">What happens</label><textarea id="pw'+i+'" data-bind="phases.'+i+'.what">'+esc(p.what)+'</textarea><label for="pl'+i+'">Time limit (days)</label><input type="number" min="1" inputmode="numeric" id="pl'+i+'" data-bind="phases.'+i+'.limit" value="'+esc(p.limit)+'" style="max-width:140px"><label for="pb'+i+'">My boundaries in this phase</label><textarea id="pb'+i+'" data-bind="phases.'+i+'.bounds" placeholder="What you will and won\'t do here">'+esc(p.bounds)+'</textarea></div>';}).join('')+
+ '<div class="card" style="background:#EADCD2;border-color:transparent"><p class="eyebrow" style="color:#5C3A2B">Long-distance mode</p><p style="margin:0">30 days to plan the first visit · 90 days to talk about closing the distance · then the courtship phase. Turn it on from a man\'s card.</p></div></div>';};
+
+R.reset=function(){var cur=S.resetDraft;var flags=active().filter(function(m){return daysSince(m.since)>phaseOf(m).limit;});
+ var weeks=S.resets.slice(-8);
+ var h=head('reset','Sunday Reset','Five minutes',S.resets.length?'Last reset: '+esc(S.resets[S.resets.length-1].date):'Your first reset.')+'<div class="wrap screen">'+voice('reset');
+ if(weeks.length)h+='<div class="card"><p class="eyebrow">Your resets</p><div class="dots">'+weeks.map(function(w){return '<span class="dot" style="background:#7A5418;color:#fff" title="'+esc(w.date)+'">✓</span>';}).join('')+'</div><p class="small soft" style="margin:6px 0 0">'+S.resets.length+' week'+(S.resets.length===1?'':'s')+' kept.</p></div>';
+ h+='<div class="card" style="background:#F1E3C8;border-color:transparent"><p class="eyebrow" style="color:#7A5418">This week at a glance</p><p style="margin:0 0 6px">On your Roster: <strong>'+(active().length?active().map(function(m){return '<span class="nm">'+esc(m.name)+'</span>';}).join(', '):'no one yet')+'</strong></p><p style="margin:0">'+(flags.length?'Past their limit: <strong>'+flags.map(function(m){return '<span class="nm">'+esc(m.name)+'</span>';}).join(', ')+'</strong>':'No one is past their limit.')+'</p></div>';
+ h+='<div class="card">'+RESET.map(function(q,i){return '<label for="r'+i+'"'+(i===0?' style="margin-top:0"':'')+'>'+esc(q)+'</label><textarea id="r'+i+'" data-bind="resetDraft.'+i+'">'+esc(cur[i])+'</textarea>';}).join('')+'<p style="margin:14px 0 0"><button type="button" class="wide" data-act="savereset">Save this week</button></p></div>';
+ return h+'</div>';};
+
+R.patterns=function(){var men=S.men,logs=[];men.forEach(function(m){m.logs.forEach(function(l){logs.push(l);});});
+ var h=head('patterns','Her Patterns','What your evidence says','Read gently. This is information, and it\'s yours.')+'<div class="wrap screen">';
+ if(logs.length<2&&!S.unsent.length)return h+'<div class="card glow" style="text-align:center"><span class="badge" style="background:#fff;color:#6E3A55;margin-bottom:8px">'+ic('chart')+'</span><p style="margin:0">Your patterns appear after two logged dates.</p></div></div>';
+ function cnt(k,vals){return logs.filter(function(l){return vals.indexOf(l[k])>-1;}).length;}
+ function tot(k){return logs.filter(function(l){return l[k];}).length;}
+ h+='<div class="card"><p class="eyebrow">Who carries it</p>'+split('Who planned',cnt('plan',['he'])+cnt('plan',['both'])/2,tot('plan'))+split('Who got you there',cnt('ride',['he']),tot('ride'))+split('Who paid',cnt('pay',['auto','offered'])+cnt('pay',['split'])/2,tot('pay'))+split('Who reached out first after',cnt('follow',['yes']),tot('follow'))+'</div>';
+ var fails={};logs.forEach(function(l){Object.keys(l.nn||{}).forEach(function(id){if(l.nn[id]==='n')fails[id]=(fails[id]||0)+1;});});
+ var fk=Object.keys(fails).filter(function(x){return qname(x);}).sort(function(a,b){return fails[b]-fails[a];}),fmax=fk.length?fails[fk[0]]:1;
+ if(fk.length)h+='<div class="card"><p class="eyebrow">What ends things most often</p>'+fk.slice(0,5).map(function(id){var t=GT[qgroup(id)];return '<div class="hbar"><span>'+esc(qname(id))+'</span><div class="b"><i style="width:'+(fails[id]/fmax*100)+'%;background:'+t[1]+'"></i></div><strong>'+fails[id]+'</strong></div>';}).join('')+'</div>';
+ var hs={};logs.forEach(function(l){Object.keys(l.her||{}).forEach(function(id){var v={y:1,p:.5,n:0}[l.her[id]];if(v==null)return;hs[id]=hs[id]||[0,0];hs[id][0]+=v;hs[id][1]++;});});var hk=Object.keys(hs).filter(function(x){return qname(x);});
+ if(hk.length)h+='<div class="card"><p class="eyebrow">How often you showed up as her</p>'+hk.map(function(id){var p=Math.round(hs[id][0]/hs[id][1]*100);return '<div class="hbar"><span>'+esc(qname(id))+'</span><div class="b"><i style="width:'+p+'%;background:#B23A2E"></i></div><strong>'+p+'%</strong></div>';}).join('')+'<p class="small soft" style="margin:6px 0 0">Your side of each non-negotiable, across every date.</p></div>';
+ var rel=men.filter(function(m){return m.status==='released';}),kp=men.filter(function(m){return m.status!=='released';});
+ function bodyAvg(list){var v=[];list.forEach(function(m){m.logs.forEach(function(l){if(l.body)v.push({settled:1,mixed:.5,reactive:0}[l.body]);});});return v.length?v.reduce(function(a,b){return a+b;},0)/v.length:null;}
+ var bR=bodyAvg(rel),bK=bodyAvg(kp);
+ if(bR!=null&&bK!=null)h+='<div class="card"><p class="eyebrow">Your body knew</p><p class="small soft">How settled you felt after dates</p><div class="hbar"><span>Men you kept</span><div class="b"><i style="width:'+Math.round(bK*100)+'%;background:#560000"></i></div><strong>'+Math.round(bK*100)+'%</strong></div><div class="hbar"><span>Men you released</span><div class="b"><i style="width:'+Math.round(bR*100)+'%;background:#E59A8E"></i></div><strong>'+Math.round(bR*100)+'%</strong></div></div>';
+ if(S.unsent.length)h+='<div class="card" style="background:#F1E3C8;border-color:transparent"><div class="row" style="gap:14px"><span class="display" style="font-size:44px;color:#7A5418">'+S.unsent.length+'</span><div><p class="eyebrow" style="margin:0;color:#7A5418">Texts you didn\'t send</p><p class="small" style="margin:2px 0 0">Each one is a moment you chose your standard.</p></div></div></div>';
+ var planMe=tot('plan')?cnt('plan',['me'])/tot('plan'):0;
+ if((fk.length&&fails[fk[0]]>=3)||planMe>=.5)h+='<div class="card dark"><p class="eyebrow">This keeps coming up</p><p class="display" style="font-size:26px;margin:0 0 8px">NameHer is where we look at why.</p><p>The same pattern three times is information about her, the woman who keeps choosing him.</p><a class="btn" href="https://nextseasonher.com/name-her-waitlist.html">Join the NameHer waitlist</a></div>';
+ return h+'</div>';};
+
+R.more=function(){return head('more','More','Everything else','')+'<div class="wrap screen"><div class="grid2">'+
+ [['tests','His Tests','Tests, passes and fails'],['when','What do I do when…','Rules and scripts'],['scripts','Scripts','Word for word'],['timeline','Her Timeline','Phases, limits, boundaries'],['reset','Sunday Reset','Five minutes a week'],['patterns','Her Patterns','What your evidence says'],['situation','Situationship path','From “what are we?” to an answer'],['prescreen','Before you say yes','Three pre-screen questions']].map(function(t){return '<a class="tile" href="#'+t[0]+'">'+badge(t[0],1)+'<span>'+t[1]+'<span class="d">'+t[2]+'</span></span></a>';}).join('')+'</div>'+
+ '<div class="card" style="margin-top:16px;background:#EADBE3;border-color:transparent"><p class="eyebrow" style="color:#6E3A55">Your bonus</p><h3>The Husband Material live workshop</h3><p class="soft" style="margin:0">Your invitation and link arrive by email. The recording is added here afterward.</p></div>'+
+ '<div class="card"><p class="eyebrow">Keep it safe</p><p class="small soft">Everything saves on this phone. Save a backup now and then, and you can restore it on any device.</p><div class="row" style="flex-wrap:wrap"><button type="button" data-act="backup">'+ic('download')+'Save a backup</button><button type="button" class="ghost" data-act="restore">Restore a backup</button></div></div>'+
+ '<div class="card"><div class="row" style="gap:12px"><img src="hm-icon-180.png" alt="" width="52" height="52" style="border-radius:12px;flex:none"><div><p class="eyebrow" style="margin:0 0 4px">Put it on your home screen</p><p class="small soft" style="margin:0">iPhone: tap Share, then Add to Home Screen. Android: tap the menu, then Install app.</p></div></div></div>'+
+ '<div class="card glow"><p class="eyebrow">Work with me</p><h3>The First Look</h3><p class="soft" style="margin:0 0 12px">One 90-minute session with me, then debriefs after your next three dates.</p><a class="btn" href="mailto:hello@nextseasonher.com?subject=The%20First%20Look%20%C2%B7%20DatingAsHer%E2%84%A2&body=I%27d%20like%20to%20book%20The%20First%20Look.">Book The First Look</a></div>'+
+ '<p class="small soft" style="text-align:center;margin-top:24px">Que Athena · Marriage-Minded Dating Mentor · NextSeasonHer™ · © 2026 Studio Gussi LLC<br>Photos: Unsplash</p></div>';};
+
+/* ---------- router with back history ---------- */
+var stack=[],pos={},cur=null;
+function parentOf(h){var p=h.replace('#','').split('/'),n=p[0],a=p[1];
+ if((n==='profile'||n==='situation')&&a&&+a>0)return '#'+n+(+a-1?'/'+(+a-1):'');
+ return {man:'#roster',before:'#date',after:'#date',prescreen:'#date',scripts:'#date',when:'#more',timeline:'#more',reset:'#more',patterns:'#more',tests:'#profile/5'}[n]||'#home';}
+function route(mode){var y=window.scrollY,hash=location.hash.replace('#','')||'home',parts=hash.split('/'),name=parts[0],arg=parts[1];
+ if(name==='home-path')name='home';
+ if(name!=='profile')chk=null;
+ var fn=R[name]||R.home;document.getElementById('view').innerHTML=fn(arg);
+ document.body.classList.toggle('private',!!S.privacy);
+ document.getElementById('topbar').hidden=(name==='home');document.getElementById('tbTitle').textContent=(name==='profile'&&arg==='4')?'Her Profile':(SC[name]||SC.home)[3];
+ var tab={home:'home',situation:'home',profile:'profile',tests:'profile',roster:'roster',man:'roster',date:'date',before:'date',after:'date',prescreen:'date',scripts:'date',when:'more',timeline:'more',reset:'more',patterns:'more',more:'more'}[name]||'home';
+ document.querySelectorAll('nav.bottom a').forEach(function(a){if(a.dataset.tab===tab)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+ document.querySelectorAll('#view textarea').forEach(grow);
+ if(hash==='home-path'){var el=document.getElementById('home-path');if(el)el.scrollIntoView();}
+ else if(mode==='back')window.scrollTo(0,pos['#'+hash]||0);
+ else window.scrollTo(0,mode===true?y:0);}
+function rr(){route(true);}
+function onHash(){var h=location.hash||'#home';var back=false;
+ if(stack.length>1&&stack[stack.length-2]===h){stack.pop();back=true;}else if(stack[stack.length-1]!==h)stack.push(h);
+ cur=h;route(back?'back':false);}
+window.addEventListener('hashchange',onHash);
+window.addEventListener('scroll',function(){if(cur)pos[cur]=window.scrollY;},{passive:true});
+document.getElementById('backBtn').addEventListener('click',function(){if(stack.length>1)history.back();else location.hash=parentOf(location.hash||'#home');});
+
+/* ---------- binding ---------- */
+function setPath(path,val){var ks=path.split('.'),o=S;for(var i=0;i<ks.length-1;i++){if(o[ks[i]]==null)o[ks[i]]={};o=o[ks[i]];}o[ks[ks.length-1]]=val;}
+var V=document.getElementById('view');
+V.addEventListener('input',function(e){var b=e.target.dataset.bind;if(b){setPath(b,e.target.type==='number'?+e.target.value:e.target.value);grow(e.target);save();}});
+V.addEventListener('change',function(e){var t=e.target;
+ if(t.id==='pick'){location.hash='#'+t.dataset.route+'/'+t.value;return;}
+ if(t.dataset.sitready!=null){S.sit.ready=S.sit.ready||{};S.sit.ready[t.dataset.sitready]=t.checked;save();return;}
+ if(t.dataset.bind&&t.type==='number'){rr();return;}
+ var ma=t.dataset.mact;if(ma){var id=location.hash.split('/')[1],m=man(id);if(!m)return;
+  if(ma==='phase'){m.phase=+t.value;m.since=today();}if(ma==='since')m.since=t.value;if(ma==='ld'){m.ld=t.checked;m.phase=0;m.since=today();}save();rr();}});
+V.addEventListener('click',function(e){var s=e.target.closest('#newPhase button');if(s){[].forEach.call(s.parentElement.children,function(c){c.setAttribute('aria-pressed',c===s);});return;}
+ var b=e.target.closest('button');if(!b)return;var segp=b.parentElement&&b.parentElement.dataset?b.parentElement:null;var act=b.dataset.act||(segp&&segp.dataset.act);if(!act)return;var id=b.dataset.id;
+ switch(act){
+  case 'path':S.path=b.dataset.v;save();rr();break;
+  case 'delbase':S.baseline.splice(+b.dataset.i,1);save();rr();break;
+  case 'addbase':var ib=document.getElementById('newBase'),vb=ib.value.trim();if(!vb)return;S.baseline.push(vb);save();rr();break;
+  case 'basedone':S.baseDone=true;save();location.hash='#profile/2';break;
+  case 'keep':S.kept[id]=!S.kept[id];if(!S.kept[id])S.nn=S.nn.filter(function(x){return x!==id;});save();b.setAttribute('aria-pressed',!!S.kept[id]);break;
+  case 'addq':var inp=document.getElementById('newQ'),n=inp.value.trim();if(!n)return;S.custom.push({id:'c-'+uid(),name:n});save();rr();break;
+  case 'delq':S.custom=S.custom.filter(function(c){return c.id!==id;});S.nn=S.nn.filter(function(x){return x!==id;});save();rr();break;
+  case 'check':chk={id:id,a:[]};var cb=document.getElementById('checkBox');cb.innerHTML=checkHTML();cb.scrollIntoView({block:'start',behavior:'smooth'});break;
+  case 'chkans':chk.a[+segp.dataset.i]=b.dataset.v;document.getElementById('checkBox').innerHTML=checkHTML();break;
+  case 'chkclose':chk=null;document.getElementById('checkBox').innerHTML='';toast('Kept as a nice-to-have');break;
+  case 'tobase':S.baseline.push(qname(chk.id));S.kept[chk.id]=false;if(cust(chk.id))S.custom=S.custom.filter(function(c){return c.id!==chk.id;});chk=null;save();rr();toast('Added to your baseline');break;
+  case 'lock':if(S.nn.length>=5){toast('Five is the limit. Move one back first.');return;}S.nn.push(chk.id);chk=null;save();rr();toast('Locked in 🔒');break;
+  case 'unlock':S.nn=S.nn.filter(function(x){return x!==id;});save();rr();break;
+  case 'test':var arr=S.tests[id]=S.tests[id]||[],t=b.dataset.t,j=arr.indexOf(t);if(j>-1)arr.splice(j,1);else arr.push(t);save();rr();break;
+  case 'owntest':var ip=document.getElementById('ot'+id),tv=ip.value.trim();if(!tv)return;(S.tests[id]=S.tests[id]||[]).push(tv);save();rr();break;
+  case 'copy':copy(b.dataset.t);break;
+  case 'privacy':S.privacy=!S.privacy;save();rr();break;
+  case 'addman':var nm=document.getElementById('newMan').value.trim();if(!nm)return;var sel=document.querySelector('#newPhase [aria-pressed="true"]'),pv=sel?sel.dataset.v:'0';
+   S.men.push({id:uid(),name:nm,ld:pv==='ld',phase:pv==='1'?1:0,since:today(),logs:[],status:'active',taught:''});save();rr();toast('Added. Tap his card to see it fill in.');break;
+  case 'sitn':S.sit[segp.dataset.k]=+b.dataset.v;save();rr();break;
+  case 'sitbase':S.sit.base=b.dataset.v;save();rr();break;
+  case 'sitnn':S.sit.nn=S.sit.nn||{};S.sit.nn[segp.dataset.id]=b.dataset.v;save();rr();break;
+  case 'sitans':S.sit.ans=b.dataset.v;if(b.dataset.v==='vague'&&!S.sit.vagueStart)S.sit.vagueStart=today();save();rr();break;
+  case 'sitroster':S.men.push({id:uid(),name:S.sit.name||'Him',ld:false,phase:1,since:today(),logs:[],status:'active',taught:''});save();location.hash='#roster';toast('Added as courting. His clock starts today.');break;
+  case 'dlog':S.draft[segp.dataset.k]=b.dataset.v;save();rr();break;
+  case 'dnn':S.draft.nn[segp.dataset.id]=b.dataset.v||undefined;save();rr();break;
+  case 'dher':S.draft.her[segp.dataset.id]=b.dataset.v;save();[].forEach.call(segp.children,function(c){c.setAttribute('aria-pressed',c===b);});break;
+  case 'herrate':var hid=segp.dataset.id;S.her[hid]=S.her[hid]||{};if(S.her[hid].t==null)S.her[hid].t=herText(hid);S.her[hid].r=+b.dataset.v;save();rr();break;
+  case 'dnice':var dn=S.draft.nice,ix=dn.indexOf(id);if(ix>-1)dn.splice(ix,1);else dn.push(id);save();b.setAttribute('aria-pressed',ix<0);break;
+  case 'dmir':S.draft.mirror[segp.dataset.k]=b.dataset.v;save();[].forEach.call(segp.children,function(c){c.setAttribute('aria-pressed',c===b);});break;
+  case 'savelog':var d=S.draft,m=man(d.man);if(!m)return;var ids=nnList(),v=verdict(d.nn,ids,d.crossed==='y');
+   m.logs.push({date:d.date||today(),crossed:d.crossed,plan:d.plan,ride:d.ride,pay:d.pay,intent:d.intent,curious:d.curious,body:d.body,nn:JSON.parse(JSON.stringify(d.nn)),nice:(d.nice||[]).slice(),her:JSON.parse(JSON.stringify(d.her||{})),mirror:d.mirror,notes:(d.notes||'').trim(),verdict:(ids.length||d.crossed==='y')?v.v:'',follow:''});
+   S.draft=null;save();location.hash='#man/'+m.id;toast('Saved to his card');break;
+  case 'follow':var mm=man(segp.dataset.m);mm.logs[+segp.dataset.i].follow=b.dataset.v;save();rr();break;
+  case 'savereset':if(!S.resetDraft.some(function(x){return x.trim();}))return;S.resets.push({date:today(),a:S.resetDraft.slice()});S.resetDraft=['','','','',''];save();rr();toast('This week is saved');break;
+  case 'release':document.getElementById('endBox').innerHTML='<div class="note" style="margin-top:14px"><p style="margin:0 0 8px;color:var(--ink)">“'+esc(RELEASE)+'”</p>'+copyBtn(RELEASE)+'<label for="taught">What he taught me</label><textarea id="taught"></textarea><p style="margin:12px 0 0"><button type="button" data-act="doRelease" data-m="'+b.dataset.m+'">Release him</button></p></div>';break;
+  case 'doRelease':var rm=man(b.dataset.m);rm.status='released';rm.taught=document.getElementById('taught').value.trim();save();location.hash='#roster';toast('Released, kindly. Your time is yours again. 🍂');break;
+  case 'husband':document.getElementById('endBox').innerHTML='<div style="margin-top:14px">'+photo('husband',200,'profile')+'</div><div class="card dark celebrate"><div class="verdict"><div class="vi">'+ic('rings')+'</div></div><p class="eyebrow">Mark this moment</p><p class="display" style="color:var(--blush-light)">He\'s showing up like a <span class="lip">husband</span></p><p>You held your standard and he met it. The courting phase is where support matters most.</p><a class="btn" href="mailto:hello@nextseasonher.com?subject=The%20Engagement%20%C2%B7%20DatingAsHer%E2%84%A2">Ask me about The Engagement</a><p style="margin:12px 0 0"><button type="button" class="ghost" data-act="doHusband" data-m="'+b.dataset.m+'">Move him to my archive</button></p></div>';break;
+  case 'doHusband':man(b.dataset.m).status='husband';save();location.hash='#roster';break;
+  case 'backup':var blob=new Blob([JSON.stringify(S,null,1)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='husband-material-backup-'+today()+'.json';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);toast('Backup saved');break;
+  case 'restore':document.getElementById('importFile').click();break;
+ }
+});
+document.getElementById('importFile').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var d=JSON.parse(r.result);if(d&&d.v===2){S=d;fill();save();rr();toast('Restored');}else toast('That file isn’t a Husband Material backup');}catch(x){toast('That file couldn’t be read');}};r.readAsText(f);e.target.value='';});
+
+/* ---------- pause ---------- */
+var timer=null;
+function openPause(){var nn=nnList().slice(0,3),end=Date.now()+600000,L=document.getElementById('pauseLayer');
+ L.innerHTML='<div class="pause on-dark" role="dialog" aria-modal="true" aria-label="I want to text him"><button type="button" class="close" id="pClose" aria-label="Close">×</button><div class="wrap">'+
+  '<p class="eyebrow" style="color:var(--blush)">I want to text him</p><h2>Pause. Ten minutes.</h2><p>Pursuit is his part. Waiting is yours.</p><div class="timerwrap"><span id="pRing" style="color:#F8E6DE"></span><p class="timer" id="pTimer" aria-live="off">10:00</p></div>'+voice('pause','Listen while you wait')+
+  (nn.length?'<p class="eyebrow" style="color:var(--blush);margin-top:20px">Your standard</p><ul class="stdlist">'+nn.map(function(id){return '<li>🔒 '+esc(qname(id))+'<small>'+esc(qmeaning(id))+'</small>'+(herText(id)?'<small style="color:#E59A8E;margin-top:4px">My side: '+esc(herText(id))+'</small>':'')+'</li>';}).join('')+'</ul>':'')+
+  '<p style="margin:24px 0 6px;font-weight:600;color:var(--blush-light)">What will this text get me that waiting won\'t?</p><label for="pText" style="color:var(--blush)">Write it here instead. It stays on your phone, unsent.</label><textarea id="pText"></textarea>'+
+  '<p id="pEnd" hidden style="margin:16px 0 0;font-weight:600;color:var(--blush-light)">If he texted first, reply warmly and briefly. If he didn\'t, let today be his to make.</p>'+
+  '<p style="margin:16px 0 0"><button type="button" class="wide" id="pSave" style="background:var(--blush);border-color:var(--blush);color:#2E0505">Keep it unsent</button></p></div></div>';
+ document.body.style.overflow='hidden';
+ function tick(){var left=Math.max(0,end-Date.now()),m=Math.floor(left/60000),s=Math.floor(left%60000/1000);document.getElementById('pTimer').textContent=m+':'+String(s).padStart(2,'0');document.getElementById('pRing').innerHTML=ring(left/600000,220,'#E59A8E',null,'rgba(244,221,211,.15)');if(!left){clearInterval(timer);document.getElementById('pEnd').hidden=false;}}
+ tick();timer=setInterval(tick,1000);
+ document.getElementById('pClose').onclick=closePause;
+ document.getElementById('pSave').onclick=function(){var t=document.getElementById('pText').value.trim();if(t){S.unsent.push({at:new Date().toISOString(),text:t});save();}closePause();toast(t?'Kept unsent. That was your standard.':'Closed');rr();};
+ document.getElementById('pText').addEventListener('input',function(e){grow(e.target);});
+ document.getElementById('pClose').focus();}
+function closePause(){clearInterval(timer);document.getElementById('pauseLayer').innerHTML='';document.body.style.overflow='';}
+document.getElementById('fab').addEventListener('click',openPause);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.querySelector('.pause'))closePause();});
+
+window.addEventListener('resize',function(){document.querySelectorAll('textarea').forEach(grow);});
+if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('hm-sw.js').catch(function(){});}
+onHash();
+})();
+</script>
+</body>
+</html>
